@@ -52,7 +52,10 @@ public class servletRegistrarSolic extends HttpServlet {
             String correoAfectado = request.getParameter("txtCorreoAfectado");
             String telefonoAfectado = request.getParameter("txtTelefonoAfectado");
 
-            response.sendRedirect("index.html");
+            
+            //response.sendRedirect("index.html");
+            
+            
             
             /* 
              out.println("<!DOCTYPE html>");
