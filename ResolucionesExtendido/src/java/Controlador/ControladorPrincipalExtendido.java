@@ -173,7 +173,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     @Override
     public DTOSolicitud ConsultarSolicitud(int nSolicitud) {
         
-        DAOMySQL DB = (DAOMySQL) factorySolicitudes.CrearDAOSolicitud(Recurso.MySQL);
+        DAOMySQL DB = (DAOMySQL) getFactorySolicitudes().CrearDAOSolicitud(Recurso.MySQL);
         ArrayList<DTOSolicitud> dtoSolicitudes = DB.ConsultarSolicitudes();
         
         for (DTOSolicitud dto : dtoSolicitudes) {
@@ -181,7 +181,6 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
                 return dto;
             }
         }
-        
         return null;
     }
     
