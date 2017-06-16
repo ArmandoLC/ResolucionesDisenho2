@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import DTOs.DTOSolicitud;
 import Vista.UIPaginaWeb;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -81,7 +83,8 @@ public class servletRegistrarSolic extends HttpServlet {
              out.println("</body>");
              out.println("</html>");
             
-            
+            String x = getServletContext().getRealPath("WEB-INF\\PropertiesFile.properties");
+            FileInputStream file = new FileInputStream(new  File(getServletContext().getRealPath("WEB-INF\\PropertiesFile.properties")));
             /*Se procede a ejecutar el registro de la solicitud*/
             if(uiPaginaWeb.RegistrarSolicitud(dtoSolicitud) != 0){
                 //response.sendRedirect("index.html"); 

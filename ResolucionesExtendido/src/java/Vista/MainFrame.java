@@ -16,7 +16,6 @@ public class MainFrame extends javax.swing.JFrame {
         
         ControladorPrincipalExtendido ctrl = new ControladorPrincipalExtendido();        
         
-        
         DTOLogin login = new DTOLogin("super", "disennio");
         DTOUsuario dto = ctrl.RealizarLogin(login);
         

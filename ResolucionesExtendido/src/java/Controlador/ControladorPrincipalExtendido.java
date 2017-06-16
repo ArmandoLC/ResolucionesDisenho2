@@ -19,6 +19,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
     public ControladorPrincipalExtendido() {
         super(); // se cargan las premisas
+        
         this.plantillas = new ArrayList<Plantilla>();
         this.daoBD = new DAOMySQLExtendido();
         this.proxyContrasenha = new ControlPermiso();
