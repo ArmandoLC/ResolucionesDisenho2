@@ -14,27 +14,6 @@ public class MainFrame extends javax.swing.JFrame {
 
   
     public MainFrame() {
-        
-        ControladorPrincipalExtendido ctrl = new ControladorPrincipalExtendido();        
-        
-        DTOLogin login = new DTOLogin("super", "Disennio", "");
-        DTOUsuario dto = ctrl.RealizarLogin(login);
-        
-        if (dto != null)
-        System.out.println("\nID: " + dto.getId() + 
-                            "\nNombre: " + dto.getNombre() + 
-                            "\nCorreo: " + dto.getCorreo() + 
-                            "\nTelefono: " + dto.getTelefono() + 
-                            "\nPrivilegios: " + dto.getTipoUsuario());
-        else System.out.println("Contrasenha y nombre de usuario no validas!");  
-        
-        
-        login.setContrasenhaNueva("probandoTosty");
-        boolean cambio = ctrl.CambiarContrasenha(login);
-        
-        if (cambio) System.out.println("Contrasenha cambiada con exito!");
-        
-                
         initComponents();
     }
 
@@ -47,17 +26,45 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlMainFrame = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnlMainFrame.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout pnlMainFrameLayout = new javax.swing.GroupLayout(pnlMainFrame);
+        pnlMainFrame.setLayout(pnlMainFrameLayout);
+        pnlMainFrameLayout.setHorizontalGroup(
+            pnlMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainFrameLayout.createSequentialGroup()
+                .addGap(414, 414, 414)
+                .addComponent(jLabel1)
+                .addContainerGap(417, Short.MAX_VALUE))
+        );
+        pnlMainFrameLayout.setVerticalGroup(
+            pnlMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainFrameLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(jLabel1)
+                .addContainerGap(328, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlMainFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlMainFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -99,5 +106,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel pnlMainFrame;
     // End of variables declaration//GEN-END:variables
 }
