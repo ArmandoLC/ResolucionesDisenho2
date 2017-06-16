@@ -8,11 +8,12 @@ import DTOs.DTORegistroUsuario;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import DTOs.DTOUsuario;
+import Enums.Recurso;
 import Modelo.Plantilla;
 import java.util.ArrayList;
 
 
-public class ControladorPrincipalExtendido extends ControladorPrincipal implements ILogin, IBackoffice{
+public class ControladorPrincipalExtendido extends ControladorPrincipal implements ILogin, IBackoffice, IConsultaSolicitud{
 
     private ArrayList<Plantilla> plantillas;
     private DAOMySQLExtendido daoBD;
@@ -167,6 +168,21 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     public ArrayList<Plantilla> getPlantillas()
     {
         return plantillas;
+    }
+
+    @Override
+    public DTOSolicitud ConsultarSolicitud(int nSolicitud) {
+        
+        DAOMySQL DB = (DAOMySQL) factorySolicitudes.CrearDAOSolicitud(Recurso.MySQL);
+        ArrayList<DTOSolicitud> dtoSolicitudes = DB.ConsultarSolicitudes();
+        
+        for (DTOSolicitud dto : dtoSolicitudes) {
+            if(dto.getId() == nSolicitud){
+                return dto;
+            }
+        }
+        
+        return null;
     }
     
 }
