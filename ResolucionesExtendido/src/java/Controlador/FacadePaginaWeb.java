@@ -13,8 +13,7 @@ public class FacadePaginaWeb extends Facade {
     
     public int RegistrarSolicitud(DTOSolicitud dtoSolicitud)
     {
-        super.ctrl.RegistrarSolicitud(dtoSolicitud);        
-        return 0; 
+        return ctrl.RegistrarSolicitud(dtoSolicitud);
     }
     
     public DTOSolicitud ConsultarSolicitud(int nSolicitud)

@@ -15,7 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import DTOs.DTOSolicitud;
 import Vista.UIPaginaWeb;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 /**
  *
@@ -41,10 +44,10 @@ public class servletRegistrarSolic extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             /*Datos de la solicitud*/
-            Date anho = Date.valueOf(request.getParameter("txtAnho"));
+            int anho = Integer.parseInt(request.getParameter("txtAnho"));
             String modalidad = request.getParameter("selectModalidad");
             String periodo = request.getParameter("selectPeriodo");
-            periodo = periodo+" "+modalidad;
+            periodo = periodo+modalidad+String.valueOf(anho);
             String codCurso = request.getParameter("selectCodigoCurso");
             int grupo = Integer.parseInt(request.getParameter("selectGrupo"));
             String inconsistencia = request.getParameter("selectTipoIncons");
@@ -63,41 +66,28 @@ public class servletRegistrarSolic extends HttpServlet {
             String descProblema = request.getParameter("descProblema");
             
             
+            /*Contrucción del DTOSolicitud que se envia para el registro*/
+            DTOSolicitud dtoSolicitud = new DTOSolicitud(0, Calendar.getInstance().getTime() , idSolicitante, nombreSolictante, periodo, codCurso, 1, idAfectado, nombreAfectado, correoAfectado, telefonoAfectado, inconsistencia, descProblema, "", "Pendiente", "", 0);
+            
+            
+            
              out.println("<!DOCTYPE html>");
              out.println("<html>");
              out.println("<head>");
              out.println("<title>Servlet servletSolicitudes</title>");            
              out.println("</head>");
              out.println("<body>");
-             out.println("<h1>Año de la solicitud " + anho + "</h1>");
-             out.println("<h1>Año de la solicitud " + modalidad + "</h1>");
-             out.println("<h1>Año de la solicitud " + periodo + "</h1>");
-             out.println("<h1>Año de la solicitud " + codCurso + "</h1>");
-             out.println("<h1>Año de la solicitud " + grupo + "</h1>");
-             out.println("<h1>Año de la solicitud " + inconsistencia + "</h1>");
-             out.println("<h1>Año de la solicitud " + idSolicitante + "</h1>");
-             out.println("<h1>Año de la solicitud " + nombreSolictante + "</h1>");
-             out.println("<h1>Año de la solicitud " + idAfectado + "</h1>");
-             out.println("<h1>Año de la solicitud " + nombreAfectado + "</h1>");
-             out.println("<h1>Año de la solicitud " + correoAfectado + "</h1>");
-             out.println("<h1>Año de la solicitud " + telefonoAfectado + "</h1>");
-             out.println("<h1>Año de la solicitud " + descProblema + "</h1>");
+             out.println("<h1>Datos del DTOSolicitud " + dtoSolicitud.toString() + "</h1>");
              out.println("</body>");
              out.println("</html>");
             
             
-            
-            
-            /*Contrucción del DTOSolicitud que se envia para el registro*/
-            DTOSolicitud dtoSolicitud = new DTOSolicitud(0, anho, idSolicitante, nombreSolictante, periodo, codCurso, grupo, idAfectado, nombreAfectado, correoAfectado, telefonoAfectado, inconsistencia, descProblema, "", "Pendiente", "", 0);
-            
-            
             /*Se procede a ejecutar el registro de la solicitud*/
-            /*if(uiPaginaWeb.RegistrarSolicitud(dtoSolicitud) != 0){
-                response.sendRedirect("index.html");    
+            if(uiPaginaWeb.RegistrarSolicitud(dtoSolicitud) != 0){
+                //response.sendRedirect("index.html"); 
             }else{
-                response.sendRedirect("consultarSolicitud.html");
-            }*/
+                //response.sendRedirect("consultarSolicitud.html");
+            }
             
             
             
