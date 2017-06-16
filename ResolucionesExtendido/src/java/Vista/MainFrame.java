@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.ControladorPrincipalExtendido;
+import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOLogin;
 import DTOs.DTOPlantilla;
 import DTOs.DTOUsuario;
@@ -25,7 +26,10 @@ public class MainFrame extends javax.swing.JFrame {
                             "\nCorreo: " + dto.getCorreo() + 
                             "\nTelefono: " + dto.getTelefono() + 
                             "\nPrivilegios: " + dto.getTipoUsuario());
-        else System.out.println("Contrasenha y nombre de usuario no validas!");     
+        else System.out.println("Contrasenha y nombre de usuario no validas!");  
+        
+        DTOEstadoSolicitud estado = new DTOEstadoSolicitud(1, "Probando desde el freim");
+        if (ctrl.ModificarSolicitud(estado)) System.out.println("Modificacion de solicitud lista");
                 
         initComponents();
     }

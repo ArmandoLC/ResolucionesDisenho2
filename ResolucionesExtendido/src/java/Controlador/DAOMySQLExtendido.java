@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOLogin;
 import DTOs.DTOPlantilla;
 import DTOs.DTOResolucion;
@@ -146,8 +147,22 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
     }
 
     @Override
-    public boolean ModificarSolicitud(DTOSolicitud dtosolicitud) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean ModificarSolicitud(DTOEstadoSolicitud dtoEstadoSolicitud) {
+        try {
+                       
+            CallableStatement conexionSP = obtenerConexionSP("{call ActIncostSolicitud(?,?)}");
+                        
+            conexionSP.setInt("id", dtoEstadoSolicitud.getSolicitudID());
+            conexionSP.setString("inconsistencia", dtoEstadoSolicitud.getInconsistencia());
+            
+            conexionSP.executeQuery(); 
+            
+            return true;
+        } 
+        catch (Exception e) 
+        {
+            return false;
+        }
     }
 
     @Override
