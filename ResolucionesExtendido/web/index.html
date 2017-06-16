@@ -6,11 +6,352 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+        <title>Resoluciones</title>
+        <link rel="icon" href="assets/img/logo3.png">
+            <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    </head>
+                    <body>
+                        ﻿<!DOCTYPE html>
+                        <html xmlns="http://www.w3.org/1999/xhtml">
+                            <head>
+                                <meta charset="utf-8" />
+                                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+                                <!-- BOOTSTRAP CORE STYLE CSS -->
+                                <link href="assets/css/bootstrap.css" rel="stylesheet" />
+                                <!-- Font-Awesome Icons Styles -->
+                                <link href="assets/css/font-awesome.css" rel="stylesheet" />
+                                <!-- Pretty Photo For PopUp Styles -->
+                                <link href="assets/css/prettyPhoto.css" rel="stylesheet" />
+                                <!-- CUSTOM STYLE CSS -->
+                                <link href="assets/css/custom.css" rel="stylesheet" />    
+                                <!-- GOOGLE FONT -->
+                                <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+                                <!--Font Awesome Icons-->
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                            </head>
+                            <body  >
+
+                                <div id="nav-wrapper" >
+                                    <div class="navbar navbar-inverse " >
+                                        <div class="container">
+                                            <div class="navbar-header ">
+                                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                </button>
+
+                                                <a class="navbar-brand" href="#"><img src="assets/img/logo2.png" alt="" /></a>
+                                            </div>
+                                            <div class="navbar-collapse collapse move-me">
+                                                <ul class="nav navbar-nav navbar-right">
+                                                    <li><a href="#registro-sec">Registrar Solicitud</a></li>
+                                                    <li><a href="#consulta-sec">Consultar Solicitud</a></li>
+                                                    <li><a href="#">Consultar Resolucion</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- NAVBAR SECTION END-->
+
+
+                                <section id="registro-sec" class="marginTop2" >
+                                    <div class="container basic-set" >
+                                        <div class="row text-center">
+                                            <div class="col-md-12 marginTop2">
+                                                <h3 class="head-line"><span class="cGris fa-2x"><i class="fa fa-list-alt" aria-hidden="true"></i></span> Registro de Solicitudes<span ></span> </h3>
+                                            </div>
+                                        </div>
+                                        <div class="row" >
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                <div class="txt-block">
+                                                    <h3><i class="fa fa-clipboard fa-2x"></i> Datos de la Solicitud</h3>
+
+                                                    <div class="form-group">
+                                                        <label for="txtAnho">Año:</label>
+                                                        <input type="text" class="form-control" id="txtAnho" placeholder="Año de lo ocurrido" required>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="selectModalidad">Modalidad:</label>
+                                                        <select class="form-control" name="selectModalidad">
+                                                            <option value="Semestre">Semestre</option>
+                                                            <option value="Cuatrimestre">Cuatrimestre</option>
+                                                            <option value="Trimestre">Trimestre</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="selectPeriodo">Periodo:</label>
+                                                        <select class="form-control" name="selectPeriodo">
+                                                            <option value="I">I</option>
+                                                            <option value="II">II</option>
+                                                            <option value="III">III</option>
+                                                            <option value="IV">IV</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="selectCodigoCurso">Código del Curso:</label>
+                                                        <select class="form-control" name="selectCodigoCurso">
+                                                            <option value="cod">código</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="selectGrupo">Grupo:</label>
+                                                        <select class="form-control" name="selectGrupo">
+                                                            <option value="group">grupo</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="selectTipoIncons">Tipo de Inconsistencia:</label>
+                                                        <select class="form-control" name="selectTipoIncons">
+                                                            <option value="I">Error Nota</option>
+                                                            <option value="II">Exclusión Acta</option>
+                                                            <option value="III">Inclusión Acta</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                <div class="txt-block">
+
+                                                    <h3><i class="fa fa-user fa-2x"></i> Datos del Solicitante</h3>
+
+                                                    <div class="form-group">
+                                                        <label for="txtIDSolicitante">Identificación:</label>
+                                                        <input type="text" class="form-control" id="txtIDSolicitante" placeholder="Identificación del Solicitante" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="txtNombreSolicitante">Nombre:</label>
+                                                        <input type="text" class="form-control" id="txtNombreSolicitante" placeholder="Nombre del Solicitante" required>
+                                                    </div>
+
+                                                    <h3><i class="fa fa-question-circle-o fa-2x"></i> Descripción del Problema</h3>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" rows="5" id="descProblema" required></textarea>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                <div class="txt-block">
+                                                    <h3><i class="fa fa-address-card-o fa-2x"></i> Datos del afectado</h3>
+
+                                                    <div class="form-group">
+                                                        <label for="txtIDAfectado">Identificación:</label>
+                                                        <input type="text" class="form-control" id="txtIDAfectado" placeholder="Identificación del Afectado" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="txtNombreAfectado">Nombre:</label>
+                                                        <input type="text" class="form-control" id="txtNombreAfectado" placeholder="Nombre del Afectado" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="txtCorreoAfectado">Correo:</label>
+                                                        <input type="text" class="form-control" id="txtCorreoAfectado" placeholder="Correo del Afectado" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="txtTelefonoAfectado">Telefono:</label>
+                                                        <input type="text" class="form-control" id="txtTelefonoAfectado" placeholder="Telefono del Afectado" required>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="f20 btn btn-default form-control" name="btnRegistrar">Registrar Solicitud</button>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- registrar SECTION END-->
+
+
+                                <section id="consulta-sec">
+                                    <div class="container mid-txt" >
+                                        <div class="row text-center">
+                                            <div class="col-md-12 marginTop3">
+                                                <div class="form-inline">
+                                                    <label ><i class="fa fa-eye fa-2x margin cGris" aria-hidden="true"></i></label>
+                                                    <label class="head-line">Consultar Solicitud</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="form-inline">
+                                                <label for="txtIDSolicitudConsult" class="f20">Identificación:</label>
+                                                <input type="text" class=" margin form-control" id="txtIDSolicitudConsult" placeholder="ID de la solicitud" required>
+                                                    <button type="submit" class="f20 btn btn-default form-control" name="btnBuscarSolicitud">Consultar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </section>
+                                <!-- Consulta SECTION END-->
+
+
+
+
+                                <div class="container marginTop">
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active" title="Datos de la solicitud"></li>
+                                            <li data-target="#myCarousel" data-slide-to="1" title="Datos del Solicitante"></li>
+                                            <li data-target="#myCarousel" data-slide-to="2" title="Datos del Afectado"></li>
+                                            <li data-target="#myCarousel" data-slide-to="3" title="Descripción"></li>
+                                        </ol>
+
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner h200">
+
+                                            <div class="item active ">
+
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
+                                                    <div class="txt-block">
+
+                                                        <h3><i class="fa fa-clipboard fa-2x"></i> Datos de la Solicitud</h3>
+                                                        <div class="form-group">
+                                                            <label for="txtAnhoVer">Año:</label>
+                                                            <label class="form-control" name="txtAnhoVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectModalidadVer">Modalidad:</label>
+                                                            <label class="form-control" name="selectModalidadVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectPeriodoVer">Periodo:</label>
+                                                            <label class="form-control" name="selectPeriodoVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectCodigoCursoVer">Código del Curso:</label>
+                                                            <label class="form-control" name="selectCodigoCursoVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectGrupoVer">Grupo:</label>
+                                                            <label class="form-control" name="selectGrupoVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectTipoInconsVer">Tipo de Inconsistencia:</label>
+                                                            <label class="form-control" name="selectTipoInconsVer"></label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item">
+
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
+                                                    <div class="txt-block">
+                                                        <h3><i class="fa fa-user fa-2x"></i> Datos del Solicitante</h3>
+
+                                                        <div class="form-group">
+                                                            <label for="txtIDSolicitanteVer">Identificación:</label>
+                                                            <label class="form-control" id="txtIDSolicitante" ></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="txtNombreSolicitanteVer">Nombre:</label>
+                                                            <label class="form-control" id="txtNombreSolicitanteVer"></label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="item">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
+                                                    <div class="txt-block">
+                                                        <h3><i class="fa fa-address-card-o fa-2x"></i> Datos del afectado</h3>
+
+                                                        <div class="form-group">
+                                                            <label for="txtIDAfectadoVer">Identificación:</label>
+                                                            <label class="form-control" id="txtIDAfectadoVer"></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="txtNombreAfectadoVer">Nombre:</label>
+                                                            <label class="form-control" id="txtNombreAfectadoVer"></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="txtCorreoAfectadoVer">Correo:</label>
+                                                            <label class="form-control" id="txtCorreoAfectadoVer"></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="txtTelefonoAfectadoVer">Telefono:</label>
+                                                            <label class="form-control" id="txtTelefonoAfectadoVer"></label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
+                                                    <div class="txt-block">
+                                                        <h3><i class="fa fa-question-circle-o fa-2x"></i> Descripción del Problema</h3>
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" rows="10" id="descProblema" disabled></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Left and right controls -->
+                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Anterior</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Siguiente</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+                                <!-- CORE JQUERY  -->
+                                <script src="assets/js/jquery-1.11.1.js"></script>
+                                <!-- BOOTSTRAP SCRIPTS  -->
+                                <script src="assets/js/bootstrap.js"></script>
+                                <!-- EASING SCROLL SCRIPTS PLUGIN  -->
+                                <script src="assets/js/jquery.easing.min.js"></script>
+                                <!-- VEDIO SCRIPT SCRIPTS  -->
+                                <script src="assets/js/jquery.mb.YTPlayer.js"></script>
+                                <!-- PRETTY PHOTO SCRIPTS  -->
+                                <script src="assets/js/jquery.prettyPhoto.js"></script>
+                                <!-- PORTFOLIO FILTER SCRIPTS  -->
+                                <script src="assets/js/jquery.mixitup.min.js"></script>
+                                <!--SCRIPT FOR NICE LOOKING SCROLLBAR  -->
+                                <script src="assets/js/jquery.nicescroll.min.js"></script>
+                                <!-- CUSTOM SCRIPTS  -->
+                                <script src="assets/js/custom.js"></script>
+
+                            </body>
+                        </html>
+
+                    </body>
+                    </html>
