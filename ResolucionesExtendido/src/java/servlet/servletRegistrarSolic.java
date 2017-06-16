@@ -44,6 +44,7 @@ public class servletRegistrarSolic extends HttpServlet {
             Date anho = Date.valueOf(request.getParameter("txtAnho"));
             String modalidad = request.getParameter("selectModalidad");
             String periodo = request.getParameter("selectPeriodo");
+            periodo = periodo+" "+modalidad;
             String codCurso = request.getParameter("selectCodigoCurso");
             int grupo = Integer.parseInt(request.getParameter("selectGrupo"));
             String inconsistencia = request.getParameter("selectTipoIncons");
