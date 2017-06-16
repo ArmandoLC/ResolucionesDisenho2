@@ -18,7 +18,35 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
     
     public DTOUsuario RealizarLogin(DTOLogin dtoLogin)
     {
-        return null;
+        DTOUsuario dtoUsuario = null;
+        ResultSet rs;
+        
+        try {
+                       
+            CallableStatement conexionSP = obtenerConexionSP("{call RealizarLogin(?,?)}");
+                        
+            
+            conexionSP.setString("usuario", dtoLogin.getNombreUsuario());
+            conexionSP.setString("contrasenha", dtoLogin.getContrasenha());
+            
+            rs = conexionSP.executeQuery(); 
+
+            while (rs.next() )
+            {
+             dtoUsuario = new DTOUsuario(   rs.getString("tipoUsuario"),
+                                            rs.getString("id"),
+                                            rs.getString("nombre"),
+                                            rs.getString("correo"),
+                                            rs.getString("telefono")
+                                        );   
+            }
+        } 
+        catch (Exception e) 
+        {
+            dtoUsuario = null;
+        }
+        
+        return dtoUsuario;
     }
 
     @Override

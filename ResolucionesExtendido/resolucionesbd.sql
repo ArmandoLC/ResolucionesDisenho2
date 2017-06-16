@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `resolucionesbd` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `resolucionesbd`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: resolucionesbd
@@ -116,7 +118,7 @@ CREATE TABLE `plantilla` (
   `resuelvo` varchar(5000) NOT NULL,
   PRIMARY KEY (`idPlantilla`),
   KEY `FK_Pplant_DetallIncosist_idx` (`siglas`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +127,7 @@ CREATE TABLE `plantilla` (
 
 LOCK TABLES `plantilla` WRITE;
 /*!40000 ALTER TABLE `plantilla` DISABLE KEYS */;
-INSERT INTO `plantilla` VALUES (1,'EN','Esta es la plantilla 1','Estan funcionando bien','Los tipos de siglas ','las plantillas estan volando'),(2,'EN','Introduccion 2','resultado 2','considerando 2','resuelvo 2'),(3,'IA','intro 3','resultado 3','considerandos 3',''),(4,'IA','intro 3','resultado 3','considerandos 3','');
+INSERT INTO `plantilla` VALUES (1,'EN','Esta es la plantilla 1','Estan funcionando bien','Los tipos de siglas ','las plantillas estan volando'),(2,'EN','Introduccion 2','resultado 2','considerando 2','resuelvo 2'),(3,'IA','intro 3','resultado 3','considerandos 3',''),(4,'IA','intro 4','res 4','consi 4','resuelvo 4'),(5,'IA','intro 3','resultado 3','considerandos 3',''),(6,'IA','intro 6','resultado 6','considerandos 6','resuelvo 6'),(7,'IA','intro 7','resultado 7','considerandos 7','resuelvo 7'),(8,'IA','intro 8','resultado 8','considerandos 8','resuelvo 8');
 /*!40000 ALTER TABLE `plantilla` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,7 +238,11 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuarios` (
   `id` varchar(100) NOT NULL,
+  `usuario` varchar(100) NOT NULL,
   `contrasenha` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `telefono` varchar(100) NOT NULL,
   `tipoUsuario` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -249,6 +255,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES ('99999','super','Disennio','Superusuario','escuelaIC@itcr.ac.cr','2550-9696','super');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,6 +290,46 @@ BEGIN
             plantilla.considerandos = considerandos,
             plantilla.resuelvo = resuelvo
 		WHERE plantilla.idPlantilla= nConsecutivo;
+        
+						
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `AgregarUsuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AgregarUsuario`(
+	IN id VARCHAR(100),
+	IN usuario VARCHAR(100),
+    IN contrasenha VARCHAR(100),
+    IN nombre VARCHAR(100),
+    IN correo VARCHAR(100),
+    IN telefono VARCHAR(100),
+    IN tipoUsuario VARCHAR(100)
+    
+)
+BEGIN
+	
+    INSERT INTO usuarios (	`id`,
+							`usuario`, 
+							`contrasenha`,
+                            `nombre`,
+                            `correo`,
+                            `telefono`,
+                            `tipoUsuario`
+                            )
+		VALUES (id, usuario, contrasenha, nombre, correo, telefono, tipoUsuario);
+	
         
 						
 END ;;
@@ -402,6 +449,37 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `obtenerNumResolucionParaSolic`(IN i
 BEGIN
 	SELECT numeroResolucion FROM resoluciones
     WHERE idSolicitud = idBuscado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `RealizarLogin` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RealizarLogin`(
+	IN usuario VARCHAR(100),
+    IN contrasenha VARCHAR(100)
+)
+BEGIN
+
+	SELECT 	u.id,
+			u.nombre,
+            u.correo,
+            u.telefono,
+            u.tipoUsuario
+		FROM usuarios u 
+        WHERE u.usuario LIKE usuario AND u.contrasenha LIKE BINARY contrasenha;
+        
+						
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -663,4 +741,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-15 19:13:48
+-- Dump completed on 2017-06-15 22:50:16

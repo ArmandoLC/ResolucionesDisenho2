@@ -27,7 +27,15 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     
     @Override
     public DTOUsuario RealizarLogin(DTOLogin dtoLogin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DTOUsuario dtoUsuario = null;
+                
+        try {            
+            dtoUsuario = daoBD.RealizarLogin(dtoLogin);            
+            
+        } catch (Exception e) {
+        }
+        
+        return dtoUsuario;
     }
 
     @Override

@@ -2,7 +2,9 @@
 package Vista;
 
 import Controlador.ControladorPrincipalExtendido;
+import DTOs.DTOLogin;
 import DTOs.DTOPlantilla;
+import DTOs.DTOUsuario;
 import Modelo.Plantilla;
 import java.util.ArrayList;
 
@@ -14,29 +16,16 @@ public class MainFrame extends javax.swing.JFrame {
         ControladorPrincipalExtendido ctrl = new ControladorPrincipalExtendido();        
         
         
-        DTOPlantilla dto = new DTOPlantilla(0, "IA", "intro 3", "resultado 3", "considerandos 3", "");
-        int lastID = ctrl.CrearPlantilla(dto);
-        System.out.println("LastID = " + lastID);
+        DTOLogin login = new DTOLogin("super", "disennio");
+        DTOUsuario dto = ctrl.RealizarLogin(login);
         
-        ArrayList<Plantilla> p = ctrl.getPlantillas();        
-            
-        p.forEach((k) -> System.out.println(k.toString()));
-        
-        dto.setnConsecutivo(lastID);
-        dto.setIntroduccion("intro " + lastID);
-        dto.setResultado("resultado " + lastID);
-        dto.setResulevo("resuelvo " + lastID);
-        dto.setConsiderandos("considerandos " + lastID);
-      
-        ctrl.ModificarPlantilla(dto);
-        
-        System.out.println("---------------------------------------");
-        p = ctrl.getPlantillas();        
-            
-        p.forEach((k) -> System.out.println(k.toString()));
-        
-        
-                
+        if (dto != null)
+        System.out.println("\nID: " + dto.getId() + 
+                            "\nNombre: " + dto.getNombre() + 
+                            "\nCorreo: " + dto.getCorreo() + 
+                            "\nTelefono: " + dto.getTelefono() + 
+                            "\nPrivilegios: " + dto.getTipoUsuario());
+        else System.out.println("Contrasenha y nombre de usuario no validas!");     
                 
         initComponents();
     }
