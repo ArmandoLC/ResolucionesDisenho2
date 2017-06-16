@@ -28,7 +28,7 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
                         
             
             conexionSP.setString("usuario", dtoLogin.getNombreUsuario());
-            conexionSP.setString("contrasenha", dtoLogin.getContrasenha());
+            conexionSP.setString("contrasenha", dtoLogin.getContrasenhaAct());
             
             rs = conexionSP.executeQuery(); 
 
@@ -143,7 +143,24 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
 
     @Override
     public boolean ModificarResolucion(DTOResolucion dtoResolucion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+                       
+            CallableStatement conexionSP = obtenerConexionSP("{call ModificarResolucion(?,?,?,?,?)}");
+                        
+            conexionSP.setInt("idSolicitud", dtoResolucion.getIdSolicitud());
+            conexionSP.setString("introduccion", dtoResolucion.getIntroduccion());
+            conexionSP.setString("resultado", dtoResolucion.getResultado());
+            conexionSP.setString("considerandos", dtoResolucion.getConsiderandos());
+            conexionSP.setString("resuelvo", dtoResolucion.getResuelvo());
+            
+            conexionSP.executeQuery(); 
+            
+            return true;
+        } 
+        catch (Exception e) 
+        {
+            return false;
+        }
     }
 
     @Override
@@ -167,7 +184,27 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
 
     @Override
     public boolean CambiarContrasenha(DTOLogin dtoLogin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        boolean modificada = false;
+        ResultSet rs;
+        
+        try {
+                       
+            CallableStatement conexionSP = obtenerConexionSP("{call CambiarContrasenha(?,?,?)}");
+                        
+            conexionSP.setString("usuario", dtoLogin.getNombreUsuario());
+            conexionSP.setString("contrasenhaAct", dtoLogin.getContrasenhaAct());
+            conexionSP.setString("contrasenhaNueva", dtoLogin.getContrasenhaNueva());
+            
+            rs = conexionSP.executeQuery(); 
+            
+            while (rs.next()) modificada = true;
+        } 
+        catch (Exception e) 
+        {
+            modificada = false;
+        }
+        return modificada;
     }
     
     

@@ -1,13 +1,13 @@
 
 package Controlador;
 
-import DTOs.DTOUsuario;
+import DTOs.DTORegistroUsuario;
 
 
 public class Sesion {
 
     private static Sesion instance;
-    private DTOUsuario usuario;
+    private DTORegistroUsuario usuario;
 
     public static Sesion getInstance() {
         if(instance == null)
@@ -15,11 +15,11 @@ public class Sesion {
         return instance;
     }
 
-    public DTOUsuario getUsuario() {
+    public DTORegistroUsuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(DTOUsuario usuario) {
+    public void setUsuario(DTORegistroUsuario usuario) {
         this.usuario = usuario;
     }
 

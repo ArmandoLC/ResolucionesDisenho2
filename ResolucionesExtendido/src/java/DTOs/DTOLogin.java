@@ -4,14 +4,16 @@ package DTOs;
 public class DTOLogin {
     
     private String nombreUsuario;
-    private String contrasenha;
+    private String contrasenhaAct;
+    private String contrasenhaNueva;
 
     public DTOLogin() {
     }
     
-    public DTOLogin(String nombreUsuario, String contrasenha) {
+    public DTOLogin(String nombreUsuario, String contrasenhaAct, String contrasenhaNueva) {
         this.nombreUsuario = nombreUsuario;
-        this.contrasenha = contrasenha;
+        this.contrasenhaAct = contrasenhaAct;
+        this.contrasenhaNueva = contrasenhaNueva;
     }
 
     public String getNombreUsuario() {
@@ -22,12 +24,21 @@ public class DTOLogin {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getContrasenha() {
-        return contrasenha;
+    public String getContrasenhaAct() {
+        return contrasenhaAct;
     }
 
-    public void setContrasenha(String contrasenha) {
-        this.contrasenha = contrasenha;
+    public void setContrasenhaAct(String contrasenhaAct) {
+        this.contrasenhaAct = contrasenhaAct;
     }
+
+    public String getContrasenhaNueva() {
+        return contrasenhaNueva;
+    }
+
+    public void setContrasenhaNueva(String contrasenhaNueva) {
+        this.contrasenhaNueva = contrasenhaNueva;
+    }
+    
     
 }

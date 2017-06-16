@@ -5,6 +5,7 @@ import Controlador.ControladorPrincipalExtendido;
 import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOLogin;
 import DTOs.DTOPlantilla;
+import DTOs.DTOResolucion;
 import DTOs.DTOUsuario;
 import Modelo.Plantilla;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         ControladorPrincipalExtendido ctrl = new ControladorPrincipalExtendido();        
         
-        DTOLogin login = new DTOLogin("super", "disennio");
+        DTOLogin login = new DTOLogin("super", "Disennio", "");
         DTOUsuario dto = ctrl.RealizarLogin(login);
         
         if (dto != null)
@@ -27,8 +28,12 @@ public class MainFrame extends javax.swing.JFrame {
                             "\nPrivilegios: " + dto.getTipoUsuario());
         else System.out.println("Contrasenha y nombre de usuario no validas!");  
         
-        DTOEstadoSolicitud estado = new DTOEstadoSolicitud(1, "Probando desde el freim");
-        if (ctrl.ModificarSolicitud(estado)) System.out.println("Modificacion de solicitud lista");
+        
+        login.setContrasenhaNueva("probandoTosty");
+        boolean cambio = ctrl.CambiarContrasenha(login);
+        
+        if (cambio) System.out.println("Contrasenha cambiada con exito!");
+        
                 
         initComponents();
     }

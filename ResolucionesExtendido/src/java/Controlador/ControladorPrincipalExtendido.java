@@ -4,6 +4,7 @@ package Controlador;
 import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOLogin;
 import DTOs.DTOPlantilla;
+import DTOs.DTORegistroUsuario;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import DTOs.DTOUsuario;
@@ -22,7 +23,6 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         
         this.plantillas = new ArrayList<Plantilla>();
         this.daoBD = new DAOMySQLExtendido();
-        this.proxyContrasenha = new ControlPermiso();
         this.ConsultarPlantillas();
     }
     
@@ -32,7 +32,23 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         DTOUsuario dtoUsuario = null;
                 
         try {            
-            dtoUsuario = daoBD.RealizarLogin(dtoLogin);            
+            dtoUsuario = daoBD.RealizarLogin(dtoLogin);
+
+            if (dtoUsuario != null)
+            {
+                Sesion s = Sesion.getInstance();
+                DTORegistroUsuario usr = new DTORegistroUsuario();
+                
+                usr.setContrasenha(dtoLogin.getContrasenhaAct());
+                usr.setCorreo(dtoUsuario.getCorreo());
+                usr.setId(dtoUsuario.getId());
+                usr.setNombre(dtoUsuario.getNombre());
+                usr.setNombreUsuario(dtoLogin.getNombreUsuario());
+                usr.setTelefono(dtoUsuario.getTelefono());
+                usr.setTipoUsuario(dtoUsuario.getTipoUsuario());
+                
+                s.setUsuario(usr);
+            }
             
         } catch (Exception e) {
         }
@@ -84,7 +100,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         boolean modificada = false;
         try {
             modificada = daoBD.ModificarPlantilla(dtoPlantilla);            
-            if (modificada) ConsultarPlantillas();
+            ConsultarPlantillas();
             
             modificada = true;
         } catch (Exception e) {
@@ -94,7 +110,16 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
     @Override
     public boolean ModificarResolucion(DTOResolucion dtoResolucion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        boolean modificada = false;
+        try {
+            modificada = daoBD.ModificarResolucion(dtoResolucion);            
+            modificada = true;
+            
+        } catch (Exception e) {
+        }
+        
+        return modificada;
     }
 
     @Override
@@ -103,8 +128,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         boolean modificada = false;
         try {
             modificada = daoBD.ModificarSolicitud(dtoEstadoSolicitud);            
-            if (modificada) ConsultarSolicitudes();
-            
+            ConsultarSolicitudes();
             modificada = true;
             
         } catch (Exception e) {
@@ -115,7 +139,17 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
     @Override
     public boolean CambiarContrasenha(DTOLogin dtoLogin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try
+        {
+            proxyContrasenha = new ControlPermiso();
+            
+            return proxyContrasenha.CambiarContrasenha(dtoLogin, daoBD);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
     
     

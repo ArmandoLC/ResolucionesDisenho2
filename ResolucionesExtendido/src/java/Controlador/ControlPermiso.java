@@ -21,8 +21,24 @@ public class ControlPermiso implements IContrasenha {
     
     
     @Override
-    public boolean CambiarContrasenha(String contrasenhaActual, DTOLogin dtoLogin, DAOMySQLExtendido daoMySQL) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean CambiarContrasenha(DTOLogin dtoLogin, DAOMySQLExtendido daoMySQL) {
+        
+        boolean modificada  = false;
+        try
+        {
+            // Se verifica que la contrasenha de la sesion sea la misma que ingresó el usuario
+            Sesion sesion = Sesion.getInstance();
+            String contrSesion = sesion.getUsuario().getContrasenha();
+            
+            //Si son iguales, proceder a cambiar la contrasenha
+            if (contrSesion.equals(dtoLogin.getContrasenhaAct()))
+                modificada = cuenta.CambiarContrasenha(dtoLogin, daoMySQL);
+        }
+        catch (Exception e)
+        {
+            modificada = false;
+        }          
+        return modificada;
     }
     
 }
