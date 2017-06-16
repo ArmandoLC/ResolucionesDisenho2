@@ -2,10 +2,12 @@
 package Vista;
 
 import Controlador.FacadePaginaWeb;
+import Controlador.IConsultaSolicitud;
+import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 
 
-public class UIPaginaWeb {
+public class UIPaginaWeb implements IConsultaSolicitud{
     
     private FacadePaginaWeb facade;
     
@@ -13,18 +15,19 @@ public class UIPaginaWeb {
         this.facade = new FacadePaginaWeb();
     }   
     
+    @Override
     public int RegistrarSolicitud(DTOSolicitud dtoSolicitud)
     {
         return facade.RegistrarSolicitud(dtoSolicitud);
     }
     
-    public void ConsultarSolicitud()
-    {
-        
+    @Override
+    public DTOSolicitud ConsultarSolicitud(int nSolicitud) {
+        return facade.ConsultarSolicitud(nSolicitud);
     }
-    
-    public void ConsultarResolucion()
-    {
-        
+
+    @Override
+    public DTOResolucion ConsultarResolucion(int nSolicitud) {
+        return facade.ConsultarResolucion(nSolicitud);
     }
 }

@@ -5,25 +5,27 @@ import DTOs.DTOSolicitud;
 import DTOs.DTOResolucion;
 
 
-public class FacadePaginaWeb extends Facade {
+public class FacadePaginaWeb extends Facade implements IConsultaSolicitud{
 
     public FacadePaginaWeb() {
         super();
     }    
     
+    @Override
     public int RegistrarSolicitud(DTOSolicitud dtoSolicitud)
     {
         return ctrl.RegistrarSolicitud(dtoSolicitud);
     }
     
+    @Override
     public DTOSolicitud ConsultarSolicitud(int nSolicitud)
     {        
-        return null;
+        return ctrl.ConsultarSolicitud(nSolicitud);
     }
     
+    @Override
     public DTOResolucion ConsultarResolucion(int nSolicitud)
     {
-        super.ctrl.ConsultarResolucion(nSolicitud);
-        return null;
+        return super.ctrl.ConsultarResolucion(nSolicitud);
     }
 }
