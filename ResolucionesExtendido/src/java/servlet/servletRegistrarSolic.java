@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Armando
  */
-@WebServlet(name = "servletSolicitudes", urlPatterns = {"/servletSolicitudes"})
+@WebServlet(name = "servletRegistrarSolic", urlPatterns = {"/servletRegistrarSolic"})
 public class servletRegistrarSolic extends HttpServlet {
 
     /**
@@ -33,16 +33,49 @@ public class servletRegistrarSolic extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet servletSolicitudes</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet servletSolicitudes at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+
+            /*Datos de la solicitud*/
+            String anho = request.getParameter("txtAnho");
+            String modalidad = request.getParameter("selectModalidad");
+            String periodo = request.getParameter("selectPeriodo");
+            String codCurso = request.getParameter("selectCodigoCurso");
+            String grupo = request.getParameter("selectGrupo");
+            String inconsistencia = request.getParameter("selectTipoIncons");
+
+            /*Datos del Solicitante*/
+            String idSolicitante = request.getParameter("txtIDSolicitante");
+            String nombreSolictante = request.getParameter("txtNombreSolicitante");
+
+            /*Datos del Afectado*/
+            String idAfectado = request.getParameter("txtIDAfectado");
+            String nombreAfectado = request.getParameter("txtNombreAfectado");
+            String correoAfectado = request.getParameter("txtCorreoAfectado");
+            String telefonoAfectado = request.getParameter("txtTelefonoAfectado");
+
+            response.sendRedirect("index.html");
+            
+            /* 
+             out.println("<!DOCTYPE html>");
+             out.println("<html>");
+             out.println("<head>");
+             out.println("<title>Servlet servletSolicitudes</title>");            
+             out.println("</head>");
+             out.println("<body>");
+             out.println("<h1>Año de la solicitud " + anho + "</h1>");
+             out.println("<h1>Año de la solicitud " + modalidad + "</h1>");
+             out.println("<h1>Año de la solicitud " + periodo + "</h1>");
+             out.println("<h1>Año de la solicitud " + codCurso + "</h1>");
+             out.println("<h1>Año de la solicitud " + grupo + "</h1>");
+             out.println("<h1>Año de la solicitud " + inconsistencia + "</h1>");
+             out.println("<h1>Año de la solicitud " + idSolicitante + "</h1>");
+             out.println("<h1>Año de la solicitud " + nombreSolictante + "</h1>");
+             out.println("<h1>Año de la solicitud " + idAfectado + "</h1>");
+             out.println("<h1>Año de la solicitud " + nombreAfectado + "</h1>");
+             out.println("<h1>Año de la solicitud " + correoAfectado + "</h1>");
+             out.println("<h1>Año de la solicitud " + telefonoAfectado + "</h1>");
+             out.println("</body>");
+             out.println("</html>");
+             */
         }
     }
 
