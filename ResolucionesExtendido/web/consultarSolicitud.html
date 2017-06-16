@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Resoluciones</title>
+        <link rel="icon" href="assets/img/logo3.png">
+            <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    </head>
+                    <body>
+                        ﻿<!DOCTYPE html>
+                        <html xmlns="http://www.w3.org/1999/xhtml">
+                            <head>
+                                <meta charset="utf-8" />
+                                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+                                <!-- BOOTSTRAP CORE STYLE CSS -->
+                                <link href="assets/css/bootstrap.css" rel="stylesheet" />
+                                <!-- Font-Awesome Icons Styles -->
+                                <link href="assets/css/font-awesome.css" rel="stylesheet" />
+                                <!-- Pretty Photo For PopUp Styles -->
+                                <link href="assets/css/prettyPhoto.css" rel="stylesheet" />
+                                <!-- CUSTOM STYLE CSS -->
+                                <link href="assets/css/custom.css" rel="stylesheet" />    
+                                <!-- GOOGLE FONT -->
+                                <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+                                <!--Font Awesome Icons-->
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                            </head>
+                            <body >
+
+                                <div id="nav-wrapper" >
+                                    <div class="navbar navbar-inverse " >
+                                        <div class="container">
+                                            <div class="navbar-header ">
+                                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                    <span class="icon-bar"></span>
+                                                </button>
+
+                                                <a class="navbar-brand" href="#"><img src="assets/img/logo2.png" alt="" /></a>
+                                            </div>
+
+                                            <div class="navbar-collapse collapse move-me">
+                                                <ul class="nav navbar-nav navbar-right">
+                                                    <li><a href="index.html">Registrar Solicitud</a></li>
+                                                    <li><a href="#consulta-sec">Consultar Solicitud</a></li>
+                                                    <li><a href="consultarResolucion.html">Consultar Resolucion</a></li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- NAVBAR form END-->
+
+
+                                <form id="consulta-sec" action="servletConsultarSolic" method="POST">
+                                    <div class="container " >
+                                        <div class="row text-center">
+                                            <div class="col-md-12 marginTop3">
+                                                <div class="form-inline">
+                                                    <h3 class="head-line"><span class="cGris fa-2x"><i class="fa fa-clipboard" aria-hidden="true"></i></span> Consulta de Solicitudes<span ></span> </h3>
+                                                    
+                                                </div>
+
+                                            </div>
+                                            <div class="form-inline">
+                                                <label for="txtIDSolicitudConsult" class="f20">Identificación:</label>
+                                                <input type="text" class=" margin form-control" name="txtIDSolicitudConsult" placeholder="ID de la solicitud" required>
+                                                    <button type="submit" class="f20 btn btn-default form-control" name="btnBuscarSolicitud">Consultar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <!-- Consulta form END-->
+
+
+
+
+                                <div class="container marginTop">
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active" title="Datos de la solicitud"></li>
+                                            <li data-target="#myCarousel" data-slide-to="1" title="Datos del Solicitante"></li>
+                                            <li data-target="#myCarousel" data-slide-to="2" title="Datos del Afectado"></li>
+                                            <li data-target="#myCarousel" data-slide-to="3" title="Descripción"></li>
+                                        </ol>
+
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner h200">
+
+                                            <div class="item active ">
+
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
+                                                    <div class="txt-block">
+
+                                                        <h3><i class="fa fa-clipboard fa-2x"></i> Datos de la Solicitud</h3>
+                                                        <div class="form-group">
+                                                            <label for="txtAnhoVer">Año:</label>
+                                                            <label class="form-control" name="txtAnhoVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectModalidadVer">Modalidad:</label>
+                                                            <label class="form-control" name="selectModalidadVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectPeriodoVer">Periodo:</label>
+                                                            <label class="form-control" name="selectPeriodoVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectCodigoCursoVer">Código del Curso:</label>
+                                                            <label class="form-control" name="selectCodigoCursoVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectGrupoVer">Grupo:</label>
+                                                            <label class="form-control" name="selectGrupoVer"></label>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="selectTipoInconsVer">Tipo de Inconsistencia:</label>
+                                                            <label class="form-control" name="selectTipoInconsVer"></label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item">
+
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
+                                                    <div class="txt-block">
+                                                        <h3><i class="fa fa-user fa-2x"></i> Datos del Solicitante</h3>
+
+                                                        <div class="form-group">
+                                                            <label for="txtIDSolicitanteVer">Identificación:</label>
+                                                            <label class="form-control" id="txtIDSolicitante" ></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="txtNombreSolicitanteVer">Nombre:</label>
+                                                            <label class="form-control" id="txtNombreSolicitanteVer"></label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="item">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
+                                                    <div class="txt-block">
+                                                        <h3><i class="fa fa-address-card-o fa-2x"></i> Datos del afectado</h3>
+
+                                                        <div class="form-group">
+                                                            <label for="txtIDAfectadoVer">Identificación:</label>
+                                                            <label class="form-control" id="txtIDAfectadoVer"></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="txtNombreAfectadoVer">Nombre:</label>
+                                                            <label class="form-control" id="txtNombreAfectadoVer"></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="txtCorreoAfectadoVer">Correo:</label>
+                                                            <label class="form-control" id="txtCorreoAfectadoVer"></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="txtTelefonoAfectadoVer">Telefono:</label>
+                                                            <label class="form-control" id="txtTelefonoAfectadoVer"></label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
+                                                    <div class="txt-block">
+                                                        <h3><i class="fa fa-question-circle-o fa-2x"></i> Descripción del Problema</h3>
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" rows="10" id="descProblema" disabled></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Left and right controls -->
+                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Anterior</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Siguiente</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+                                <!-- CORE JQUERY  -->
+                                <script src="assets/js/jquery-1.11.1.js"></script>
+                                <!-- BOOTSTRAP SCRIPTS  -->
+                                <script src="assets/js/bootstrap.js"></script>
+                                <!-- EASING SCROLL SCRIPTS PLUGIN  -->
+                                <script src="assets/js/jquery.easing.min.js"></script>
+                                <!-- VEDIO SCRIPT SCRIPTS  -->
+                                <script src="assets/js/jquery.mb.YTPlayer.js"></script>
+                                <!-- PRETTY PHOTO SCRIPTS  -->
+                                <script src="assets/js/jquery.prettyPhoto.js"></script>
+                                <!-- PORTFOLIO FILTER SCRIPTS  -->
+                                <script src="assets/js/jquery.mixitup.min.js"></script>
+                                <!--SCRIPT FOR NICE LOOKING SCROLLBAR  -->
+                                <script src="assets/js/jquery.nicescroll.min.js"></script>
+                                <!-- CUSTOM SCRIPTS  -->
+                                <script src="assets/js/custom.js"></script>
+
+                            </body>
+                        </html>
+
+                    </body>
+                    </html>

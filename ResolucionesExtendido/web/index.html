@@ -47,21 +47,23 @@ and open the template in the editor.
 
                                                 <a class="navbar-brand" href="#"><img src="assets/img/logo2.png" alt="" /></a>
                                             </div>
-                                            <div class="navbar-collapse collapse move-me">
+
+                                            <div class="navbar-collapse collapse ">
                                                 <ul class="nav navbar-nav navbar-right">
-                                                    <li><a href="#registro-sec">Registrar Solicitud</a></li>
-                                                    <li><a href="#consulta-sec">Consultar Solicitud</a></li>
-                                                    <li><a href="#">Consultar Resolucion</a></li>
+                                                    <li><a href="#consulta-sec">Registrar Solicitud</a></li>
+                                                    <li><a href="consultarSolicitud.html">Consultar Solicitud</a></li>
+                                                    <li><a href="consultarResolucion.html">Consultar Resolucion</a></li>
                                                 </ul>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
-                                <!-- NAVBAR SECTION END-->
+                                <!-- NAVBAR form END-->
 
 
-                                <section id="registro-sec" class="marginTop2" >
-                                    <div class="container basic-set" >
+                                <form id="consulta-sec" name="registro" class="marginTop2" action="servletRegistrarSolic" method="POST">
+                                    <div class="container" >
                                         <div class="row text-center">
                                             <div class="col-md-12 marginTop2">
                                                 <h3 class="head-line"><span class="cGris fa-2x"><i class="fa fa-list-alt" aria-hidden="true"></i></span> Registro de Solicitudes<span ></span> </h3>
@@ -74,7 +76,7 @@ and open the template in the editor.
 
                                                     <div class="form-group">
                                                         <label for="txtAnho">Año:</label>
-                                                        <input type="text" class="form-control" id="txtAnho" placeholder="Año de lo ocurrido" required>
+                                                        <input type="text" class="form-control" name="txtAnho" placeholder="Año de lo ocurrido" required>
                                                     </div>
 
                                                     <div class="form-group">
@@ -108,16 +110,15 @@ and open the template in the editor.
                                                         <label for="selectGrupo">Grupo:</label>
                                                         <select class="form-control" name="selectGrupo">
                                                             <option value="group">grupo</option>
-
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="selectTipoIncons">Tipo de Inconsistencia:</label>
                                                         <select class="form-control" name="selectTipoIncons">
-                                                            <option value="I">Error Nota</option>
-                                                            <option value="II">Exclusión Acta</option>
-                                                            <option value="III">Inclusión Acta</option>
+                                                            <option value="ERROR_NOTA">Error Nota</option>
+                                                            <option value="EXCLUSION_ACTA">Exclusión Acta</option>
+                                                            <option value="INCLUSION_ACTA">Inclusión Acta</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -131,16 +132,16 @@ and open the template in the editor.
 
                                                     <div class="form-group">
                                                         <label for="txtIDSolicitante">Identificación:</label>
-                                                        <input type="text" class="form-control" id="txtIDSolicitante" placeholder="Identificación del Solicitante" required>
+                                                        <input type="text" class="form-control" name="txtIDSolicitante" placeholder="Identificación del Solicitante" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="txtNombreSolicitante">Nombre:</label>
-                                                        <input type="text" class="form-control" id="txtNombreSolicitante" placeholder="Nombre del Solicitante" required>
+                                                        <input type="text" class="form-control" name="txtNombreSolicitante" placeholder="Nombre del Solicitante" required>
                                                     </div>
 
                                                     <h3><i class="fa fa-question-circle-o fa-2x"></i> Descripción del Problema</h3>
                                                     <div class="form-group">
-                                                        <textarea class="form-control" rows="5" id="descProblema" required></textarea>
+                                                        <textarea class="form-control" rows="5" name="descProblema" required></textarea>
                                                     </div>
 
                                                 </div>
@@ -154,19 +155,19 @@ and open the template in the editor.
 
                                                     <div class="form-group">
                                                         <label for="txtIDAfectado">Identificación:</label>
-                                                        <input type="text" class="form-control" id="txtIDAfectado" placeholder="Identificación del Afectado" required>
+                                                        <input type="text" class="form-control" name="txtIDAfectado" placeholder="Identificación del Afectado" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="txtNombreAfectado">Nombre:</label>
-                                                        <input type="text" class="form-control" id="txtNombreAfectado" placeholder="Nombre del Afectado" required>
+                                                        <input type="text" class="form-control" name="txtNombreAfectado" placeholder="Nombre del Afectado" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="txtCorreoAfectado">Correo:</label>
-                                                        <input type="text" class="form-control" id="txtCorreoAfectado" placeholder="Correo del Afectado" required>
+                                                        <input type="text" class="form-control" name="txtCorreoAfectado" placeholder="Correo del Afectado" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="txtTelefonoAfectado">Telefono:</label>
-                                                        <input type="text" class="form-control" id="txtTelefonoAfectado" placeholder="Telefono del Afectado" required>
+                                                        <input type="text" class="form-control" name="txtTelefonoAfectado" placeholder="Telefono del Afectado" required>
                                                     </div>
 
                                                 </div>
@@ -174,160 +175,29 @@ and open the template in the editor.
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="f20 btn btn-default form-control" name="btnRegistrar">Registrar Solicitud</button>
+                                            <div id="snackbarSuccess">Solicitud Registrada con Éxito</div>
+                                            <div id="snackbarFail">no se pudo registrar la solicitud</div>
+
+                                            <script>
+                                                function myFunctionSuccess() {
+                                                    var x = document.getElementById("snackbarSuccess");
+                                                    x.className = "show";
+                                                    setTimeout(function () {
+                                                        x.className = x.className.replace("show", "");
+                                                    }, 2000);
+                                                }
+                                                function myFunctionFail() {
+                                                    var x = document.getElementById("snackbarFail");
+                                                    x.className = "show";
+                                                    setTimeout(function () {
+                                                        x.className = x.className.replace("show", "");
+                                                    }, 2000);
+                                                }
+                                            </script>
                                         </div>
                                     </div>
-                                </section>
-                                <!-- registrar SECTION END-->
-
-
-                                <section id="consulta-sec">
-                                    <div class="container mid-txt" >
-                                        <div class="row text-center">
-                                            <div class="col-md-12 marginTop3">
-                                                <div class="form-inline">
-                                                    <label ><i class="fa fa-eye fa-2x margin cGris" aria-hidden="true"></i></label>
-                                                    <label class="head-line">Consultar Solicitud</label>
-                                                </div>
-
-                                            </div>
-                                            <div class="form-inline">
-                                                <label for="txtIDSolicitudConsult" class="f20">Identificación:</label>
-                                                <input type="text" class=" margin form-control" id="txtIDSolicitudConsult" placeholder="ID de la solicitud" required>
-                                                    <button type="submit" class="f20 btn btn-default form-control" name="btnBuscarSolicitud">Consultar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </section>
-                                <!-- Consulta SECTION END-->
-
-
-
-
-                                <div class="container marginTop">
-                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#myCarousel" data-slide-to="0" class="active" title="Datos de la solicitud"></li>
-                                            <li data-target="#myCarousel" data-slide-to="1" title="Datos del Solicitante"></li>
-                                            <li data-target="#myCarousel" data-slide-to="2" title="Datos del Afectado"></li>
-                                            <li data-target="#myCarousel" data-slide-to="3" title="Descripción"></li>
-                                        </ol>
-
-                                        <!-- Wrapper for slides -->
-                                        <div class="carousel-inner h200">
-
-                                            <div class="item active ">
-
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
-                                                    <div class="txt-block">
-
-                                                        <h3><i class="fa fa-clipboard fa-2x"></i> Datos de la Solicitud</h3>
-                                                        <div class="form-group">
-                                                            <label for="txtAnhoVer">Año:</label>
-                                                            <label class="form-control" name="txtAnhoVer"></label>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="selectModalidadVer">Modalidad:</label>
-                                                            <label class="form-control" name="selectModalidadVer"></label>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="selectPeriodoVer">Periodo:</label>
-                                                            <label class="form-control" name="selectPeriodoVer"></label>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="selectCodigoCursoVer">Código del Curso:</label>
-                                                            <label class="form-control" name="selectCodigoCursoVer"></label>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="selectGrupoVer">Grupo:</label>
-                                                            <label class="form-control" name="selectGrupoVer"></label>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="selectTipoInconsVer">Tipo de Inconsistencia:</label>
-                                                            <label class="form-control" name="selectTipoInconsVer"></label>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="item">
-
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
-                                                    <div class="txt-block">
-                                                        <h3><i class="fa fa-user fa-2x"></i> Datos del Solicitante</h3>
-
-                                                        <div class="form-group">
-                                                            <label for="txtIDSolicitanteVer">Identificación:</label>
-                                                            <label class="form-control" id="txtIDSolicitante" ></label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="txtNombreSolicitanteVer">Nombre:</label>
-                                                            <label class="form-control" id="txtNombreSolicitanteVer"></label>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="item">
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
-                                                    <div class="txt-block">
-                                                        <h3><i class="fa fa-address-card-o fa-2x"></i> Datos del afectado</h3>
-
-                                                        <div class="form-group">
-                                                            <label for="txtIDAfectadoVer">Identificación:</label>
-                                                            <label class="form-control" id="txtIDAfectadoVer"></label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="txtNombreAfectadoVer">Nombre:</label>
-                                                            <label class="form-control" id="txtNombreAfectadoVer"></label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="txtCorreoAfectadoVer">Correo:</label>
-                                                            <label class="form-control" id="txtCorreoAfectadoVer"></label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="txtTelefonoAfectadoVer">Telefono:</label>
-                                                            <label class="form-control" id="txtTelefonoAfectadoVer"></label>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="item">
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-centered">
-                                                    <div class="txt-block">
-                                                        <h3><i class="fa fa-question-circle-o fa-2x"></i> Descripción del Problema</h3>
-                                                        <div class="form-group">
-                                                            <textarea class="form-control" rows="10" id="descProblema" disabled></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <!-- Left and right controls -->
-                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                            <span class="glyphicon glyphicon-chevron-left"></span>
-                                            <span class="sr-only">Anterior</span>
-                                        </a>
-                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                            <span class="glyphicon glyphicon-chevron-right"></span>
-                                            <span class="sr-only">Siguiente</span>
-                                        </a>
-                                    </div>
-                                </div>
-
+                                </form>
+                                <!-- registrar form END-->
 
 
 
