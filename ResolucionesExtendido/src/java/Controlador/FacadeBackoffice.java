@@ -27,7 +27,7 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
     }
 
     @Override
-    public boolean CrearPlantilla(DTOPlantilla dtoPlantilla) {
+    public int CrearPlantilla(DTOPlantilla dtoPlantilla) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -11,7 +11,7 @@ public interface IBackoffice {
     
     public ArrayList<DTOPlantilla> ConsultarPlantillas();
     
-    public boolean CrearPlantilla(DTOPlantilla dtoPlantilla);
+    public int CrearPlantilla(DTOPlantilla dtoPlantilla);
     
     public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla);
     

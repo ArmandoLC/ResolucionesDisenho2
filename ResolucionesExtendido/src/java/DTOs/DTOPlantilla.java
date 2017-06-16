@@ -14,6 +14,17 @@ public class DTOPlantilla {
     public DTOPlantilla() {
     }
 
+    public DTOPlantilla(int nConsecutivo, String siglas, String introduccion, String resultado, String considerandos, String resulevo) {
+        this.nConsecutivo = nConsecutivo;
+        this.siglas = siglas;
+        this.introduccion = introduccion;
+        this.resultado = resultado;
+        this.considerandos = considerandos;
+        this.resulevo = resulevo;
+    }
+    
+    
+
     public int getnConsecutivo() {
         return nConsecutivo;
     }
@@ -54,7 +65,7 @@ public class DTOPlantilla {
         this.considerandos = considerandos;
     }
 
-    public String getResulevo() {
+    public String getResuelvo() {
         return resulevo;
     }
 

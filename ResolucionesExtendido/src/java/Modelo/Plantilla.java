@@ -70,7 +70,12 @@ public class Plantilla {
     public void setResuelvo(String resuelvo) {
         this.resuelvo = resuelvo;
     }
-   
+
+    @Override
+    public String toString() {
+        return "Plantilla{" + "nConsecutivo=" + nConsecutivo + ", siglas=" + siglas + ", introduccion=" + introduccion + ", resultado=" + resultado + ", considerandos=" + considerandos + ", resuelvo=" + resuelvo + '}';
+    }
+    
     
     
 }

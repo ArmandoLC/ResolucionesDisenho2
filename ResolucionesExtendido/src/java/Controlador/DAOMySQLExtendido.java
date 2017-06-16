@@ -6,13 +6,15 @@ import DTOs.DTOPlantilla;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import DTOs.DTOUsuario;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 
 public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
 
-    public DAOMySQLExtendido() {
-    }
     
     public DTOUsuario RealizarLogin(DTOLogin dtoLogin)
     {
@@ -21,12 +23,65 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
 
     @Override
     public ArrayList<DTOPlantilla> ConsultarPlantillas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+              
+        ResultSet rs;
+        ArrayList<DTOPlantilla> retorno = new ArrayList<>();
+        
+        try {
+            
+            CallableStatement conexionSP = obtenerConexionSP("{call consultarPlantillas()}");
+            
+            rs = conexionSP.executeQuery(); 
+
+            while (rs.next() )
+            {
+                retorno.add(new DTOPlantilla(   rs.getInt("idPlantilla"),
+                                                rs.getString("siglas"),
+                                                rs.getString("introduccion"),
+                                                rs.getString("resultado"),
+                                                rs.getString("considerandos"),
+                                                rs.getString("resuelvo")
+                                            ));
+            }
+        } 
+        catch (Exception e) 
+        {
+            return new ArrayList<>();
+        }
+  
+        return retorno;
     }
 
     @Override
-    public boolean CrearPlantilla(DTOPlantilla dtoPlantilla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int CrearPlantilla(DTOPlantilla dtoPlantilla) {      
+        
+        ResultSet rs; int lastID = -1;
+        
+        try {
+                       
+            CallableStatement conexionSP = obtenerConexionSP("{call registrarPlantilla(?,?,?,?,?)}");
+                        
+            
+            conexionSP.setString("siglas", dtoPlantilla.getSiglas());
+            conexionSP.setString("introduccion", dtoPlantilla.getIntroduccion());
+            conexionSP.setString("resultado", dtoPlantilla.getResultado());
+            conexionSP.setString("considerandos", dtoPlantilla.getConsiderandos());
+            conexionSP.setString("resuelvo", dtoPlantilla.getResuelvo());
+            
+            rs = conexionSP.executeQuery(); 
+
+            while (rs.next() )
+            {
+                lastID = rs.getInt("ultimoID");
+            }
+        } 
+        catch (Exception e) 
+        {
+            return -1;
+        }
+        return lastID;
+        
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -36,7 +91,25 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
 
     @Override
     public boolean ModificarPlantilla(DTOPlantilla dtoPlantilla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+                       
+            CallableStatement conexionSP = obtenerConexionSP("{call actualizarPlantilla(?,?,?,?,?,?)}");
+                        
+            conexionSP.setInt("nConsecutivo", dtoPlantilla.getnConsecutivo());
+            conexionSP.setString("siglas", dtoPlantilla.getSiglas());
+            conexionSP.setString("introduccion", dtoPlantilla.getIntroduccion());
+            conexionSP.setString("resultado", dtoPlantilla.getResultado());
+            conexionSP.setString("considerandos", dtoPlantilla.getConsiderandos());
+            conexionSP.setString("resuelvo", dtoPlantilla.getResuelvo());
+            
+            conexionSP.executeQuery(); 
+            
+            return true;
+        } 
+        catch (Exception e) 
+        {
+            return false;
+        }
     }
 
     @Override
@@ -53,5 +126,25 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
     public boolean CambiarContrasenha(DTOLogin dtoLogin) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    private CallableStatement obtenerConexionSP(String procAlmacenado) throws Exception {
+        
+        Class.forName("com.mysql.jdbc.Driver");
+        
+        conexion = DriverManager.getConnection(ruta, user, pass);            
+        return conexion.prepareCall(procAlmacenado);
+        
+    }
+    
+    public DAOMySQLExtendido() {
+        super();
+        setRutaConexion("jdbc:mysql://localhost:3306/resolucionesbd?useSSL=false");
+    }
+    
+    
+    private String user = "root"; 
+    private String pass = "1234";
+    private Connection conexion;
     
 }

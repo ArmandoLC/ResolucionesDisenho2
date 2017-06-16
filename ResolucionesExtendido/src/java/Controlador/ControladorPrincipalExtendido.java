@@ -17,17 +17,14 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     private IContrasenha proxyContrasenha;
 
     public ControladorPrincipalExtendido() {
-        super();
+        super(); // se cargan las premisas
         this.plantillas = new ArrayList<Plantilla>();
         this.daoBD = new DAOMySQLExtendido();
         this.proxyContrasenha = new ControlPermiso();
-        this.CargarPlantillas();
+        this.ConsultarPlantillas();
     }
     
-    public void CargarPlantillas()
-    {
-        // Escribir metodo
-    }
+    
     @Override
     public DTOUsuario RealizarLogin(DTOLogin dtoLogin) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -35,12 +32,35 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
     @Override
     public ArrayList<DTOPlantilla> ConsultarPlantillas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        ArrayList<DTOPlantilla> listPlantillas = new ArrayList<>();
+                
+        try {            
+            listPlantillas = daoBD.ConsultarPlantillas();            
+            this.plantillas = new ArrayList<>();
+            listPlantillas.forEach((DTOPlantilla) -> setPlantillas(DTOPlantilla));
+            
+        } catch (Exception e) {
+        }
+        
+        return listPlantillas;
     }
 
     @Override
-    public boolean CrearPlantilla(DTOPlantilla dtoPlantilla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int CrearPlantilla(DTOPlantilla dtoPlantilla) {
+        try {            
+            int lastID = daoBD.CrearPlantilla(dtoPlantilla);
+            
+            if (lastID != -1) 
+            {
+                dtoPlantilla.setnConsecutivo(lastID);
+                setPlantillas(dtoPlantilla);
+            }
+            return lastID;
+            
+        } catch (Exception e) {
+            return -1;
+        }
     }
 
     @Override
@@ -50,7 +70,16 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
     @Override
     public boolean ModificarPlantilla(DTOPlantilla dtoPlantilla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        boolean modificada = false;
+        try {
+            modificada = daoBD.ModificarPlantilla(dtoPlantilla);            
+            if (modificada) ConsultarPlantillas();
+            
+        } catch (Exception e) {
+            modificada = false;
+        }
+        return modificada;
     }
 
     @Override
@@ -68,5 +97,21 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    
+    private void setPlantillas(DTOPlantilla dtoPlantilla)
+    {
+        plantillas.add(new Plantilla(   dtoPlantilla.getnConsecutivo(),
+                                        dtoPlantilla.getSiglas(),
+                                        dtoPlantilla.getIntroduccion(),
+                                        dtoPlantilla.getResultado(),
+                                        dtoPlantilla.getConsiderandos(),
+                                        dtoPlantilla.getResuelvo()
+                                    ));
+    }
+    
+    public ArrayList<Plantilla> getPlantillas()
+    {
+        return plantillas;
+    }
     
 }

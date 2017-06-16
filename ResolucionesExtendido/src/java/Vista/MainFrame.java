@@ -1,20 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista;
 
-/**
- *
- * @author Andrey
- */
+import Controlador.ControladorPrincipalExtendido;
+import DTOs.DTOPlantilla;
+import Modelo.Plantilla;
+import java.util.ArrayList;
+
 public class MainFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainFrame
-     */
+  
     public MainFrame() {
+        
+        ControladorPrincipalExtendido ctrl = new ControladorPrincipalExtendido();        
+        
+        
+        DTOPlantilla dto = new DTOPlantilla(0, "IA", "intro 3", "resultado 3", "considerandos 3", "");
+        int lastID = ctrl.CrearPlantilla(dto);
+        System.out.println("LastID = " + lastID);
+        
+        ArrayList<Plantilla> p = ctrl.getPlantillas();        
+            
+        p.forEach((k) -> System.out.println(k.toString()));
+        
+        dto.setnConsecutivo(lastID);
+        dto.setIntroduccion("intro " + lastID);
+        dto.setResultado("resultado " + lastID);
+        dto.setResulevo("resuelvo " + lastID);
+        dto.setConsiderandos("considerandos " + lastID);
+      
+        ctrl.ModificarPlantilla(dto);
+        
+        System.out.println("---------------------------------------");
+        p = ctrl.getPlantillas();        
+            
+        p.forEach((k) -> System.out.println(k.toString()));
+        
+        
+                
+                
         initComponents();
     }
 
