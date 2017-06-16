@@ -13,13 +13,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DTOs.DTOSolicitud;
+import Vista.UIPaginaWeb;
+import java.sql.Date;
+
 /**
  *
  * @author Armando
  */
 @WebServlet(name = "servletRegistrarSolic", urlPatterns = {"/servletRegistrarSolic"})
 public class servletRegistrarSolic extends HttpServlet {
-
+    
+    private final UIPaginaWeb uiPaginaWeb = new UIPaginaWeb();
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,11 +41,11 @@ public class servletRegistrarSolic extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             /*Datos de la solicitud*/
-            String anho = request.getParameter("txtAnho");
+            Date anho = Date.valueOf(request.getParameter("txtAnho"));
             String modalidad = request.getParameter("selectModalidad");
             String periodo = request.getParameter("selectPeriodo");
             String codCurso = request.getParameter("selectCodigoCurso");
-            String grupo = request.getParameter("selectGrupo");
+            int grupo = Integer.parseInt(request.getParameter("selectGrupo"));
             String inconsistencia = request.getParameter("selectTipoIncons");
 
             /*Datos del Solicitante*/
@@ -51,9 +57,48 @@ public class servletRegistrarSolic extends HttpServlet {
             String nombreAfectado = request.getParameter("txtNombreAfectado");
             String correoAfectado = request.getParameter("txtCorreoAfectado");
             String telefonoAfectado = request.getParameter("txtTelefonoAfectado");
-
             
-            //response.sendRedirect("index.html");
+            /*Descripción del problema*/
+            String descProblema = request.getParameter("descProblema");
+            
+            
+             out.println("<!DOCTYPE html>");
+             out.println("<html>");
+             out.println("<head>");
+             out.println("<title>Servlet servletSolicitudes</title>");            
+             out.println("</head>");
+             out.println("<body>");
+             out.println("<h1>Año de la solicitud " + anho + "</h1>");
+             out.println("<h1>Año de la solicitud " + modalidad + "</h1>");
+             out.println("<h1>Año de la solicitud " + periodo + "</h1>");
+             out.println("<h1>Año de la solicitud " + codCurso + "</h1>");
+             out.println("<h1>Año de la solicitud " + grupo + "</h1>");
+             out.println("<h1>Año de la solicitud " + inconsistencia + "</h1>");
+             out.println("<h1>Año de la solicitud " + idSolicitante + "</h1>");
+             out.println("<h1>Año de la solicitud " + nombreSolictante + "</h1>");
+             out.println("<h1>Año de la solicitud " + idAfectado + "</h1>");
+             out.println("<h1>Año de la solicitud " + nombreAfectado + "</h1>");
+             out.println("<h1>Año de la solicitud " + correoAfectado + "</h1>");
+             out.println("<h1>Año de la solicitud " + telefonoAfectado + "</h1>");
+             out.println("<h1>Año de la solicitud " + descProblema + "</h1>");
+             out.println("</body>");
+             out.println("</html>");
+            
+            
+            
+            
+            /*Contrucción del DTOSolicitud que se envia para el registro*/
+            DTOSolicitud dtoSolicitud = new DTOSolicitud(0, anho, idSolicitante, nombreSolictante, periodo, codCurso, grupo, idAfectado, nombreAfectado, correoAfectado, telefonoAfectado, inconsistencia, descProblema, "", "Pendiente", "", 0);
+            
+            
+            /*Se procede a ejecutar el registro de la solicitud*/
+            /*if(uiPaginaWeb.RegistrarSolicitud(dtoSolicitud) != 0){
+                response.sendRedirect("index.html");    
+            }else{
+                response.sendRedirect("consultarSolicitud.html");
+            }*/
+            
+            
             
             
             

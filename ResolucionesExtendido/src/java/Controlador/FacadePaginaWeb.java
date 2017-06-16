@@ -13,16 +13,17 @@ public class FacadePaginaWeb extends Facade {
     
     public int RegistrarSolicitud(DTOSolicitud dtoSolicitud)
     {
-        return 0;
+        return super.ctrl.RegistrarSolicitud(dtoSolicitud);        
     }
     
     public DTOSolicitud ConsultarSolicitud(int nSolicitud)
-    {
+    {        
         return null;
     }
     
     public DTOResolucion ConsultarResolucion(int nSolicitud)
     {
+        super.ctrl.ConsultarResolucion(nSolicitud);
         return null;
     }
 }

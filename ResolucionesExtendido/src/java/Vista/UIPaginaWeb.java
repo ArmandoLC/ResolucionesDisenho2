@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.FacadePaginaWeb;
+import DTOs.DTOSolicitud;
 
 
 public class UIPaginaWeb {
@@ -12,9 +13,9 @@ public class UIPaginaWeb {
         this.facade = new FacadePaginaWeb();
     }   
     
-    public void RegistrarSolicitud()
+    public int RegistrarSolicitud(DTOSolicitud dtoSolicitud)
     {
-        
+        return facade.RegistrarSolicitud(dtoSolicitud);
     }
     
     public void ConsultarSolicitud()
