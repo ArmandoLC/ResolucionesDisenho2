@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOLogin;
 import DTOs.DTOPlantilla;
 import DTOs.DTOResolucion;
@@ -84,8 +85,8 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
             modificada = daoBD.ModificarPlantilla(dtoPlantilla);            
             if (modificada) ConsultarPlantillas();
             
+            modificada = true;
         } catch (Exception e) {
-            modificada = false;
         }
         return modificada;
     }
@@ -96,8 +97,19 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     }
 
     @Override
-    public boolean ModificarSolicitud(DTOSolicitud dtosolicitud) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean ModificarSolicitud(DTOEstadoSolicitud dtoEstadoSolicitud) {
+        
+        boolean modificada = false;
+        try {
+            modificada = daoBD.ModificarSolicitud(dtoEstadoSolicitud);            
+            if (modificada) ConsultarSolicitudes();
+            
+            modificada = true;
+            
+        } catch (Exception e) {
+        }
+        
+        return modificada;
     }
 
     @Override

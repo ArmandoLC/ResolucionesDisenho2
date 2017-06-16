@@ -2,6 +2,7 @@
 package Controlador;
 
 import DTOs.DTOCurso;
+import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOLogin;
 import DTOs.DTOPersona;
 import DTOs.DTOPlantilla;
@@ -47,7 +48,7 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
     }
 
     @Override
-    public boolean ModificarSolicitud(DTOSolicitud dtosolicitud) {
+    public boolean ModificarSolicitud(DTOEstadoSolicitud dtoEstadoSolicitud) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

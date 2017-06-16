@@ -19,7 +19,7 @@ public interface IBackoffice {
     
     public boolean ModificarResolucion(DTOResolucion dtoResolucion);
     
-    public boolean ModificarSolicitud(DTOSolicitud dtosolicitud);
+    public boolean ModificarSolicitud(DTOEstadoSolicitud dtoEstadoSolicitud);
     
     public boolean CambiarContrasenha(DTOLogin dtoLogin);
 }
