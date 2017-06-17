@@ -207,7 +207,7 @@ public class PanelSuperUsuario extends javax.swing.JPanel {
         lblDatosIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/iconoDatosPersonales.PNG"))); // NOI18N
         add(lblDatosIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, -1, -1));
 
-        lblIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/rolesIcono.png"))); // NOI18N
+        lblIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/rolesIcono.png"))); // NOI18N
         add(lblIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
 
         panelGeneral1.setBackground(new java.awt.Color(255, 255, 255));

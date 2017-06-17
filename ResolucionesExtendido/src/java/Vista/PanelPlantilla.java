@@ -35,7 +35,7 @@ public class PanelPlantilla extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/logo2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/logo2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 293, 124));
 

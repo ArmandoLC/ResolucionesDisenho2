@@ -28,28 +28,27 @@ public class PanelGeneral extends javax.swing.JPanel {
     private void initComponents() {
 
         lblIcono = new javax.swing.JLabel();
-        lblNegro = new javax.swing.JLabel();
+        lblHeader = new javax.swing.JLabel();
         lblBlanco = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/logo2.png"))); // NOI18N
-        lblIcono.setText("jLabel1");
-        add(lblIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 280, 80));
+        lblIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/logo2.png"))); // NOI18N
+        add(lblIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 330, 90));
 
-        lblNegro.setBackground(new java.awt.Color(0, 0, 0));
-        lblNegro.setOpaque(true);
-        add(lblNegro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 110));
+        lblHeader.setBackground(new java.awt.Color(0, 0, 0));
+        lblHeader.setOpaque(true);
+        add(lblHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 110));
 
         lblBlanco.setBackground(new java.awt.Color(255, 255, 255));
         lblBlanco.setOpaque(true);
-        add(lblBlanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1350, 620));
+        add(lblBlanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1400, 730));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblBlanco;
+    private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblIcono;
-    private javax.swing.JLabel lblNegro;
     // End of variables declaration//GEN-END:variables
 }

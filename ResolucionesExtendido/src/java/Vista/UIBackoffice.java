@@ -105,6 +105,7 @@ public class UIBackoffice {
     {
         try
         {
+            // Verificar si las dos contrasenhas coinciden
             String pass = vOffice.getPanelSuper().getTxtPassword().getText();
             String passRP = vOffice.getPanelSuper().getTxtPasswordRp().getText();
             
@@ -117,6 +118,7 @@ public class UIBackoffice {
                 return;
             }
             
+            // Crear el DTO para enviar los datos
             DTORegistroUsuario dto = new DTORegistroUsuario();
             
             dto.setId(vOffice.getPanelSuper().getTxtID().getText());
@@ -139,7 +141,10 @@ public class UIBackoffice {
         }
         catch (Exception e)
         {
-            
+            JOptionPane.showMessageDialog(vOffice, 
+                        "Alguno de los datos no tiene el formato correcto.", 
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }
 }

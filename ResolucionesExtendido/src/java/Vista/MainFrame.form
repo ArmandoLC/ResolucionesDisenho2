@@ -32,7 +32,7 @@
     <Component class="javax.swing.JButton" name="btWeb">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Vista/iconoWeb.jpg"/>
+          <Image iconType="3" name="/Vista/Iconos/iconoWeb.jpg"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&#xa;&#x9;&lt;p&gt;Se pueden registrar y ver solicitudes&lt;/p&gt;&#xa;&#x9;&lt;p&gt;o resoluciones con el identificador.&lt;/p&gt;&#xa;&#xa;&lt;/html&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -51,7 +51,7 @@
     <Component class="javax.swing.JButton" name="Backoffice">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Vista/iconoBackoffice.jpg"/>
+          <Image iconType="3" name="/Vista/Iconos/iconoBackoffice.jpg"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&#xa;&#x9;&lt;p&gt;Permite realizar funcionalidades distintas&lt;/p&gt;&#xa;&#x9;&lt;p&gt;dependiendo del rol de la cuenta con la que&lt;/p&gt;&#xa;&#x9;&lt;p&gt;el usuario ingresa al sistema.&lt;/p&gt;&#xa;&#xa;&lt;/html&gt;"/>
       </Properties>

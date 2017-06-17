@@ -37,7 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("Selección de Sistema");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btWeb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconoWeb.jpg"))); // NOI18N
+        btWeb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/iconoWeb.jpg"))); // NOI18N
         btWeb.setToolTipText("<html>\n\n\t<p>Se pueden registrar y ver solicitudes</p>\n\t<p>o resoluciones con el identificador.</p>\n\n</html>");
         btWeb.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btWeb.addActionListener(new java.awt.event.ActionListener() {
@@ -47,7 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         getContentPane().add(btWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 110, -1));
 
-        Backoffice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconoBackoffice.jpg"))); // NOI18N
+        Backoffice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/iconoBackoffice.jpg"))); // NOI18N
         Backoffice.setToolTipText("<html>\n\n\t<p>Permite realizar funcionalidades distintas</p>\n\t<p>dependiendo del rol de la cuenta con la que</p>\n\t<p>el usuario ingresa al sistema.</p>\n\n</html>");
         Backoffice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
