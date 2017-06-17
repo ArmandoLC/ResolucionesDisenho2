@@ -10,6 +10,8 @@ import DTOs.DTOSolicitud;
 import DTOs.DTOUsuario;
 import Enums.Recurso;
 import Modelo.Plantilla;
+import Modelo.Resolucion;
+import Modelo.Solicitud;
 import java.util.ArrayList;
 
 
@@ -183,5 +185,5 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         }
         return null;
     }
-    
+            
 }

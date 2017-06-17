@@ -5,8 +5,12 @@
  */
 package servlet;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Properties;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,16 +37,13 @@ public class servletResoluciones extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet servletResoluciones</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet servletResoluciones at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            Properties prop = new Properties();
+            prop.load(getServletContext().getResourceAsStream("/WEB-INF/PropertiesFile.properties"));
+            
+            //String x = getServletContext().getRealPath("WEB-INF\\PropertiesFile.properties");
+            //FileInputStream file = new FileInputStream(new File(getServletContext().getRealPath("WEB-INF\\PropertiesFile.properties")));
+            
         }
     }
 

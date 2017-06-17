@@ -5,6 +5,7 @@ import Controlador.FacadePaginaWeb;
 import Controlador.IConsultaSolicitud;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
+import java.util.Properties;
 
 
 public class UIPaginaWeb implements IConsultaSolicitud{
@@ -27,7 +28,7 @@ public class UIPaginaWeb implements IConsultaSolicitud{
     }
 
     @Override
-    public DTOResolucion ConsultarResolucion(int nSolicitud) {
-        return facade.ConsultarResolucion(nSolicitud);
+    public DTOResolucion ConsultarResolucion(int nSolicitud, Properties prop) {
+        return facade.ConsultarScriptResolucion(nSolicitud, prop);
     }
 }
