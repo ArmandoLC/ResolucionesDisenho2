@@ -10,7 +10,7 @@ public class DialogFiltrarSolicitudEstudiante extends javax.swing.JDialog {
     public DialogFiltrarSolicitudEstudiante(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();        
-        uibackoffice = new UIBackoffice((BackofficeTools) parent);
+        uibackoffice = new UIBackoffice((HerramientasBackoffice) parent);
         this.setTitle("Filtro de solicitudes");
         setLocationRelativeTo(null);
     }

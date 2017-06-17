@@ -16,12 +16,12 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-public class UIBackoffice extends BackofficeTools{
+public class UIBackoffice extends HerramientasBackoffice{
 
     private static FacadeBackoffice facade = new FacadeBackoffice();
     private final Backoffice backoffice;
     
-    public UIBackoffice(BackofficeTools backoffice){
+    public UIBackoffice(HerramientasBackoffice backoffice){
         this.backoffice = (Backoffice) backoffice;
     }
    

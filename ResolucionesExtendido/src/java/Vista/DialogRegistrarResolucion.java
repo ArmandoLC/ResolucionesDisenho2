@@ -46,7 +46,7 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
-        uibackoffice = new UIBackoffice((BackofficeTools) parent);
+        uibackoffice = new UIBackoffice((HerramientasBackoffice) parent);
         txtEditor.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         
         txtEditor.setText(introduccion);

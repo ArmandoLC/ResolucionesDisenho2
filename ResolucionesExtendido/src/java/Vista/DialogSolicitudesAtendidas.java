@@ -9,7 +9,7 @@ public class DialogSolicitudesAtendidas extends javax.swing.JDialog {
     public DialogSolicitudesAtendidas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        uibackoffice = new UIBackoffice(((BackofficeTools) parent));
+        uibackoffice = new UIBackoffice(((HerramientasBackoffice) parent));
         uibackoffice.ConsultarSolicitudesAtendidas(this);
         setLocationRelativeTo(null);
         

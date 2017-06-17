@@ -13,7 +13,7 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
     public DialogDetallesSolicitud(java.awt.Frame parent, boolean modal, DTOSolicitud solicitud) {
         super(parent, modal);
         initComponents();
-        this.uibackoffice = new UIBackoffice((BackofficeTools) parent);
+        this.uibackoffice = new UIBackoffice((HerramientasBackoffice) parent);
         this.solicitud = solicitud;
         llenarCampos();
         setLocationRelativeTo(null);

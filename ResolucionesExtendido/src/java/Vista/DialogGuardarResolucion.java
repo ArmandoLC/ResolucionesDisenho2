@@ -18,7 +18,7 @@ public class DialogGuardarResolucion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setFormatos();
-        uibackoffice = new UIBackoffice((BackofficeTools) parent);
+        uibackoffice = new UIBackoffice((HerramientasBackoffice) parent);
         this.solicitud = solicitud;
         setLocationRelativeTo(null);
     }

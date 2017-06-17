@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 
-public class BackofficeTools extends JFrame {
+public class HerramientasBackoffice extends JFrame {
     
     protected TableModelSolicitud tabModelSolicitudes;
     

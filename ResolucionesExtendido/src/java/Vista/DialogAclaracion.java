@@ -12,11 +12,11 @@ public class DialogAclaracion extends javax.swing.JDialog {
 
     public DialogAclaracion(java.awt.Frame parent, boolean modal, DTOSolicitud solicitud) {
         super(parent, modal);
-        this.uibackoffice = new UIBackoffice((BackofficeTools)parent);
+        this.uibackoffice = new UIBackoffice((HerramientasBackoffice)parent);
         this.solicitud = solicitud;
         initComponents();
         initVariables();
-        uibackoffice = new UIBackoffice(((BackofficeTools) parent));
+        uibackoffice = new UIBackoffice(((HerramientasBackoffice) parent));
         setLocationRelativeTo(null);
     }
     

@@ -3,6 +3,7 @@ package Vista;
 import DTOs.DTOSolicitud;
 import Enums.Estado;
 import java.awt.Dialog;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -14,8 +15,9 @@ import javax.swing.JDialog;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import org.jdesktop.swingx.JXDatePicker;
+import org.jdesktop.swingx.JXHyperlink;
 
-public class Backoffice extends BackofficeTools{
+public class Backoffice extends HerramientasBackoffice{
     
     private JPopupMenu popup;
     private UIBackoffice uibackoffice = new UIBackoffice(this);;
@@ -25,11 +27,26 @@ public class Backoffice extends BackofficeTools{
         initComponents();
         initVariables();
         initConsultaSolicitudes();
+        
+        Font f = new Font("Verdana", 0, 20);
+        //new java.awt.Font("Verdana", 0, 16)
+        linkEstadisticas.setFont(f);
+        linkReporteSolicitudes.setFont(f);
+        linkRegistroSolic.setFont(f);
     }
     
     private void initConsultaSolicitudes(){
         uibackoffice.ConsultarSolicitudes();
     }
+
+    public JXHyperlink getLinkEstadisticas() {
+        return linkEstadisticas;
+    }
+
+    public JXHyperlink getLinkReporteSolicitudes() {
+        return linkReporteSolicitudes;
+    }
+    
     
     private void initVariables(){
         initModel(tabSolicitudes);
@@ -130,64 +147,60 @@ public class Backoffice extends BackofficeTools{
     private void initComponents() {
 
         busyPainter1 = new org.jdesktop.swingx.painter.BusyPainter();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         panelFondo = new javax.swing.JPanel();
         cbEstado = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        btnRegistrarSolicitud = new javax.swing.JButton();
         dpDesde = new org.jdesktop.swingx.JXDatePicker();
         dpHasta = new org.jdesktop.swingx.JXDatePicker();
-        linkEstadisticas = new org.jdesktop.swingx.JXHyperlink();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblDesde = new javax.swing.JLabel();
+        lblHasta = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabSolicitudes = new org.jdesktop.swingx.JXTable();
         linkReporteSolicitudes = new org.jdesktop.swingx.JXHyperlink();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        mitemInconsistencia = new javax.swing.JMenuItem();
-        mitemConsultarSolicitudEstudiante = new javax.swing.JMenuItem();
-        mitemSalir = new javax.swing.JMenuItem();
+        lblTitulo = new javax.swing.JLabel();
+        lblIconoAdminSolic = new javax.swing.JLabel();
+        linkRegistroSolic = new org.jdesktop.swingx.JXHyperlink();
+        linkEstadisticas = new org.jdesktop.swingx.JXHyperlink();
+        pnlFondo = new Vista.PanelGeneral();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelFondo.setBackground(new java.awt.Color(255, 255, 255));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cbEstado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         cbEstado.setToolTipText("Filtrar las solicitudes por estado");
         cbEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbEstadoActionPerformed(evt);
             }
         });
-        panelFondo.add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 455, 159, -1));
+        panelFondo.add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 159, -1));
 
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel1.setText("Filtrar por estado:");
-        panelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 458, -1, -1));
+        panelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
+        panelFondo.add(dpDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
-        btnRegistrarSolicitud.setText("Registrar");
-        btnRegistrarSolicitud.setToolTipText("Registro de solicitudes");
-        btnRegistrarSolicitud.addActionListener(new java.awt.event.ActionListener() {
+        dpHasta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarSolicitudActionPerformed(evt);
+                dpHastaActionPerformed(evt);
             }
         });
-        panelFondo.add(btnRegistrarSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(831, 455, 133, -1));
-        panelFondo.add(dpDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 27, -1, -1));
-        panelFondo.add(dpHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 27, -1, -1));
+        panelFondo.add(dpHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
-        linkEstadisticas.setText("Estadísticas");
-        linkEstadisticas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                linkEstadisticasActionPerformed(evt);
-            }
-        });
-        panelFondo.add(linkEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(897, 31, -1, -1));
+        lblDesde.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        lblDesde.setText("Desde:");
+        panelFondo.add(lblDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 31, -1, -1));
 
-        jLabel2.setText("Desde:");
-        panelFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 31, -1, -1));
-
-        jLabel3.setText("Hasta:");
-        panelFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 31, -1, -1));
+        lblHasta.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        lblHasta.setText("Hasta:");
+        panelFondo.add(lblHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
 
         tabSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -202,56 +215,50 @@ public class Backoffice extends BackofficeTools{
         ));
         jScrollPane1.setViewportView(tabSolicitudes);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 64, 937, 378));
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 64, 1060, 378));
 
         linkReporteSolicitudes.setText("Reporte de solicitudes según las fechas indicadas");
+        linkReporteSolicitudes.setClickedColor(new java.awt.Color(0, 51, 255));
         linkReporteSolicitudes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 linkReporteSolicitudesActionPerformed(evt);
             }
         });
-        panelFondo.add(linkReporteSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 31, -1, -1));
+        panelFondo.add(linkReporteSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
 
-        jMenu1.setText("Principal");
+        getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 1120, 499));
 
-        mitemInconsistencia.setText("Registrar inconsistencia");
-        mitemInconsistencia.addActionListener(new java.awt.event.ActionListener() {
+        lblTitulo.setFont(new java.awt.Font("Verdana", 1, 28)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(240, 0, 0));
+        lblTitulo.setText("Administración de Solicitudes");
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
+
+        lblIconoAdminSolic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/adminSolicIcon.jpg"))); // NOI18N
+        getContentPane().add(lblIconoAdminSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
+
+        linkRegistroSolic.setForeground(new java.awt.Color(255, 255, 255));
+        linkRegistroSolic.setText("Registrar Solicitud");
+        linkRegistroSolic.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkRegistroSolic.setUnclickedColor(new java.awt.Color(255, 255, 255));
+        linkRegistroSolic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitemInconsistenciaActionPerformed(evt);
+                linkRegistroSolicActionPerformed(evt);
             }
         });
-        jMenu1.add(mitemInconsistencia);
+        getContentPane().add(linkRegistroSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 70, -1, 20));
+        linkRegistroSolic.getAccessibleContext().setAccessibleName("Registrar Solicitud");
 
-        mitemConsultarSolicitudEstudiante.setText("Consultar solicitudes estudiante");
-        mitemConsultarSolicitudEstudiante.addActionListener(new java.awt.event.ActionListener() {
+        linkEstadisticas.setForeground(new java.awt.Color(255, 255, 255));
+        linkEstadisticas.setText("Estadísticas");
+        linkEstadisticas.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkEstadisticas.setUnclickedColor(new java.awt.Color(255, 255, 255));
+        linkEstadisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitemConsultarSolicitudEstudianteActionPerformed(evt);
+                linkEstadisticasActionPerformed(evt);
             }
         });
-        jMenu1.add(mitemConsultarSolicitudEstudiante);
-
-        mitemSalir.setText("Salir");
-        mitemSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitemSalirActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mitemSalir);
-
-        jMenuBar1.add(jMenu1);
-
-        setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
-        );
+        getContentPane().add(linkEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 70, -1, 20));
+        getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -261,52 +268,41 @@ public class Backoffice extends BackofficeTools{
         dialog.setVisible(true);
     }//GEN-LAST:event_linkEstadisticasActionPerformed
 
-    private void mitemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitemSalirActionPerformed
-        java.lang.System.exit(0);
-    }//GEN-LAST:event_mitemSalirActionPerformed
-
-    private void mitemInconsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitemInconsistenciaActionPerformed
-        JDialog dialog = new DialogInconsistencia(this, true);
-        dialog.setVisible(true);
-    }//GEN-LAST:event_mitemInconsistenciaActionPerformed
-
     private void linkReporteSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkReporteSolicitudesActionPerformed
         JDialog dialog = new DialogSolicitudesAtendidas(this, true);
         dialog.setVisible(true);
     }//GEN-LAST:event_linkReporteSolicitudesActionPerformed
 
-    private void btnRegistrarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSolicitudActionPerformed
-        JDialog dialog = new DialogRegistrarSolicitud(this, true);
-        dialog.setVisible(true);
-    }//GEN-LAST:event_btnRegistrarSolicitudActionPerformed
-
     private void cbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbEstadoActionPerformed
 
-    private void mitemConsultarSolicitudEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitemConsultarSolicitudEstudianteActionPerformed
-        JDialog dialog = new DialogFiltrarSolicitudEstudiante(this, true);
+    private void dpHastaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dpHastaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dpHastaActionPerformed
+
+    private void linkRegistroSolicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkRegistroSolicActionPerformed
+        JDialog dialog = new DialogRegistrarSolicitud(this, true);
         dialog.setVisible(true);
-    }//GEN-LAST:event_mitemConsultarSolicitudEstudianteActionPerformed
+    }//GEN-LAST:event_linkRegistroSolicActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrarSolicitud;
     private org.jdesktop.swingx.painter.BusyPainter busyPainter1;
     private javax.swing.JComboBox<String> cbEstado;
     private org.jdesktop.swingx.JXDatePicker dpDesde;
     private org.jdesktop.swingx.JXDatePicker dpHasta;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblDesde;
+    private javax.swing.JLabel lblHasta;
+    private javax.swing.JLabel lblIconoAdminSolic;
+    private javax.swing.JLabel lblTitulo;
     private org.jdesktop.swingx.JXHyperlink linkEstadisticas;
+    private org.jdesktop.swingx.JXHyperlink linkRegistroSolic;
     private org.jdesktop.swingx.JXHyperlink linkReporteSolicitudes;
-    private javax.swing.JMenuItem mitemConsultarSolicitudEstudiante;
-    private javax.swing.JMenuItem mitemInconsistencia;
-    private javax.swing.JMenuItem mitemSalir;
     private javax.swing.JPanel panelFondo;
+    private Vista.PanelGeneral pnlFondo;
     private org.jdesktop.swingx.JXTable tabSolicitudes;
     // End of variables declaration//GEN-END:variables
 
