@@ -8,6 +8,7 @@ import DTOs.DTORegistroUsuario;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import DTOs.DTOUsuario;
+import Enums.Interpretacion;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -115,7 +116,7 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
     }
 
     @Override
-    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla) {
+    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

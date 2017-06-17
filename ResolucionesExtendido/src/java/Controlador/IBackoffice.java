@@ -4,6 +4,8 @@ package Controlador;
 import DTOs.*;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
+import Enums.Interpretacion;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -13,7 +15,7 @@ public interface IBackoffice {
     
     public int CrearPlantilla(DTOPlantilla dtoPlantilla);
     
-    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla);
+    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla, DTOSolicitud dtoSolicitud, Interpretacion estrategia);
     
     public boolean ModificarPlantilla(DTOPlantilla dtoPlantilla);
     

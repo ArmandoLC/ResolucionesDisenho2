@@ -11,6 +11,7 @@ import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import Enums.Estado;
 import Enums.Formato;
+import Enums.Interpretacion;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,9 +35,11 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
     }
 
     @Override
-    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla) {
+    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
 
     @Override
     public boolean ModificarPlantilla(DTOPlantilla dtoPlantilla) {
