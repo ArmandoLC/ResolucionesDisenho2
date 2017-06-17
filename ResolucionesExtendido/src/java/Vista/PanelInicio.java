@@ -4,7 +4,7 @@ package Vista;
 
 public class PanelInicio extends javax.swing.JFrame {
 
-    private Backoffice dashboard;
+    private DashboardSimple dashboard;
     
     public PanelInicio() {
         initComponents();

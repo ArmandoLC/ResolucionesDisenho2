@@ -25,12 +25,12 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
     
     @Override
     public ArrayList<DTOPlantilla> ConsultarPlantillas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarPlantillas();
     }
 
     @Override
     public int CrearPlantilla(DTOPlantilla dtoPlantilla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.CrearPlantilla(dtoPlantilla);
     }
 
     @Override
@@ -40,117 +40,117 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
 
     @Override
     public boolean ModificarPlantilla(DTOPlantilla dtoPlantilla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ModificarPlantilla(dtoPlantilla);
     }
 
     @Override
     public boolean ModificarResolucion(DTOResolucion dtoResolucion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ModificarResolucion(dtoResolucion);
     }
 
     @Override
     public boolean ModificarSolicitud(DTOEstadoSolicitud dtoEstadoSolicitud) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ModificarSolicitud(dtoEstadoSolicitud);
     }
 
     @Override
     public boolean CambiarContrasenha(DTOLogin dtoLogin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.CambiarContrasenha(dtoLogin);
     }
 
     @Override
     public ArrayList<DTOSolicitud> ConsultarSolicitudes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarSolicitudes();
     }
 
     @Override
     public int RegistrarSolicitud(DTOSolicitud dtos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.RegistrarSolicitud(dtos);
     }
 
     @Override
     public DTOCurso ConsultarCurso(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarCurso(i);
     }
 
     @Override
     public ArrayList<DTOCurso> ConsultarCursos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarCursos();
     }
 
     @Override
     public ArrayList<String> ConsultarInconsistencias() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarInconsistencias();
     }
 
     @Override
     public ArrayList<Integer> ConsultarGrupos(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarGrupos(string);
     }
 
     @Override
     public ArrayList<DTOSolicitud> consultarSolicitudesEstudiante(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.consultarSolicitudesEstudiante(string);
     }
 
     @Override
     public boolean RegistrarInconsistencia(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.RegistrarInconsistencia(string);
     }
 
     @Override
     public ArrayList<DTOSolicitud> ConsultarSolicitudes(Estado estado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarSolicitudes(estado);
     }
 
     @Override
     public boolean RegistrarSolicitudes(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.RegistrarSolicitudes(string);
     }
 
     @Override
     public boolean TramitarSolicitud(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.TramitarSolicitud(i);
     }
 
     @Override
     public boolean AnularSolicitud(int i, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.AnularSolicitud(i, string);
     }
 
     @Override
     public boolean RegistrarResolucion(DTOResolucion dtor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.RegistrarResolucion(dtor);
     }
 
     @Override
     public DTOResolucion ConsultarResolucion(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarResolucion(i);
     }
 
     @Override
     public boolean GuardarResolucion(int i, Formato frmt, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.GuardarResolucion(i, frmt, string);
     }
 
     @Override
     public DTOPersona ConsultarProfesor(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarProfesor(i);
     }
 
     @Override
     public ArrayList<DTOSolicitud> ConsultarSolicitudesAtendidas(Date date, Date date1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarSolicitudesAtendidas(date, date);
     }
 
     @Override
     public ArrayList<DTOPersona> ConsultarTopProfesores(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarTopProfesores(i);
     }
 
     @Override
     public ArrayList<DTOCurso> ConsultarTopCursos(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.ConsultarTopCursos(i);
     }
 
     @Override
