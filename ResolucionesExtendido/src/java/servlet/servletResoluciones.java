@@ -98,9 +98,14 @@ public class servletResoluciones extends HttpServlet {
             out.println("<h3 class=\"head-line\"><span class=\"cGris fa-2x\"><i class=\"fa fa-list-alt\" aria-hidden=\"true\"></i></span> Consulta de Resoluciones<span ></span> </h3>");
             out.println("<h3 >"+msj+"</h3>");
             out.println("</div></div></div>");
-
-            out.println("</form>");
+            out.println("</form>");            
+            
+            out.println("<div class=\"container\" >");
+            out.println("<div class=\"row\">");
+            out.println("<div class=\"col-md-12 marginTop2\">");
             out.println(scriptHTML);
+            out.println("</div></div></div>");
+            
 
             out.println("<script src=\"assets/js/jquery-1.11.1.js\"></script>");
             out.println("<script src=\"assets/js/bootstrap.js\"></script>");
@@ -112,7 +117,7 @@ public class servletResoluciones extends HttpServlet {
             out.println("<script src=\"assets/js/custom.js\"></script>");
             out.println("</body>");
             out.println("</html>");
-            out.println(scriptHTML);
+            
 
         }
     }

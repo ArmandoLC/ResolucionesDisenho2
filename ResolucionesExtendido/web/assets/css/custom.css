@@ -42,7 +42,12 @@ body {
     }
     
     
-    
+.fondoGris{
+    background-color: #777;
+}
+.paddingAll{
+    padding: 10px;
+}
 .marginTop{
     margin-top: 10px;
 }
