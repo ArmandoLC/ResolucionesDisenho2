@@ -7,6 +7,7 @@ package Controlador;
 
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
+import java.util.Properties;
 
 /**
  *
@@ -18,5 +19,5 @@ public interface IConsultaSolicitud {
 
     public DTOSolicitud ConsultarSolicitud(int nSolicitud);
 
-    public DTOResolucion ConsultarResolucion(int nSolicitud);
+    public DTOResolucion ConsultarResolucion(int nSolicitud, Properties prop);
 }

@@ -24,8 +24,8 @@ public class FacadePaginaWeb extends Facade implements IConsultaSolicitud{
     }
     
     @Override
-    public DTOResolucion ConsultarResolucion(int nSolicitud)
+    public DTOResolucion ConsultarResolucion(int nSolicitud, Properties prop)
     {
-        return super.ctrl.ConsultarResolucion(nSolicitud);
+        return ctrl.ConsultarScriptResolucion(nSolicitud, prop);
     }
 }

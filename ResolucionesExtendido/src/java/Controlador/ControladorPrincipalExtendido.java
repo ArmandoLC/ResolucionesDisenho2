@@ -10,6 +10,8 @@ import DTOs.DTOSolicitud;
 import DTOs.DTOUsuario;
 import Enums.Recurso;
 import Modelo.Plantilla;
+import Modelo.Resolucion;
+import Modelo.Solicitud;
 import java.util.ArrayList;
 
 
@@ -172,8 +174,8 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
     @Override
     public DTOSolicitud ConsultarSolicitud(int nSolicitud) {
-        
-        DAOMySQL DB = (DAOMySQL) getFactorySolicitudes().CrearDAOSolicitud(Recurso.MySQL);
+        FactoryDAOSolicitud factoryDAOSolicitud = getFactorySolicitudes();
+        DAOMySQL DB = (DAOMySQL) factoryDAOSolicitud.CrearDAOSolicitud(Recurso.MySQL);
         ArrayList<DTOSolicitud> dtoSolicitudes = DB.ConsultarSolicitudes();
         
         for (DTOSolicitud dto : dtoSolicitudes) {
@@ -183,5 +185,5 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         }
         return null;
     }
-    
+            
 }
