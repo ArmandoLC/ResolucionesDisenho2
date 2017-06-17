@@ -68,9 +68,9 @@ public class MainFrame extends javax.swing.JFrame {
         lblPaginaWeb.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lblPaginaWeb.setText("Página Web");
         getContentPane().add(lblPaginaWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
-        getContentPane().add(panelPlantilla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 410));
+        getContentPane().add(panelPlantilla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 430));
 
-        setBounds(0, 0, 608, 457);
+        setBounds(0, 0, 608, 478);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btWebActionPerformed
