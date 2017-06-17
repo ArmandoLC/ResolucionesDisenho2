@@ -49,6 +49,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         Backoffice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconoBackoffice.jpg"))); // NOI18N
         Backoffice.setToolTipText("<html>\n\n\t<p>Permite realizar funcionalidades distintas</p>\n\t<p>dependiendo del rol de la cuenta con la que</p>\n\t<p>el usuario ingresa al sistema.</p>\n\n</html>");
+        Backoffice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackofficeActionPerformed(evt);
+            }
+        });
         getContentPane().add(Backoffice, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 110, -1));
 
         lblIngresarA.setFont(new java.awt.Font("Verdana", 3, 22)); // NOI18N
@@ -71,6 +76,19 @@ public class MainFrame extends javax.swing.JFrame {
     private void btWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btWebActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btWebActionPerformed
+
+    private void BackofficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackofficeActionPerformed
+        try
+        {
+           LoginFrame vLogin = new LoginFrame();
+           vLogin.setVisible(true);
+           this.setVisible(false);
+        }
+        catch (Exception e)
+        {
+            
+        }
+    }//GEN-LAST:event_BackofficeActionPerformed
 
     /**
      * @param args the command line arguments

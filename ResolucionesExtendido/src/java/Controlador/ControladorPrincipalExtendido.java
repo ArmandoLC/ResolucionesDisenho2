@@ -13,6 +13,7 @@ import Modelo.Plantilla;
 import Modelo.Resolucion;
 import Modelo.Solicitud;
 import java.util.ArrayList;
+import java.util.Properties;
 
 
 public class ControladorPrincipalExtendido extends ControladorPrincipal implements ILogin, IBackoffice, IConsultaSolicitud{
@@ -184,6 +185,11 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
             }
         }
         return null;
+    }
+
+    @Override
+    public DTOResolucion ConsultarResolucion(int nSolicitud, Properties prop) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
             
 }

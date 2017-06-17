@@ -73,7 +73,7 @@ public class LoginFrame extends javax.swing.JFrame {
         lblIniciarSesion.setText("Inicio de Sesión");
         getContentPane().add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
         getContentPane().add(txtContrasenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 262, 180, 30));
-        getContentPane().add(panelPlantilla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 420));
+        getContentPane().add(panelPlantilla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
