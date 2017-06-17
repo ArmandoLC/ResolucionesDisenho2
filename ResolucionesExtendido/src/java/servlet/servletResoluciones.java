@@ -102,7 +102,7 @@ public class servletResoluciones extends HttpServlet {
             
             out.println("<div class=\"container\" >");
             out.println("<div class=\"row\">");
-            out.println("<div class=\"col-md-12 marginTop2\">");
+            out.println("<div class=\"marginTop2\">");
             out.println(scriptHTML);
             out.println("</div></div></div>");
             
