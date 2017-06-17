@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import Vista.UIPaginaWeb;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -23,7 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "servletResoluciones", urlPatterns = {"/servletResoluciones"})
 public class servletResoluciones extends HttpServlet {
-
+    
+    private final UIPaginaWeb uiPaginaWeb = new UIPaginaWeb();
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,11 +41,18 @@ public class servletResoluciones extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            int nSolicitud = Integer.parseInt(request.getParameter("txtIDSolicitud"));
+            
             Properties prop = new Properties();
             prop.load(getServletContext().getResourceAsStream("/WEB-INF/PropertiesFile.properties"));
             
             //String x = getServletContext().getRealPath("WEB-INF\\PropertiesFile.properties");
             //FileInputStream file = new FileInputStream(new File(getServletContext().getRealPath("WEB-INF\\PropertiesFile.properties")));
+            
+            String scriptHTML = uiPaginaWeb.ConsultarScriptResolucion(nSolicitud, prop);
+            
+            out.println(scriptHTML);
+            
             
         }
     }

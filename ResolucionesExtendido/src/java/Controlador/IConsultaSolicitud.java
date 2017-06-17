@@ -19,5 +19,5 @@ public interface IConsultaSolicitud {
 
     public DTOSolicitud ConsultarSolicitud(int nSolicitud);
 
-    public DTOResolucion ConsultarResolucion(int nSolicitud, Properties prop);
+    public String ConsultarScriptResolucion(int nSolicitud, Properties prop);
 }
