@@ -28,7 +28,7 @@ public class UIPaginaWeb implements IConsultaSolicitud{
     }
 
     @Override
-    public DTOResolucion ConsultarResolucion(int nSolicitud, Properties prop) {
+    public String ConsultarScriptResolucion(int nSolicitud, Properties prop) {
         return facade.ConsultarScriptResolucion(nSolicitud, prop);
     }
 }

@@ -3,6 +3,7 @@ package Controlador;
 
 import DTOs.DTOSolicitud;
 import DTOs.DTOResolucion;
+import java.util.Properties;
 
 
 public class FacadePaginaWeb extends Facade implements IConsultaSolicitud{
@@ -24,7 +25,7 @@ public class FacadePaginaWeb extends Facade implements IConsultaSolicitud{
     }
     
     @Override
-    public DTOResolucion ConsultarResolucion(int nSolicitud, Properties prop)
+    public String ConsultarScriptResolucion(int nSolicitud, Properties prop)
     {
         return ctrl.ConsultarScriptResolucion(nSolicitud, prop);
     }
