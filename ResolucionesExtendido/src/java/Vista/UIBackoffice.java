@@ -2,7 +2,9 @@
 package Vista;
 
 import Controlador.FacadeBackoffice;
+import DTOs.DTORegistroUsuario;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 
 public class UIBackoffice {
@@ -97,5 +99,47 @@ public class UIBackoffice {
     public void CambiarContrasenha(JDialog pdialog)
     {
         
+    }
+    
+    public void RegistrarUsuario(Backoffice vOffice)
+    {
+        try
+        {
+            String pass = vOffice.getPanelSuper().getTxtPassword().getText();
+            String passRP = vOffice.getPanelSuper().getTxtPasswordRp().getText();
+            
+            if (!(pass.equals(passRP)))
+            {
+                JOptionPane.showMessageDialog(vOffice, 
+                        "Las contraseñas no coinciden.", 
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            DTORegistroUsuario dto = new DTORegistroUsuario();
+            
+            dto.setId(vOffice.getPanelSuper().getTxtID().getText());
+            dto.setNombre(vOffice.getPanelSuper().getTxtNombre().getText());
+            dto.setCorreo(vOffice.getPanelSuper().getTxtCorreo().getText());
+            dto.setTelefono(vOffice.getPanelSuper().getTxtTelefono().getText());
+            dto.setNombreUsuario(vOffice.getPanelSuper().getTxtUsuario().getText());
+            dto.setTipoUsuario(vOffice.getPanelSuper().getCbRol().getSelectedItem().toString());
+            dto.setContrasenha(pass);
+            
+            boolean result = facade.RegistrarUsuario(dto);
+            
+            if (result) JOptionPane.showMessageDialog(vOffice,
+                    "Usuario agregado correctamente");
+            
+            else JOptionPane.showMessageDialog(vOffice, 
+                        "El usuario no pudo ser agregado.", 
+                        "Aviso",
+                        JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e)
+        {
+            
+        }
     }
 }

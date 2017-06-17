@@ -142,6 +142,18 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     }
 
     @Override
+    public boolean RegistrarUsuario(DTORegistroUsuario dtoRegistroUsuario) {
+        try
+        {
+            return daoBD.RegistrarUsuario(dtoRegistroUsuario);
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+    
+    @Override
     public boolean CambiarContrasenha(DTOLogin dtoLogin) {
         
         try

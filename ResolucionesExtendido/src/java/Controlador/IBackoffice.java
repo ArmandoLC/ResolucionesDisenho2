@@ -22,4 +22,6 @@ public interface IBackoffice {
     public boolean ModificarSolicitud(DTOEstadoSolicitud dtoEstadoSolicitud);
     
     public boolean CambiarContrasenha(DTOLogin dtoLogin);
+    
+    public boolean RegistrarUsuario(DTORegistroUsuario dtoRegistroUsuario);
 }

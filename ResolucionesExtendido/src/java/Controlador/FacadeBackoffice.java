@@ -6,6 +6,7 @@ import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOLogin;
 import DTOs.DTOPersona;
 import DTOs.DTOPlantilla;
+import DTOs.DTORegistroUsuario;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import Enums.Estado;
@@ -150,6 +151,11 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
     @Override
     public ArrayList<DTOCurso> ConsultarTopCursos(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean RegistrarUsuario(DTORegistroUsuario dtoRegistroUsuario) {
+        return ctrl.RegistrarUsuario(dtoRegistroUsuario);
     }
     
 }

@@ -4,6 +4,7 @@ package Controlador;
 import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOLogin;
 import DTOs.DTOPlantilla;
+import DTOs.DTORegistroUsuario;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import DTOs.DTOUsuario;
@@ -207,6 +208,30 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
         return modificada;
     }
     
+    @Override
+    public boolean RegistrarUsuario(DTORegistroUsuario dtoRegistroUsuario) {
+        try {
+                       
+            CallableStatement conexionSP = obtenerConexionSP("{call AgregarUsuario(?,?,?,?,?,?,?)}");
+                        
+            conexionSP.setString("id", dtoRegistroUsuario.getId());
+            conexionSP.setString("usuario", dtoRegistroUsuario.getNombreUsuario());
+            conexionSP.setString("contrasenha", dtoRegistroUsuario.getContrasenha());
+            conexionSP.setString("nombre", dtoRegistroUsuario.getNombre());
+            conexionSP.setString("correo", dtoRegistroUsuario.getCorreo());
+            conexionSP.setString("telefono", dtoRegistroUsuario.getTelefono());
+            conexionSP.setString("tipoUsuario", dtoRegistroUsuario.getTipoUsuario());
+            
+            conexionSP.executeQuery(); 
+            
+            return true;
+        } 
+        catch (Exception e) 
+        {
+            return false;
+        }
+    }
+    
     
     private CallableStatement obtenerConexionSP(String procAlmacenado) throws Exception {
         
@@ -226,5 +251,6 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
     private String user = "root"; 
     private String pass = "1234";
     private Connection conexion;
+
     
 }

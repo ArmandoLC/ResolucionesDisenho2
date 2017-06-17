@@ -4,9 +4,7 @@ package Vista;
 
 public class Backoffice extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Backoffice
-     */
+    UIBackoffice uiBackoffice = new UIBackoffice();
     
     public Backoffice() {
         initComponents();
@@ -21,21 +19,45 @@ public class Backoffice extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        btAgregarUsr = new javax.swing.JButton();
+        panelSuper = new Vista.PanelSuperUsuario();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Backoffice");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btAgregarUsr.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btAgregarUsr.setText("Agregar Usuario");
+        btAgregarUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAgregarUsrActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btAgregarUsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 649, 880, 40));
+        getContentPane().add(panelSuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btAgregarUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarUsrActionPerformed
+        try
+        {
+            uiBackoffice.RegistrarUsuario(this);
+        }
+        catch(Exception e)
+        {
+            
+        }
+        
+    }//GEN-LAST:event_btAgregarUsrActionPerformed
+
+    public PanelSuperUsuario getPanelSuper() {
+        return panelSuper;
+    }
+
+    public void setPanelSuper(PanelSuperUsuario panelSuper) {
+        this.panelSuper = panelSuper;
+    }
 
     /**
      * @param args the command line arguments
@@ -73,5 +95,7 @@ public class Backoffice extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAgregarUsr;
+    private Vista.PanelSuperUsuario panelSuper;
     // End of variables declaration//GEN-END:variables
 }
