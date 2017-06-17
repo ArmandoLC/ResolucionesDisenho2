@@ -26,34 +26,51 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        btWeb = new javax.swing.JButton();
+        Backoffice = new javax.swing.JButton();
+        lblIngresarA = new javax.swing.JLabel();
+        lblBackoffice = new javax.swing.JLabel();
+        lblPaginaWeb = new javax.swing.JLabel();
+        panelPlantilla1 = new Vista.PanelPlantilla();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Selección de Sistema");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 833, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
-        );
+        btWeb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconoWeb.jpg"))); // NOI18N
+        btWeb.setToolTipText("<html>\n\n\t<p>Se pueden registrar y ver solicitudes</p>\n\t<p>o resoluciones con el identificador.</p>\n\n</html>");
+        btWeb.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btWeb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btWebActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 110, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        Backoffice.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconoBackoffice.jpg"))); // NOI18N
+        Backoffice.setToolTipText("<html>\n\n\t<p>Permite realizar funcionalidades distintas</p>\n\t<p>dependiendo del rol de la cuenta con la que</p>\n\t<p>el usuario ingresa al sistema.</p>\n\n</html>");
+        getContentPane().add(Backoffice, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 110, -1));
 
-        pack();
+        lblIngresarA.setFont(new java.awt.Font("Verdana", 3, 22)); // NOI18N
+        lblIngresarA.setForeground(new java.awt.Color(255, 0, 0));
+        lblIngresarA.setText("Ingresar a");
+        getContentPane().add(lblIngresarA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, -1, -1));
+
+        lblBackoffice.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        lblBackoffice.setText("Backoffice");
+        getContentPane().add(lblBackoffice, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
+
+        lblPaginaWeb.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        lblPaginaWeb.setText("Página Web");
+        getContentPane().add(lblPaginaWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+        getContentPane().add(panelPlantilla1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 410));
+
+        setBounds(0, 0, 608, 457);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btWebActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btWebActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,6 +108,11 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton Backoffice;
+    private javax.swing.JButton btWeb;
+    private javax.swing.JLabel lblBackoffice;
+    private javax.swing.JLabel lblIngresarA;
+    private javax.swing.JLabel lblPaginaWeb;
+    private Vista.PanelPlantilla panelPlantilla1;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,6 +16,6 @@ public class FacadeLogin extends Facade implements ILogin{
     
     @Override
     public DTOUsuario RealizarLogin(DTOLogin dtoLogin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ctrl.RealizarLogin(dtoLogin);
     }    
 }
