@@ -70,7 +70,7 @@ public class servletRegistrarSolic extends HttpServlet {
             String descProblema = request.getParameter("descProblema");
 
             /*Contrucción del DTOSolicitud que se envia para el registro*/
-            DTOSolicitud dtoSolicitud = new DTOSolicitud(0, Calendar.getInstance().getTime(), idSolicitante, nombreSolictante, periodo, codCurso, 1, idAfectado, nombreAfectado, correoAfectado, telefonoAfectado, inconsistencia, descProblema, "", "Pendiente", "", 0);
+            DTOSolicitud dtoSolicitud = new DTOSolicitud(0, Calendar.getInstance().getTime(), idSolicitante, nombreSolictante, periodo, codCurso, 1, idAfectado, nombreAfectado, correoAfectado, telefonoAfectado, inconsistencia, descProblema, "", "Pendiente", "", -1);
 
             //String x = getServletContext().getRealPath("WEB-INF\\PropertiesFile.properties");
             //FileInputStream file = new FileInputStream(new File(getServletContext().getRealPath("WEB-INF\\PropertiesFile.properties")));

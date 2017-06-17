@@ -62,13 +62,17 @@ and open the template in the editor.
                                 <!-- NAVBAR form END-->
 
 
-                                <form id="consulta-sec" action="servletConsultarSolic" method="POST">
+                                <form id="consulta-sec" action="servletResoluciones" method="POST">
                                     <div class="container " >
                                         <div class="row text-center">
                                             <div class="col-md-12 marginTop3">
                                                 <div class="form-inline">
-                                                    <h3 class="head-line"><span class="cGris fa-2x"><i class="fa fa-eye" aria-hidden="true"></i></span> Consulta de Resolución<span ></span> </h3>
-                                                    
+                                                    <h3 class="head-line"><span class="cGris fa-2x"><i class="fa fa-eye" aria-hidden="true"></i></span> Consulta de Resoluciones<span ></span> </h3>
+                                                </div>
+                                                <div class="form-inline">
+                                                    <label for="txtIDSolicitud" class="f20">Identificación:</label>
+                                                    <input type="text" class=" margin form-control" name="txtIDSolicitud" placeholder="ID de la resolución" required>
+                                                        <button type="submit" class="f20 btn btn-default form-control" name="btnBuscarSolicitud">Consultar</button>
                                                 </div>
                                             </div>
                                         </div>
