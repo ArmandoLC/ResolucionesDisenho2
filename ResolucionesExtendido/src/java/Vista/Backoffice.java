@@ -28,12 +28,7 @@ public class Backoffice extends HerramientasBackoffice{
         initVariables();
         initConsultaSolicitudes();
         
-        Font f = new Font("Verdana", 0, 20);
-        //new java.awt.Font("Verdana", 0, 16)
-        linkEstadisticas.setFont(f);
-        linkReporteSolicitudes.setFont(f);
-        linkRegistroSolic.setFont(f);
-        linkCerrarSesion.setFont(f);
+        
     }
     
     private void initConsultaSolicitudes(){
@@ -149,6 +144,7 @@ public class Backoffice extends HerramientasBackoffice{
 
         busyPainter1 = new org.jdesktop.swingx.painter.BusyPainter();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        pnlCoordinador = new javax.swing.JPanel();
         panelFondo = new javax.swing.JPanel();
         cbEstado = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -171,6 +167,8 @@ public class Backoffice extends HerramientasBackoffice{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlCoordinador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelFondo.setBackground(new java.awt.Color(255, 255, 255));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -235,15 +233,15 @@ public class Backoffice extends HerramientasBackoffice{
         });
         panelFondo.add(linkReporteSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
 
-        getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 1120, 499));
+        pnlCoordinador.add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 1120, 499));
 
         lblTitulo.setFont(new java.awt.Font("Verdana", 1, 28)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(240, 0, 0));
         lblTitulo.setText("Administración de Solicitudes");
-        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
+        pnlCoordinador.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
 
         lblIconoAdminSolic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/adminSolicIcon.jpg"))); // NOI18N
-        getContentPane().add(lblIconoAdminSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
+        pnlCoordinador.add(lblIconoAdminSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
 
         linkRegistroSolic.setForeground(new java.awt.Color(255, 255, 255));
         linkRegistroSolic.setText("Registrar Solicitud");
@@ -255,7 +253,7 @@ public class Backoffice extends HerramientasBackoffice{
                 linkRegistroSolicActionPerformed(evt);
             }
         });
-        getContentPane().add(linkRegistroSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, -1, 20));
+        pnlCoordinador.add(linkRegistroSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, -1, 20));
 
         linkCerrarSesion.setBackground(new java.awt.Color(240, 0, 0));
         linkCerrarSesion.setText("Cerrar Sesión");
@@ -267,7 +265,7 @@ public class Backoffice extends HerramientasBackoffice{
                 linkCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(linkCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 70, -1, 20));
+        pnlCoordinador.add(linkCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 70, -1, 20));
 
         linkEstadisticas.setForeground(new java.awt.Color(255, 255, 255));
         linkEstadisticas.setText("Estadísticas");
@@ -279,8 +277,10 @@ public class Backoffice extends HerramientasBackoffice{
                 linkEstadisticasActionPerformed(evt);
             }
         });
-        getContentPane().add(linkEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, -1, 20));
-        getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 730));
+        pnlCoordinador.add(linkEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, -1, 20));
+        pnlCoordinador.add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 730));
+
+        getContentPane().add(pnlCoordinador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -335,6 +335,7 @@ public class Backoffice extends HerramientasBackoffice{
     private org.jdesktop.swingx.JXHyperlink linkRegistroSolic;
     private org.jdesktop.swingx.JXHyperlink linkReporteSolicitudes;
     private javax.swing.JPanel panelFondo;
+    private javax.swing.JPanel pnlCoordinador;
     private Vista.PanelGeneral pnlFondo;
     private org.jdesktop.swingx.JXTable tabSolicitudes;
     // End of variables declaration//GEN-END:variables
