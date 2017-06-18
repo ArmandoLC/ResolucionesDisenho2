@@ -10,7 +10,12 @@ public class BackofficeDirector extends TemplateBackoffice{
     
     @Override
     public void CargarComponentes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        backOffice.getPnlSuperUsuario().setVisible(false);
+        backOffice.getPnlCoordinador().setVisible(false);
+        
+        PanelDireccion pDirec = new PanelDireccion(new java.awt.Frame(), true);
+        pDirec.setVisible(true);
+        
     }
     
 }

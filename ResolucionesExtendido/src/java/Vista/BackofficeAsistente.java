@@ -11,7 +11,9 @@ public class BackofficeAsistente extends TemplateBackoffice{
 
     @Override
     public void CargarComponentes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        backOffice.setVisible(true);
     }
     
     

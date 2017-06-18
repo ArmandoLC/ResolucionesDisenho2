@@ -13,6 +13,7 @@ import java.util.Calendar;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import org.jdesktop.swingx.JXDatePicker;
 import org.jdesktop.swingx.JXHyperlink;
@@ -27,7 +28,6 @@ public class Backoffice extends HerramientasBackoffice{
         initComponents();
         initVariables();
         initConsultaSolicitudes();
-        
         
     }
     
@@ -137,6 +137,21 @@ public class Backoffice extends HerramientasBackoffice{
             dialog.setVisible(true);
         }); popup.add(itemVer);
     }
+
+    public PanelSuperUsuario getPnlSuper() {
+        return pnlSuper;
+    }
+
+    public JPanel getPnlSuperUsuario() {
+        return pnlSuperUsuario;
+    }
+      
+
+    public JPanel getPnlCoordinador() {
+        return pnlCoordinador;
+    }
+
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -159,10 +174,17 @@ public class Backoffice extends HerramientasBackoffice{
         btPorEstudiante = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         lblIconoAdminSolic = new javax.swing.JLabel();
+        linkCambioContra = new org.jdesktop.swingx.JXHyperlink();
+        linkPlantillas = new org.jdesktop.swingx.JXHyperlink();
         linkRegistroSolic = new org.jdesktop.swingx.JXHyperlink();
         linkCerrarSesion = new org.jdesktop.swingx.JXHyperlink();
         linkEstadisticas = new org.jdesktop.swingx.JXHyperlink();
         pnlFondo = new Vista.PanelGeneral();
+        pnlSuperUsuario = new javax.swing.JPanel();
+        linkCerrar = new org.jdesktop.swingx.JXHyperlink();
+        linkCambiarContra = new org.jdesktop.swingx.JXHyperlink();
+        btAgregarUsr = new javax.swing.JButton();
+        pnlSuper = new Vista.PanelSuperUsuario();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -263,6 +285,30 @@ public class Backoffice extends HerramientasBackoffice{
         lblIconoAdminSolic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/adminSolicIcon.jpg"))); // NOI18N
         pnlCoordinador.add(lblIconoAdminSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
 
+        linkCambioContra.setBackground(new java.awt.Color(240, 0, 0));
+        linkCambioContra.setText("Cambiar Contraseña");
+        linkCambioContra.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkCambioContra.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        linkCambioContra.setUnclickedColor(new java.awt.Color(255, 255, 255));
+        linkCambioContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linkCambioContraActionPerformed(evt);
+            }
+        });
+        pnlCoordinador.add(linkCambioContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 70, -1, 20));
+
+        linkPlantillas.setForeground(new java.awt.Color(255, 255, 255));
+        linkPlantillas.setText("Crear Plantilla");
+        linkPlantillas.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkPlantillas.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        linkPlantillas.setUnclickedColor(new java.awt.Color(255, 255, 255));
+        linkPlantillas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linkPlantillasActionPerformed(evt);
+            }
+        });
+        pnlCoordinador.add(linkPlantillas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, 20));
+
         linkRegistroSolic.setForeground(new java.awt.Color(255, 255, 255));
         linkRegistroSolic.setText("Registrar Solicitud");
         linkRegistroSolic.setClickedColor(new java.awt.Color(255, 255, 255));
@@ -273,7 +319,7 @@ public class Backoffice extends HerramientasBackoffice{
                 linkRegistroSolicActionPerformed(evt);
             }
         });
-        pnlCoordinador.add(linkRegistroSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, -1, 20));
+        pnlCoordinador.add(linkRegistroSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, 20));
 
         linkCerrarSesion.setBackground(new java.awt.Color(240, 0, 0));
         linkCerrarSesion.setText("Cerrar Sesión");
@@ -285,7 +331,7 @@ public class Backoffice extends HerramientasBackoffice{
                 linkCerrarSesionActionPerformed(evt);
             }
         });
-        pnlCoordinador.add(linkCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 70, -1, 20));
+        pnlCoordinador.add(linkCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 70, -1, 20));
 
         linkEstadisticas.setForeground(new java.awt.Color(255, 255, 255));
         linkEstadisticas.setText("Estadísticas");
@@ -297,10 +343,52 @@ public class Backoffice extends HerramientasBackoffice{
                 linkEstadisticasActionPerformed(evt);
             }
         });
-        pnlCoordinador.add(linkEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, -1, 20));
+        pnlCoordinador.add(linkEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 70, -1, 20));
         pnlCoordinador.add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 730));
 
         getContentPane().add(pnlCoordinador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        pnlSuperUsuario.setLayout(null);
+
+        linkCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        linkCerrar.setText("Cerrar Sesión");
+        linkCerrar.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkCerrar.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        linkCerrar.setUnclickedColor(new java.awt.Color(255, 255, 255));
+        linkCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linkCerrarActionPerformed(evt);
+            }
+        });
+        pnlSuperUsuario.add(linkCerrar);
+        linkCerrar.setBounds(670, 70, 140, 20);
+
+        linkCambiarContra.setForeground(new java.awt.Color(255, 255, 255));
+        linkCambiarContra.setText("Cambiar Contraseña");
+        linkCambiarContra.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkCambiarContra.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        linkCambiarContra.setUnclickedColor(new java.awt.Color(255, 255, 255));
+        linkCambiarContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linkCambiarContraActionPerformed(evt);
+            }
+        });
+        pnlSuperUsuario.add(linkCambiarContra);
+        linkCambiarContra.setBounds(670, 70, 207, 20);
+
+        btAgregarUsr.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btAgregarUsr.setText("Agregar Usuario");
+        btAgregarUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAgregarUsrActionPerformed(evt);
+            }
+        });
+        pnlSuperUsuario.add(btAgregarUsr);
+        btAgregarUsr.setBounds(230, 649, 880, 40);
+        pnlSuperUsuario.add(pnlSuper);
+        pnlSuper.setBounds(0, 0, 1330, 730);
+
+        getContentPane().add(pnlSuperUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -346,7 +434,32 @@ public class Backoffice extends HerramientasBackoffice{
         uibackoffice.ConsultarSolicitud(this);
     }//GEN-LAST:event_btBuscarSolicitudActionPerformed
 
+    private void btAgregarUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarUsrActionPerformed
+        uibackoffice.RegistrarUsuario(this);
+    }//GEN-LAST:event_btAgregarUsrActionPerformed
+
+    private void linkPlantillasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkPlantillasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linkPlantillasActionPerformed
+
+    private void linkCambiarContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkCambiarContraActionPerformed
+        DialogContrasenha contra = new DialogContrasenha(this, true);
+        contra.setVisible(true);
+    }//GEN-LAST:event_linkCambiarContraActionPerformed
+
+    private void linkCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkCerrarActionPerformed
+        LoginFrame frame = new LoginFrame();
+        this.dispose();
+        frame.setVisible(true);
+    }//GEN-LAST:event_linkCerrarActionPerformed
+
+    private void linkCambioContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkCambioContraActionPerformed
+        DialogContrasenha dialog = new DialogContrasenha(this, true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_linkCambioContraActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAgregarUsr;
     private javax.swing.JButton btBuscarSolicitud;
     private javax.swing.JButton btPorEstudiante;
     private org.jdesktop.swingx.painter.BusyPainter busyPainter1;
@@ -360,13 +473,19 @@ public class Backoffice extends HerramientasBackoffice{
     private javax.swing.JLabel lblHasta;
     private javax.swing.JLabel lblIconoAdminSolic;
     private javax.swing.JLabel lblTitulo;
+    private org.jdesktop.swingx.JXHyperlink linkCambiarContra;
+    private org.jdesktop.swingx.JXHyperlink linkCambioContra;
+    private org.jdesktop.swingx.JXHyperlink linkCerrar;
     private org.jdesktop.swingx.JXHyperlink linkCerrarSesion;
     private org.jdesktop.swingx.JXHyperlink linkEstadisticas;
+    private org.jdesktop.swingx.JXHyperlink linkPlantillas;
     private org.jdesktop.swingx.JXHyperlink linkRegistroSolic;
     private org.jdesktop.swingx.JXHyperlink linkReporteSolicitudes;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel pnlCoordinador;
     private Vista.PanelGeneral pnlFondo;
+    private Vista.PanelSuperUsuario pnlSuper;
+    private javax.swing.JPanel pnlSuperUsuario;
     private org.jdesktop.swingx.JXTable tabSolicitudes;
     // End of variables declaration//GEN-END:variables
 

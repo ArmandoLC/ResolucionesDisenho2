@@ -18,7 +18,8 @@ public class BackofficeSuperUsuario extends TemplateBackoffice {
 
     @Override
     public void CargarComponentes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       backOffice.getPnlCoordinador().setVisible(false);       
+       
+       backOffice.setVisible(true);
     }
-    
 }

@@ -26,8 +26,15 @@ public class UIAutenticacion {
             
             DTOUsuario usuario = facade.RealizarLogin(dtoLogin);
             
-            if(usuario != null) 
-                JOptionPane.showMessageDialog(vLogin, "El tipo de Usuario es: " + usuario.getTipoUsuario());
+            if(usuario != null) {
+                
+                String name = UIAutenticacion.class.getPackage().getName();
+                
+                vLogin.dispose();
+                
+                TemplateBackoffice backoffice = (TemplateBackoffice) Class.forName(
+                        name + ".Backoffice" + usuario.getTipoUsuario()).newInstance();
+            }
             
             else JOptionPane.showMessageDialog(vLogin, 
                     "El usuario y contraseña no son correctas.",

@@ -1,6 +1,8 @@
 
 package Vista;
 
+import org.netbeans.lib.awtextra.AbsoluteLayout;
+
 
 public class BackofficeCoordinador extends TemplateBackoffice{
 
@@ -11,7 +13,9 @@ public class BackofficeCoordinador extends TemplateBackoffice{
 
     @Override
     public void CargarComponentes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       backOffice.getPnlSuperUsuario().setVisible(false);      
+              
+       backOffice.setVisible(true);
     }
     
 }

@@ -3,8 +3,6 @@ package Vista;
 
 
 public class PanelInicio extends javax.swing.JFrame {
-
-    private DashboardSimple dashboard;
     
     public PanelInicio() {
         initComponents();
