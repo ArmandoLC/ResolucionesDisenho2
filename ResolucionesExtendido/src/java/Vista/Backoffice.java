@@ -439,7 +439,8 @@ public class Backoffice extends HerramientasBackoffice{
     }//GEN-LAST:event_btAgregarUsrActionPerformed
 
     private void linkPlantillasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkPlantillasActionPerformed
-        // TODO add your handling code here:
+        DialogRegistrarPlantilla dialog = new DialogRegistrarPlantilla(this, true, null);
+        dialog.setVisible(true);
     }//GEN-LAST:event_linkPlantillasActionPerformed
 
     private void linkCambiarContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkCambiarContraActionPerformed
