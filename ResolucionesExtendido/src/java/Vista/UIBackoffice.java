@@ -4,6 +4,7 @@ import Controlador.FacadeBackoffice;
 import DTOs.DTOCurso;
 import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOPersona;
+import DTOs.DTOPlantilla;
 import DTOs.DTORegistroUsuario;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
@@ -338,5 +339,33 @@ public class UIBackoffice extends HerramientasBackoffice{
         {
             backoffice.showError("Error.");
         }
+    }
+    
+    public void CrearPlantilla(JDialog pdialog){
+        try{  DialogRegistrarPlantilla dialog = (DialogRegistrarPlantilla) pdialog;
+            DTOPlantilla plantilla = new DTOPlantilla();
+            String siglas = "";
+            String categoria = dialog.getCbCategoria().getSelectedItem().toString();
+            for(String sigla: categoria.split("\\s",0)){
+                siglas = siglas.concat((String) sigla.subSequence(0, 1));
+            }
+            
+            plantilla.setnConsecutivo(-1);
+            plantilla.setSiglas(siglas);
+            plantilla.setResultado(dialog.getResultado());
+            plantilla.setResulevo(dialog.getResuelvo());
+            plantilla.setIntroduccion(dialog.getIntroduccion());
+            plantilla.setConsiderandos(dialog.getConsiderandos());
+            
+            int respuesta = facade.CrearPlantilla(plantilla);
+            if(respuesta != -1) { 
+                backoffice.showMessage("Plantilla registrada"); 
+            }
+            else backoffice.showMessage("No se ha podido realizar la acción de registro");  
+        } catch(Exception e){ backoffice.showMessage(e.getMessage()); }
+    }
+    
+    public ArrayList<String>  ConsultarInconsistencias(){
+        return facade.ConsultarInconsistencias();
     }
 }
