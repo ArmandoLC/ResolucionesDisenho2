@@ -94,7 +94,6 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         }
     }
 
-    @Override
     public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla, DTOSolicitud dtoSolicitud, Interpretacion estrategia){
         IContext context;
         DTOResolucion dtoResolucion = new DTOResolucion();

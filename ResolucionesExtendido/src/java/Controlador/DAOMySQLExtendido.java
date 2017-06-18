@@ -111,13 +111,6 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
             return -1;
         }
         return lastID;
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
