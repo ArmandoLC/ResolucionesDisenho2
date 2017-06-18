@@ -82,7 +82,7 @@ public class MainFrame extends javax.swing.JFrame {
         {
            LoginFrame vLogin = new LoginFrame();
            vLogin.setVisible(true);
-           this.setVisible(false);
+           this.dispose();
         }
         catch (Exception e)
         {

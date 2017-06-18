@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `resolucionesbd` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `resolucionesbd`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: resolucionesbd
@@ -188,6 +186,7 @@ CREATE TABLE `resoluciones` (
 
 LOCK TABLES `resoluciones` WRITE;
 /*!40000 ALTER TABLE `resoluciones` DISABLE KEYS */;
+INSERT INTO `resoluciones` VALUES (1,9,'2017-06-16','Ericka Solano','Mauricio Arroyo Herrera','Geovanni Rojas Rodriguez','intro modif','resultados modif','considerandos modif','resuelvo modif'),(9,10,'2017-06-17','Ericka Solano','Mauricio Arroyo Herrera','Geovanni Rojas Rodriguez','{ Hora y fecha }, el suscrito { Nombre del Director }, Director de la Escuela de Ingeniería en Computación en atención al caso de { Situacion de inconsistencia } del estudiante{ Nombre del afectado }, carné { carné del afectado } , sobre el curso { código y nombre del curso } , grupo { Número de grupo }, del { Semestre } , resuelvo:','Por un error involuntario, no se tramitó la inclusión del estudiante { Nombre del estudiante }con identificación { carné del estudiante } en el curso { código y nombre del curso }, grupo { Número de grupo } impartido por el profesor { Nombre del profesor } en el { Semestre }, el profesor no pudo registrar en el acta la calificación obtenida\npor el estudiante.  ','Después de haber realizado la investigación del caso, y consultado al profesor{ Nombre del profesor }, quien impartió el curso { código y nombre del curso }, { Número de grupo }, del { Semestre }  se logra comprobar que el estudiante { Nombre del afectado },carné { carné del estudiante }, efectivamente aprobó el curso con una nota de noventa y cinco(95), por lo que esta Dirección solicita gestionar la modificación del acta\ncorrespondiente. ',' Autorizar la modificación del acta del curso  { código y nombre del curso } grupo { Número de grupo } en el { Semestre }impartido por el profesor { Nombre del profesor } para inc,luir al estudiante{ Nombre del afectado }, carné { carné del estudiante } con una nota de aprobaciónde noventa y cinco (95). ');
 /*!40000 ALTER TABLE `resoluciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,7 +216,7 @@ CREATE TABLE `solicitudes` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `solicitudOferta_idx` (`idOferta`),
   CONSTRAINT `solicitudOferta` FOREIGN KEY (`idOferta`) REFERENCES `ofertas` (`idoferta`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,6 +225,7 @@ CREATE TABLE `solicitudes` (
 
 LOCK TABLES `solicitudes` WRITE;
 /*!40000 ALTER TABLE `solicitudes` DISABLE KEYS */;
+INSERT INTO `solicitudes` VALUES (1,53,'2017-06-15','Probando desde el freim','Solicitud de Prueba #1','2015082908','Andrey Mendoza','898989','Luis Mendoza','lm@gmail.com','454554','C:\\Users\\Andrey\\Documents\\.Rhistory','Tramitada','Sin definir'),(2,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asd','asd@asd.com','asd','','Pendiente',''),(3,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asda','asd@asd.com','asd','','Anulada','por que me ronca\n'),(4,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asd','asd@asd.com','asd','','Anulada','Por que si\n'),(5,59,'2017-06-16','MODIFICACION_ACTA','sad','asd','asd','sd','asda','asd@asd.com','asd','','Pendiente',''),(6,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','as','asd','asd','asd@asd.com','asd','','Pendiente',''),(7,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asda','asd@asd.com','asd','','Tramitada',''),(8,59,'2017-06-16','MODIFICACION_ACTA','sd','ad','asd','asd','asd','asd@asd.com','asd','','Tramitada',''),(9,59,'2017-06-17','MODIFICACION_ACTA','Prueba pagina web lista','2015082908','Andrey Mendoza','89898','Julian Salinas','jsaly12@gmail.com','85566223','','Tramitada',''),(10,59,'2017-06-17','EXCLUSION_ACTA','Prueba con interfaz de coordinador lista','515432','prueba22','56513','afect22','asd@gmail.com','123124','C:\\Users\\Andrey\\Documents\\.Rhistory','Pendiente','Sin definir'),(11,59,'2017-06-17','EXCLUSION_ACTA','Es un puto error en la fucking nota','2015082908','Andrey Mendoza','2015082908','Andrey Mendoza','a@gmail.com','91233','C:\\Users\\Andrey\\Documents\\.Rhistory','Pendiente','Sin definir');
 /*!40000 ALTER TABLE `solicitudes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -255,13 +255,37 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('99999','super','Disennio','Superusuario','escuelaIC@itcr.ac.cr','2550-9696','super');
+INSERT INTO `usuarios` VALUES ('99999','super','Disennio','Superusuario','escuelaIC@itcr.ac.cr','2550-9696','SuperUsuario'),('a@gmail.com','amendoza','asd','2015082908','Andrey Mendoza','86382040','SuperUsuario'),('bd@gmail.com','bdinarte','asd','201588896','Brandon Dinarte','555563','Asistente');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'resolucionesbd'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `ActIncostSolicitud` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActIncostSolicitud`(
+	IN id INT,
+	IN inconsistencia VARCHAR(100)
+)
+BEGIN
+	UPDATE solicitudes s 
+    SET  s.inconsistencia = inconsistencia
+    WHERE s.id = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `actualizarPlantilla` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -361,6 +385,37 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CambiarContrasenha` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CambiarContrasenha`(
+		IN usuario VARCHAR(100),
+        IN contrasenhaAct VARCHAR(100),
+        IN contrasenhaNueva VARCHAR(100)
+)
+BEGIN
+	
+    UPDATE usuarios u 
+		SET u.contrasenha = contrasenhaNueva            
+		WHERE u.usuario = usuario AND u.contrasenha = contrasenhaAct;
+        
+	SELECT u.id
+		FROM usuarios u
+        WHERE u.usuario = usuario AND u.contrasenha = contrasenhaNueva;
+        
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `consultarPlantillas` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -429,6 +484,38 @@ BEGIN
 		   o.periodo, o.codigoCurso, o.numeroGrupo, s.estado
 	FROM solicitudes s, ofertas o, resoluciones r
     WHERE s.idOferta = o.idoferta and r.idSolicitud = s.id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ModificarResolucion` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarResolucion`(
+		IN idSolicitud INT(11),
+        IN introduccion TEXT, 
+		IN resultado TEXT, 
+        IN considerandos TEXT, 
+        IN resuelvo TEXT
+)
+BEGIN
+	
+    UPDATE resoluciones r 
+		SET r.introduccion = introduccion,
+            r.resultado = resultado,
+            r.considerandos = considerandos,
+            r.resuelvo = resuelvo
+		WHERE r.idSolicitud = idSolicitud;
+        
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -741,4 +828,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-15 22:50:16
+-- Dump completed on 2017-06-17 18:05:55

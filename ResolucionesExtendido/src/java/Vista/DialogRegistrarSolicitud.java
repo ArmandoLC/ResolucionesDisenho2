@@ -219,7 +219,7 @@ public class DialogRegistrarSolicitud extends javax.swing.JDialog {
 
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
         jLabel9.setText("Adjuntar archivo: ");
-        pnlAfectado.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 111, -1));
+        pnlAfectado.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 190, -1));
 
         txtArchivoAdjunto.setEditable(false);
         txtArchivoAdjunto.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N

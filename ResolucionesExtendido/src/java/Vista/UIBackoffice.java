@@ -60,7 +60,8 @@ public class UIBackoffice extends HerramientasBackoffice{
 
     public void ConsultarSituaciones(JDialog pdialog) {
         try{  DialogRegistrarSolicitud dialog = (DialogRegistrarSolicitud) pdialog;
-            ArrayList<String> situaciones = facade.ConsultarInconsistencias();
+            ArrayList<String> situaciones = new ArrayList<>(); //facade.ConsultarInconsistencias();
+            situaciones.add("Modificación de Acta");
             situaciones.forEach((situacion) -> { dialog.getCbSituacion().addItem(situacion); });
         } catch(Exception e){ backoffice.showError(e.getMessage()); }
     }

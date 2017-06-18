@@ -33,6 +33,7 @@ public class Backoffice extends HerramientasBackoffice{
         linkEstadisticas.setFont(f);
         linkReporteSolicitudes.setFont(f);
         linkRegistroSolic.setFont(f);
+        linkCerrarSesion.setFont(f);
     }
     
     private void initConsultaSolicitudes(){
@@ -161,6 +162,7 @@ public class Backoffice extends HerramientasBackoffice{
         lblTitulo = new javax.swing.JLabel();
         lblIconoAdminSolic = new javax.swing.JLabel();
         linkRegistroSolic = new org.jdesktop.swingx.JXHyperlink();
+        linkCerrarSesion = new org.jdesktop.swingx.JXHyperlink();
         linkEstadisticas = new org.jdesktop.swingx.JXHyperlink();
         pnlFondo = new Vista.PanelGeneral();
 
@@ -185,6 +187,12 @@ public class Backoffice extends HerramientasBackoffice{
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel1.setText("Filtrar por estado:");
         panelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
+
+        dpDesde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dpDesdeActionPerformed(evt);
+            }
+        });
         panelFondo.add(dpDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
         dpHasta.addActionListener(new java.awt.event.ActionListener() {
@@ -219,6 +227,7 @@ public class Backoffice extends HerramientasBackoffice{
 
         linkReporteSolicitudes.setText("Reporte de solicitudes según las fechas indicadas");
         linkReporteSolicitudes.setClickedColor(new java.awt.Color(0, 51, 255));
+        linkReporteSolicitudes.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         linkReporteSolicitudes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 linkReporteSolicitudesActionPerformed(evt);
@@ -231,33 +240,46 @@ public class Backoffice extends HerramientasBackoffice{
         lblTitulo.setFont(new java.awt.Font("Verdana", 1, 28)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(240, 0, 0));
         lblTitulo.setText("Administración de Solicitudes");
-        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
 
         lblIconoAdminSolic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/adminSolicIcon.jpg"))); // NOI18N
-        getContentPane().add(lblIconoAdminSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
+        getContentPane().add(lblIconoAdminSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
 
         linkRegistroSolic.setForeground(new java.awt.Color(255, 255, 255));
         linkRegistroSolic.setText("Registrar Solicitud");
         linkRegistroSolic.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkRegistroSolic.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         linkRegistroSolic.setUnclickedColor(new java.awt.Color(255, 255, 255));
         linkRegistroSolic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 linkRegistroSolicActionPerformed(evt);
             }
         });
-        getContentPane().add(linkRegistroSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 70, -1, 20));
-        linkRegistroSolic.getAccessibleContext().setAccessibleName("Registrar Solicitud");
+        getContentPane().add(linkRegistroSolic, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, -1, 20));
+
+        linkCerrarSesion.setBackground(new java.awt.Color(240, 0, 0));
+        linkCerrarSesion.setText("Cerrar Sesión");
+        linkCerrarSesion.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkCerrarSesion.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        linkCerrarSesion.setUnclickedColor(new java.awt.Color(255, 255, 255));
+        linkCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linkCerrarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(linkCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 70, -1, 20));
 
         linkEstadisticas.setForeground(new java.awt.Color(255, 255, 255));
         linkEstadisticas.setText("Estadísticas");
         linkEstadisticas.setClickedColor(new java.awt.Color(255, 255, 255));
+        linkEstadisticas.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         linkEstadisticas.setUnclickedColor(new java.awt.Color(255, 255, 255));
         linkEstadisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 linkEstadisticasActionPerformed(evt);
             }
         });
-        getContentPane().add(linkEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 70, -1, 20));
+        getContentPane().add(linkEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, -1, 20));
         getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 730));
 
         pack();
@@ -286,6 +308,16 @@ public class Backoffice extends HerramientasBackoffice{
         dialog.setVisible(true);
     }//GEN-LAST:event_linkRegistroSolicActionPerformed
 
+    private void linkCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkCerrarSesionActionPerformed
+        LoginFrame vLogin = new LoginFrame();
+        vLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_linkCerrarSesionActionPerformed
+
+    private void dpDesdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dpDesdeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dpDesdeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.painter.BusyPainter busyPainter1;
     private javax.swing.JComboBox<String> cbEstado;
@@ -298,6 +330,7 @@ public class Backoffice extends HerramientasBackoffice{
     private javax.swing.JLabel lblHasta;
     private javax.swing.JLabel lblIconoAdminSolic;
     private javax.swing.JLabel lblTitulo;
+    private org.jdesktop.swingx.JXHyperlink linkCerrarSesion;
     private org.jdesktop.swingx.JXHyperlink linkEstadisticas;
     private org.jdesktop.swingx.JXHyperlink linkRegistroSolic;
     private org.jdesktop.swingx.JXHyperlink linkReporteSolicitudes;

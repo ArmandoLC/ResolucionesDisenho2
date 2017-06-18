@@ -99,73 +99,77 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         IContext context;
         DTOResolucion dtoResolucion = new DTOResolucion();
         
-        // Se crea la estrategia de interpretacion que se va implementar
-        if (estrategia.equals(Interpretacion.Consultar)) {
-            context = new ContextGenerar(dtoSolicitud);
-        } else {
-            String nombreDirector = getPropiedad("nombreDirectorEscuela");
-            String nombreCoordinador = getPropiedad("nombreCoordinador");
-            String nombreDirectorAdmYReg = getPropiedad("nombreDirectorAdmYReg");
+        try
+        {
             
-            context = new ContextConsultar(nombreDirector, nombreCoordinador, nombreDirectorAdmYReg);
+            // Se crea la estrategia de interpretacion que se va implementar
+            if (estrategia.equals(Interpretacion.Consultar)) {
+                context = new ContextGenerar(dtoSolicitud);
+            } else {
+                String nombreDirector = getPropiedad("nombreDirectorEscuela");
+                String nombreCoordinador = getPropiedad("nombreCoordinador");
+                String nombreDirectorAdmYReg = getPropiedad("nombreDirectorAdmYReg");
+
+                context = new ContextConsultar(nombreDirector, nombreCoordinador, nombreDirectorAdmYReg);
+            }
+
+            /*Se procede a interpretar la introduccion de la plantilla*/
+            ArrayList<Expresion> tree = new ArrayList();        
+            // Añadimos los tokens pasados como argumentos
+            for (String token : dtoPlantilla.getIntroduccion().split("\\s", 0)) {
+                tree.add(new InterpreteTerminal(token));
+            }
+            // Interpretamos cada expresión
+            for (Expresion e : tree) {
+                e.interpretar(context);
+            }
+            dtoResolucion.setIntroduccion(context.getOutput());
+
+
+            /*Se procede a interpretar el resuelvo de la plantilla*/
+            tree = new ArrayList();        
+            context.setOutput("");
+            // Añadimos los tokens pasados como argumentos
+            for (String token : dtoPlantilla.getResuelvo().split("\\s", 0)) {
+                tree.add(new InterpreteTerminal(token));
+            }
+            // Interpretamos cada expresión
+            for (Expresion e : tree) {
+                e.interpretar(context);
+            }
+            dtoResolucion.setResuelvo(context.getOutput());
+
+
+            /*Se procede a interpretar el resultado de la plantilla*/
+            tree = new ArrayList();        
+            context.setOutput("");
+            // Añadimos los tokens pasados como argumentos
+            for (String token : dtoPlantilla.getResultado().split("\\s", 0)) {
+                tree.add(new InterpreteTerminal(token));
+            }
+            // Interpretamos cada expresión
+            for (Expresion e : tree) {
+                e.interpretar(context);
+            }
+            dtoResolucion.setResultado(context.getOutput());
+
+
+            /*Se procede a interpretar las consideraciones de la plantilla*/
+            tree = new ArrayList();        
+            context.setOutput("");
+            // Añadimos los tokens pasados como argumentos
+            for (String token : dtoPlantilla.getConsiderandos().split("\\s", 0)) {
+                tree.add(new InterpreteTerminal(token));
+            }
+            // Interpretamos cada expresión
+            for (Expresion e : tree) {
+                e.interpretar(context);
+            }
+            dtoResolucion.setConsiderandos(context.getOutput());
+
+            dtoResolucion.setIdSolicitud(dtoSolicitud.getId());
         }
-        
-        /*Se procede a interpretar la introduccion de la plantilla*/
-        ArrayList<Expresion> tree = new ArrayList();        
-        // Añadimos los tokens pasados como argumentos
-        for (String token : dtoPlantilla.getIntroduccion().split("\\s", 0)) {
-            tree.add(new InterpreteTerminal(token));
-        }
-        // Interpretamos cada expresión
-        for (Expresion e : tree) {
-            e.interpretar(context);
-        }
-        dtoResolucion.setIntroduccion(context.getOutput());
-        
-        
-        /*Se procede a interpretar el resuelvo de la plantilla*/
-        tree = new ArrayList();        
-        context.setOutput("");
-        // Añadimos los tokens pasados como argumentos
-        for (String token : dtoPlantilla.getResuelvo().split("\\s", 0)) {
-            tree.add(new InterpreteTerminal(token));
-        }
-        // Interpretamos cada expresión
-        for (Expresion e : tree) {
-            e.interpretar(context);
-        }
-        dtoResolucion.setResuelvo(context.getOutput());
-        
-        
-        /*Se procede a interpretar el resultado de la plantilla*/
-        tree = new ArrayList();        
-        context.setOutput("");
-        // Añadimos los tokens pasados como argumentos
-        for (String token : dtoPlantilla.getResultado().split("\\s", 0)) {
-            tree.add(new InterpreteTerminal(token));
-        }
-        // Interpretamos cada expresión
-        for (Expresion e : tree) {
-            e.interpretar(context);
-        }
-        dtoResolucion.setResultado(context.getOutput());
-        
-        
-        /*Se procede a interpretar las consideraciones de la plantilla*/
-        tree = new ArrayList();        
-        context.setOutput("");
-        // Añadimos los tokens pasados como argumentos
-        for (String token : dtoPlantilla.getConsiderandos().split("\\s", 0)) {
-            tree.add(new InterpreteTerminal(token));
-        }
-        // Interpretamos cada expresión
-        for (Expresion e : tree) {
-            e.interpretar(context);
-        }
-        dtoResolucion.setConsiderandos(context.getOutput());
-        
-        dtoResolucion.setIdSolicitud(dtoSolicitud.getId());
-        
+        catch(Exception e){}
         return dtoResolucion;        
     }
 
