@@ -18,7 +18,6 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
 
     private final UIBackoffice uibackoffice;
 
-    private DTOSolicitud solicitud;
     private String introduccion = "";
 
     private String resultado = "";
@@ -56,7 +55,22 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pnlGeneral = new javax.swing.JPanel();
+        pnlAfectado = new javax.swing.JPanel();
+        lblTitAfect = new javax.swing.JLabel();
+        btnIDAfectado = new javax.swing.JToggleButton();
+        btnNombreAfectado = new javax.swing.JToggleButton();
+        btnCorreoAfectado = new javax.swing.JToggleButton();
+        btnTelefonoAfectado = new javax.swing.JToggleButton();
+        pnlSolicitante = new javax.swing.JPanel();
+        lblTitSolicitante = new javax.swing.JLabel();
+        btnIDSolicitante = new javax.swing.JToggleButton();
+        btnNombreSolicitante = new javax.swing.JToggleButton();
+        pnlAdministrativos = new javax.swing.JPanel();
+        lblTitAdmin = new javax.swing.JLabel();
+        btnNombreCoordinador = new javax.swing.JToggleButton();
+        btnNombreDirector = new javax.swing.JToggleButton();
+        btnNombreDirectorAdm = new javax.swing.JToggleButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtEditor = new org.jdesktop.swingx.JXEditorPane();
         btnIntroduccion = new javax.swing.JToggleButton();
@@ -64,28 +78,133 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
         btnConsiderandos = new javax.swing.JToggleButton();
         btnResuelvo = new javax.swing.JToggleButton();
         btnGuardar = new javax.swing.JButton();
-        btnNombreCoordinador = new javax.swing.JToggleButton();
-        btnNombreDirector = new javax.swing.JToggleButton();
-        btnNombreDirectorAdm = new javax.swing.JToggleButton();
-        btnIDSolicitante = new javax.swing.JToggleButton();
-        btnCorreoAfectado = new javax.swing.JToggleButton();
-        btnNombreAfectado = new javax.swing.JToggleButton();
-        btnIDAfectado = new javax.swing.JToggleButton();
-        btnNombreSolicitante = new javax.swing.JToggleButton();
-        btnTelefonoAfectado = new javax.swing.JToggleButton();
+        jLabel4 = new javax.swing.JLabel();
+        cbCategoria = new javax.swing.JComboBox();
+        pnlSolicitud = new javax.swing.JPanel();
+        lblTitSolicitud = new javax.swing.JLabel();
         btnPeriodo = new javax.swing.JToggleButton();
         btnCurso = new javax.swing.JToggleButton();
         btnGrupo = new javax.swing.JToggleButton();
         btnInconsistencia = new javax.swing.JToggleButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        cbCategoria = new javax.swing.JComboBox();
+        lblTitAdmin1 = new javax.swing.JLabel();
+        lblTituloIcon = new javax.swing.JLabel();
+        panelGeneral1 = new Vista.PanelGeneral();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        pnlGeneral.setBackground(new java.awt.Color(255, 255, 255));
+        pnlGeneral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlAfectado.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAfectado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitAfect.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        lblTitAfect.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitAfect.setText("Afectado");
+        lblTitAfect.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnlAfectado.add(lblTitAfect, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 19));
+
+        btnIDAfectado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnIDAfectado.setText("Identificación");
+        btnIDAfectado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIDAfectadoActionPerformed(evt);
+            }
+        });
+        pnlAfectado.add(btnIDAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, -1));
+
+        btnNombreAfectado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnNombreAfectado.setText("Nombre");
+        btnNombreAfectado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNombreAfectadoActionPerformed(evt);
+            }
+        });
+        pnlAfectado.add(btnNombreAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, 30));
+
+        btnCorreoAfectado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnCorreoAfectado.setText("Correo");
+        btnCorreoAfectado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCorreoAfectadoActionPerformed(evt);
+            }
+        });
+        pnlAfectado.add(btnCorreoAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 150, 30));
+
+        btnTelefonoAfectado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnTelefonoAfectado.setText("Teléfono");
+        btnTelefonoAfectado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelefonoAfectadoActionPerformed(evt);
+            }
+        });
+        pnlAfectado.add(btnTelefonoAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 150, 30));
+
+        pnlGeneral.add(pnlAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 240, 180, 200));
+
+        pnlSolicitante.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSolicitante.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitSolicitante.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        lblTitSolicitante.setText("Solicitante");
+        pnlSolicitante.add(lblTitSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, -1));
+
+        btnIDSolicitante.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnIDSolicitante.setText("Identificación");
+        btnIDSolicitante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIDSolicitanteActionPerformed(evt);
+            }
+        });
+        pnlSolicitante.add(btnIDSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, 30));
+
+        btnNombreSolicitante.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnNombreSolicitante.setText("Nombre");
+        btnNombreSolicitante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNombreSolicitanteActionPerformed(evt);
+            }
+        });
+        pnlSolicitante.add(btnNombreSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, 30));
+
+        pnlGeneral.add(pnlSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 50, 180, 120));
+
+        pnlAdministrativos.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAdministrativos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitAdmin.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        lblTitAdmin.setText("Administradores");
+        pnlAdministrativos.add(lblTitAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+
+        btnNombreCoordinador.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnNombreCoordinador.setText("Coordinador");
+        btnNombreCoordinador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNombreCoordinadorActionPerformed(evt);
+            }
+        });
+        pnlAdministrativos.add(btnNombreCoordinador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 180, -1));
+
+        btnNombreDirector.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnNombreDirector.setText("Director Escuela");
+        btnNombreDirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNombreDirectorActionPerformed(evt);
+            }
+        });
+        pnlAdministrativos.add(btnNombreDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 180, 30));
+
+        btnNombreDirectorAdm.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnNombreDirectorAdm.setText("Director Adm&Reg");
+        btnNombreDirectorAdm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNombreDirectorAdmActionPerformed(evt);
+            }
+        });
+        pnlAdministrativos.add(btnNombreDirectorAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 30));
+
+        pnlGeneral.add(pnlAdministrativos, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, 220, 160));
 
         txtEditor.setBorder(null);
         txtEditor.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 18)); // NOI18N
@@ -94,272 +213,121 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
         txtEditor.setOpaque(false);
         jScrollPane3.setViewportView(txtEditor);
 
+        pnlGeneral.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 627, 440));
+
+        btnIntroduccion.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnIntroduccion.setText("Introducción");
         btnIntroduccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIntroduccionActionPerformed(evt);
             }
         });
+        pnlGeneral.add(btnIntroduccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 150, 45));
 
+        btnResultado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnResultado.setText("Resultado");
         btnResultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResultadoActionPerformed(evt);
             }
         });
+        pnlGeneral.add(btnResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 150, 48));
 
+        btnConsiderandos.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnConsiderandos.setText("Considerandos");
         btnConsiderandos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsiderandosActionPerformed(evt);
             }
         });
+        pnlGeneral.add(btnConsiderandos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, 45));
 
+        btnResuelvo.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnResuelvo.setText("Resuelvo");
         btnResuelvo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResuelvoActionPerformed(evt);
             }
         });
+        pnlGeneral.add(btnResuelvo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 150, 45));
 
-        btnGuardar.setText("Guardar");
+        btnGuardar.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnGuardar.setText("Guardar Plantilla");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
+        pnlGeneral.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 469, 1210, 40));
 
-        btnNombreCoordinador.setText("Coordinador");
-        btnNombreCoordinador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNombreCoordinadorActionPerformed(evt);
-            }
-        });
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Categoría");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnlGeneral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 117, 19));
 
-        btnNombreDirector.setText("Director Escuela");
-        btnNombreDirector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNombreDirectorActionPerformed(evt);
-            }
-        });
+        cbCategoria.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        pnlGeneral.add(cbCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, -1));
 
-        btnNombreDirectorAdm.setText("Director Adm&Reg");
-        btnNombreDirectorAdm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNombreDirectorAdmActionPerformed(evt);
-            }
-        });
+        pnlSolicitud.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSolicitud.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnIDSolicitante.setText("IDSolicitante");
-        btnIDSolicitante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIDSolicitanteActionPerformed(evt);
-            }
-        });
+        lblTitSolicitud.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        lblTitSolicitud.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitSolicitud.setText("Solicitud");
+        lblTitSolicitud.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnlSolicitud.add(lblTitSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 140, 19));
 
-        btnCorreoAfectado.setText("CorreoAfectado");
-        btnCorreoAfectado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCorreoAfectadoActionPerformed(evt);
-            }
-        });
-
-        btnNombreAfectado.setText("NombreAfectado");
-        btnNombreAfectado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNombreAfectadoActionPerformed(evt);
-            }
-        });
-
-        btnIDAfectado.setText("IDAfectado");
-        btnIDAfectado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIDAfectadoActionPerformed(evt);
-            }
-        });
-
-        btnNombreSolicitante.setText("Nombre Solicitante");
-        btnNombreSolicitante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNombreSolicitanteActionPerformed(evt);
-            }
-        });
-
-        btnTelefonoAfectado.setText("TelefonoAfectado");
-        btnTelefonoAfectado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelefonoAfectadoActionPerformed(evt);
-            }
-        });
-
+        btnPeriodo.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnPeriodo.setText("Periodo");
         btnPeriodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPeriodoActionPerformed(evt);
             }
         });
+        pnlSolicitud.add(btnPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 180, 30));
 
+        btnCurso.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnCurso.setText("Curso");
         btnCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCursoActionPerformed(evt);
             }
         });
+        pnlSolicitud.add(btnCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 80, 180, 30));
 
+        btnGrupo.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnGrupo.setText("Grupo");
         btnGrupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGrupoActionPerformed(evt);
             }
         });
+        pnlSolicitud.add(btnGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 120, 180, -1));
 
+        btnInconsistencia.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnInconsistencia.setText("Inconsistencia");
         btnInconsistencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInconsistenciaActionPerformed(evt);
             }
         });
+        pnlSolicitud.add(btnInconsistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 160, 180, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Datos de la Solicitud");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnlGeneral.add(pnlSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 240, 210, 210));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Datos del Solicitante");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblTitAdmin1.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        lblTitAdmin1.setText("Datos de una solicitud");
+        pnlGeneral.add(lblTitAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Datos del Afectado");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(pnlGeneral, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 1240, 510));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Categoría");
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnIntroduccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnConsiderandos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnResuelvo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(cbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnIDSolicitante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnNombreCoordinador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNombreDirector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNombreDirectorAdm))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnTelefonoAfectado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnInconsistencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNombreSolicitante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnIDAfectado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNombreAfectado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCorreoAfectado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnGrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(11, 11, 11))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnNombreCoordinador)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNombreDirector, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnIntroduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(5, 5, 5))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnNombreDirectorAdm, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnIDSolicitante, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNombreSolicitante, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                                .addGap(31, 31, 31)
-                                .addComponent(btnIDAfectado, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNombreAfectado, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCorreoAfectado, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnTelefonoAfectado, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(btnPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCurso, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnResuelvo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(208, 208, 208))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnConsiderandos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(9, 9, 9)
-                        .addComponent(btnGrupo)
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnInconsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        lblTituloIcon.setFont(new java.awt.Font("Verdana", 1, 28)); // NOI18N
+        lblTituloIcon.setForeground(new java.awt.Color(240, 0, 0));
+        lblTituloIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/templateIcon.png"))); // NOI18N
+        lblTituloIcon.setText("Creación de Plantillas");
+        getContentPane().add(lblTituloIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, -1, -1));
+        getContentPane().add(panelGeneral1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -601,12 +569,20 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
     private javax.swing.JToggleButton btnResultado;
     private javax.swing.JToggleButton btnTelefonoAfectado;
     private javax.swing.JComboBox cbCategoria;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblTitAdmin;
+    private javax.swing.JLabel lblTitAdmin1;
+    private javax.swing.JLabel lblTitAfect;
+    private javax.swing.JLabel lblTitSolicitante;
+    private javax.swing.JLabel lblTitSolicitud;
+    private javax.swing.JLabel lblTituloIcon;
+    private Vista.PanelGeneral panelGeneral1;
+    private javax.swing.JPanel pnlAdministrativos;
+    private javax.swing.JPanel pnlAfectado;
+    private javax.swing.JPanel pnlGeneral;
+    private javax.swing.JPanel pnlSolicitante;
+    private javax.swing.JPanel pnlSolicitud;
     private org.jdesktop.swingx.JXEditorPane txtEditor;
     // End of variables declaration//GEN-END:variables
 
@@ -648,14 +624,6 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
 
     public void setTxtEditor(JXEditorPane txtEditor) {
         this.txtEditor = txtEditor;
-    }
-
-    public DTOSolicitud getSolicitud() {
-        return solicitud;
-    }
-
-    public void setSolicitud(DTOSolicitud solicitud) {
-        this.solicitud = solicitud;
     }
 
     public JButton getBtnGuardar() {
