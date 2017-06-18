@@ -136,7 +136,7 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
 
     @Override
     public ArrayList<DTOSolicitud> ConsultarSolicitudesAtendidas(Date date, Date date1) {
-        return ctrl.ConsultarSolicitudesAtendidas(date, date);
+        return ctrl.ConsultarSolicitudesAtendidas(date, date1);
     }
 
     @Override
