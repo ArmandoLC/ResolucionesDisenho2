@@ -19,32 +19,13 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
     private final UIBackoffice uibackoffice;
 
     private DTOSolicitud solicitud;
-    private String introduccion = "{ Hora y fecha }, el suscrito { "
-            + "Nombre del Director }, Director de la Escuela de Ingeniería en Computación en "
-            + "atención al caso de { Situacion de inconsistencia } del estudiante{ Nombre del afectado }"
-            + ", carné { carné del afectado } , sobre el curso { código y nombre del curso } "
-            + ", grupo { Número de grupo }, del { Semestre } , resuelvo:";
+    private String introduccion = "";
 
-    private String resultado = "Por un error involuntario, no se tramitó la inclusión del estudiante { Nombre del estudiante }"
-            + "con identificación { carné del estudiante } en el curso { código y nombre del curso }"
-            + ", grupo { Número de grupo } impartido por el "
-            + "profesor { Nombre del profesor } en el { Semestre }, "
-            + "el profesor no pudo registrar en el acta la calificación obtenida\n"
-            + "por el estudiante.  ";
+    private String resultado = "";
 
-    private String considerandos = "Después de haber realizado la investigación del caso, y consultado al profesor"
-            + "{ Nombre del profesor }, quien impartió el curso { código y nombre del curso }"
-            + ", { Número de grupo }, del { Semestre } "
-            + " se logra comprobar que el estudiante { Nombre del afectado },"
-            + "carné { carné del estudiante }, efectivamente aprobó el curso con una nota de noventa y cinco"
-            + "(95), por lo que esta Dirección solicita gestionar la modificación del acta\n"
-            + "correspondiente. ";
+    private String considerandos = "";
 
-    private String resuelvo = " Autorizar la modificación del acta del curso  { código y nombre del curso }"
-            + " grupo { Número de grupo } en el { Semestre }"
-            + "impartido por el profesor { Nombre del profesor } para inc,luir al estudiante"
-            + "{ Nombre del afectado }, carné { carné del estudiante } con una nota de aprobación"
-            + "de noventa y cinco (95). ";
+    private String resuelvo = "";
 
     public DialogRegistrarPlantilla(java.awt.Frame parent, boolean modal, DTOSolicitud solicitud) {
         super(parent, modal);
@@ -249,7 +230,7 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Datos del Afectado");
+        jLabel2.setText("Datos del Solicitante");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -376,9 +357,7 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,8 +594,6 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
     private javax.swing.JToggleButton btnResultado;
     private javax.swing.JToggleButton btnTelefonoAfectado;
     private javax.swing.JComboBox cbCategoria;
-    private javax.swing.JComboBox<String> cbModalidad;
-    private javax.swing.JComboBox<String> cbModalidad1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

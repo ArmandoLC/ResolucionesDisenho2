@@ -11,7 +11,9 @@ import java.util.ArrayList;
 
 public interface IBackoffice {
     
-    public ArrayList<DTOPlantilla> ConsultarPlantillas();
+    public ArrayList<DTOPlantilla> ConsultarPlantillas(String categoria);
+    
+    public DTOPlantilla ConsultarPlantilla(String siglas);
     
     public int CrearPlantilla(DTOPlantilla dtoPlantilla);
         

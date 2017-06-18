@@ -25,8 +25,13 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
     
     
     @Override
-    public ArrayList<DTOPlantilla> ConsultarPlantillas() {
-        return ctrl.ConsultarPlantillas();
+    public ArrayList<DTOPlantilla> ConsultarPlantillas(String categoria) {
+        return ctrl.ConsultarPlantillas(categoria);
+    }
+    
+    @Override
+    public DTOPlantilla ConsultarPlantilla(String siglas) {
+        return ctrl.ConsultarPlantilla(siglas);
     }
 
     @Override

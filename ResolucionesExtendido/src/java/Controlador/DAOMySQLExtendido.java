@@ -53,7 +53,7 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
     }
 
     @Override
-    public ArrayList<DTOPlantilla> ConsultarPlantillas() {
+    public ArrayList<DTOPlantilla> ConsultarPlantillas(String categoria) {
               
         ResultSet rs;
         ArrayList<DTOPlantilla> retorno = new ArrayList<>();
@@ -241,10 +241,14 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
         setRutaConexion("jdbc:mysql://localhost:3306/resolucionesbd?useSSL=false");
     }
     
-    
     private String user = "root"; 
     private String pass = "1234";
     private Connection conexion;
+
+    @Override
+    public DTOPlantilla ConsultarPlantilla(String siglas) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }

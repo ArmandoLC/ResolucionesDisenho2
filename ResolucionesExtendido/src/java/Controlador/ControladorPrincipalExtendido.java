@@ -31,7 +31,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
         this.plantillas = new ArrayList<Plantilla>();
         this.daoBD = new DAOMySQLExtendido();
-        this.ConsultarPlantillas();
+        this.ConsultarPlantillas("");
     }
 
     @Override
@@ -63,19 +63,21 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     }
 
     @Override
-    public ArrayList<DTOPlantilla> ConsultarPlantillas() {
-
+    public ArrayList<DTOPlantilla> ConsultarPlantillas(String categoria) {
         ArrayList<DTOPlantilla> listPlantillas = new ArrayList<>();
-
         try {
-            listPlantillas = daoBD.ConsultarPlantillas();
+            listPlantillas = daoBD.ConsultarPlantillas(categoria);
             this.plantillas = new ArrayList<>();
             listPlantillas.forEach((DTOPlantilla) -> setPlantillas(DTOPlantilla));
-
         } catch (Exception e) {
         }
-
-        return listPlantillas;
+        ArrayList<DTOPlantilla> listPlantillasResult = new ArrayList<>();
+         for(DTOPlantilla dtoPlantilla: listPlantillas){
+             if(dtoPlantilla.getSiglas().equals(categoria)){
+                 listPlantillasResult.add(dtoPlantilla);
+             }
+         }
+        return listPlantillasResult;
     }
 
     @Override
@@ -178,7 +180,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         boolean modificada = false;
         try {
             modificada = daoBD.ModificarPlantilla(dtoPlantilla);
-            ConsultarPlantillas();
+            ConsultarPlantillas("");
 
             modificada = true;
         } catch (Exception e) {
@@ -268,4 +270,14 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    @Override
+    public DTOPlantilla ConsultarPlantilla(String siglas) {
+        for(Plantilla plantilla: this.plantillas){
+            if(plantilla.getSiglas().equals(siglas)){
+                return new DTOPlantilla(plantilla.getnConsecutivo(), plantilla.getSiglas(), plantilla.getIntroduccion(), plantilla.getResultado(),plantilla.getConsiderandos(), plantilla.getResuelvo());
+            }
+        }
+        return null;
+    }
 }
