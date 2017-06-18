@@ -66,7 +66,7 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
 
             while (rs.next() )
             {
-                retorno.add(new DTOPlantilla(   rs.getInt("idPlantilla"),
+                retorno.add(new DTOPlantilla(   rs.getInt("consecutivo"),
                                                 rs.getString("siglas"),
                                                 rs.getString("introduccion"),
                                                 rs.getString("resultado"),

@@ -114,9 +114,10 @@ CREATE TABLE `plantilla` (
   `resultado` varchar(5000) NOT NULL,
   `considerandos` varchar(5000) NOT NULL,
   `resuelvo` varchar(5000) NOT NULL,
+  `consecutivo` int(11) NOT NULL,
   PRIMARY KEY (`idPlantilla`),
   KEY `FK_Pplant_DetallIncosist_idx` (`siglas`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +126,7 @@ CREATE TABLE `plantilla` (
 
 LOCK TABLES `plantilla` WRITE;
 /*!40000 ALTER TABLE `plantilla` DISABLE KEYS */;
-INSERT INTO `plantilla` VALUES (1,'EN','Esta es la plantilla 1','Estan funcionando bien','Los tipos de siglas ','las plantillas estan volando'),(2,'EN','Introduccion 2','resultado 2','considerando 2','resuelvo 2'),(3,'IA','intro 3','resultado 3','considerandos 3',''),(4,'IA','intro 4','res 4','consi 4','resuelvo 4'),(5,'IA','intro 3','resultado 3','considerandos 3',''),(6,'IA','intro 6','resultado 6','considerandos 6','resuelvo 6'),(7,'IA','intro 7','resultado 7','considerandos 7','resuelvo 7'),(8,'IA','intro 8','resultado 8','considerandos 8','resuelvo 8');
+INSERT INTO `plantilla` VALUES (9,'EN','Introduccion 2','resultado 2','considerando 2','resuelvo 2',3),(10,'EN','Introduccion 2','resultado 2','considerando 2','resuelvo 2',4),(11,'EN','Introduccion 2','resultado 2','considerando 2','resuelvo 2',5),(12,'EN','Introduccion 2','resultado 2','considerando 2','resuelvo 2',6),(13,'IA','Introduccion 2','resultado 2','considerando 2','resuelvo 2',7),(14,'AM','Introduccion 2','resultado 2','considerando 2','resuelvo 2',1),(15,'AM','Introduccion 2','resultado 2','considerando 2','resuelvo 2',2),(16,'AM','Introduccion 2','resultado 2','considerando 2','resuelvo 2',3),(17,'AM','Introduccion 2','resultado 2','considerando 2','resuelvo 2',4),(18,'AM','Introduccion 2','resultado 2','considerando 2','resuelvo 2',5),(19,'AM','Introduccion 2','resultado 2','considerando 2','resuelvo 2',6),(20,'AM','Introduccion 2','resultado 2','considerando 2','resuelvo 2',7);
 /*!40000 ALTER TABLE `plantilla` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,7 +226,7 @@ CREATE TABLE `solicitudes` (
 
 LOCK TABLES `solicitudes` WRITE;
 /*!40000 ALTER TABLE `solicitudes` DISABLE KEYS */;
-INSERT INTO `solicitudes` VALUES (1,53,'2017-06-15','Probando desde el freim','Solicitud de Prueba #1','2015082908','Andrey Mendoza','898989','Luis Mendoza','lm@gmail.com','454554','C:\\Users\\Andrey\\Documents\\.Rhistory','Tramitada','Sin definir'),(2,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asd','asd@asd.com','asd','','Pendiente',''),(3,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asda','asd@asd.com','asd','','Anulada','por que me ronca\n'),(4,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asd','asd@asd.com','asd','','Anulada','Por que si\n'),(5,59,'2017-06-16','MODIFICACION_ACTA','sad','asd','asd','sd','asda','asd@asd.com','asd','','Pendiente',''),(6,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','as','asd','asd','asd@asd.com','asd','','Pendiente',''),(7,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asda','asd@asd.com','asd','','Tramitada',''),(8,59,'2017-06-16','MODIFICACION_ACTA','sd','ad','asd','asd','asd','asd@asd.com','asd','','Tramitada',''),(9,59,'2017-06-17','MODIFICACION_ACTA','Prueba pagina web lista','2015082908','Andrey Mendoza','89898','Julian Salinas','jsaly12@gmail.com','85566223','','Tramitada',''),(10,59,'2017-06-17','EXCLUSION_ACTA','Prueba con interfaz de coordinador lista','515432','prueba22','56513','afect22','asd@gmail.com','123124','C:\\Users\\Andrey\\Documents\\.Rhistory','Pendiente','Sin definir'),(11,59,'2017-06-17','EXCLUSION_ACTA','Es un puto error en la fucking nota','2015082908','Andrey Mendoza','2015082908','Andrey Mendoza','a@gmail.com','91233','C:\\Users\\Andrey\\Documents\\.Rhistory','Pendiente','Sin definir');
+INSERT INTO `solicitudes` VALUES (1,53,'2017-06-15','INCLUSION ACTA','Solicitud de Prueba #1','2015082908','Andrey Mendoza','898989','Luis Mendoza','lm@gmail.com','454554','C:\\Users\\Andrey\\Documents\\.Rhistory','Tramitada','Sin definir'),(2,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asd','asd@asd.com','asd','','Pendiente',''),(3,59,'2017-06-16','Inclusion Acta','asd','asd','asd','asd','asda','asd@asd.com','asd','','Anulada','por que me ronca\n'),(4,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asd','asd@asd.com','asd','','Anulada','Por que si\n'),(5,59,'2017-06-16','INCLUSION ACTA','sad','asd','asd','sd','asda','asd@asd.com','asd','','Tramitada',''),(6,59,'2017-06-16','Exclusion Acta','asd','asd','as','asd','asd','asd@asd.com','asd','','Pendiente',''),(7,59,'2017-06-16','MODIFICACION_ACTA','asd','asd','asd','asd','asda','asd@asd.com','asd','','Tramitada',''),(8,59,'2017-06-16','MODIFICACION_ACTA','sd','ad','asd','asd','asd','asd@asd.com','asd','','Tramitada',''),(9,59,'2017-06-17','Inclusion Acta','Prueba pagina web lista','2015082908','Andrey Mendoza','89898','Julian Salinas','jsaly12@gmail.com','85566223','','Tramitada',''),(10,59,'2017-06-17','INCLUSION ACTA','Prueba con interfaz de coordinador lista','515432','prueba22','56513','afect22','asd@gmail.com','123124','C:\\Users\\Andrey\\Documents\\.Rhistory','Pendiente','Sin definir'),(11,59,'2017-06-17',NULL,'Es un puto error en la fucking nota','2015082908','Andrey Mendoza','2015082908','Andrey Mendoza','a@gmail.com','91233','C:\\Users\\Andrey\\Documents\\.Rhistory','Pendiente','Sin definir');
 /*!40000 ALTER TABLE `solicitudes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -684,11 +685,17 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `registrarPlantilla`(
 
 )
 BEGIN
-
-	INSERT INTO Plantilla (`siglas`,`introduccion`,`resultado`,`considerandos`,`resuelvo`)
-				VALUES(siglas, introduccion, resultado, considerandos, resuelvo);
+	DECLARE ultimo int;
+	SET ultimo = (SELECT COUNT(*)
+						FROM plantilla p
+                        WHERE p.siglas = siglas);
+                        
+	SET ultimo = ultimo + 1;
+    
+	INSERT INTO Plantilla (`siglas`,`introduccion`,`resultado`,`considerandos`,`resuelvo`, `consecutivo`)
+				VALUES(siglas, introduccion, resultado, considerandos, resuelvo, ultimo);
 							
-	SELECT LAST_INSERT_ID() AS 'ultimoID';
+	SELECT ultimo;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -828,4 +835,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-17 18:05:55
+-- Dump completed on 2017-06-17 22:50:54
