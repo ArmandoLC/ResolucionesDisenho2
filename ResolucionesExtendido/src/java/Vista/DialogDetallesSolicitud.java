@@ -1,7 +1,9 @@
 package Vista;
 
 import DTOs.DTOSolicitud;
+import java.io.File;
 import java.text.SimpleDateFormat;
+import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import org.jdesktop.swingx.JXTextArea;
 
@@ -21,13 +23,13 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
     
     public void llenarCampos(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        txtFecha.setText(sdf.format(solicitud.getFecha()));
+        String s = sdf.format(solicitud.getFecha());
+        txtGrupo.setText(s);
         txtIdSolicitante.setText(solicitud.getIdSolicitante());
         txtNombreSolicitante.setText(solicitud.getNombreSolicitante());
         txtCodigoCurso.setText(solicitud.getCodigoCurso());
-        txtGrupo.setText(String.valueOf(solicitud.getnGrupo()));
+        txtFecha.setText(String.valueOf(solicitud.getnGrupo()));
         txtPeriodo.setText(solicitud.getPeriodo());
-        txtTipoInconsistencia.setText(solicitud.getInconsistencia());
         txtIdAfectado.setText(solicitud.getIdAfectado());
         txtNombreAfectado.setText(solicitud.getNombreAfectado());
         txtCorreoAfectado.setText(solicitud.getCorreoAfectado());
@@ -35,6 +37,7 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
         txtArchivoAdjunto.setText(solicitud.getRutaArchivoAdjunto());
         txtDescripcion.setText(solicitud.getDescripcionDetallada());
         txtEstado.setText(solicitud.getEstado());
+        txtInconsistencia.setText(solicitud.getInconsistencia());
     }
 
     public JTextField getTxtArchivoAdjunto() {
@@ -70,11 +73,11 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
     }
 
     public JTextField getTxtGrupo() {
-        return txtGrupo;
+        return txtFecha;
     }
 
     public void setTxtGrupo(JTextField txtGrupo) {
-        this.txtGrupo = txtGrupo;
+        this.txtFecha = txtGrupo;
     }
 
     public JTextField getTxtIdAfectado() {
@@ -126,41 +129,48 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
     }
 
     public JTextField getTxtTipoInconsistencia() {
-        return txtTipoInconsistencia;
+        return txtFecha;
     }
 
     public void setTxtTipoInconsistencia(JTextField txtTipoInconsistencia) {
-        this.txtTipoInconsistencia = txtTipoInconsistencia;
+        this.txtFecha = txtTipoInconsistencia;
+    }
+
+    public JTextField getTxtInconsistencia() {
+        return txtInconsistencia;
+    }
+
+    public void setTxtInconsistencia(JTextField txtInconsistencia) {
+        this.txtInconsistencia = txtInconsistencia;
     }
     
-    
+    public DTOSolicitud getSolicitud(){
+        return solicitud;
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtIdSolicitante = new javax.swing.JTextField();
-        txtNombreSolicitante = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        pnlCompleto = new javax.swing.JPanel();
+        btnActualizarInconsistencia = new javax.swing.JButton();
+        onlInformacion = new javax.swing.JPanel();
+        pnlDatosSolicitud = new javax.swing.JPanel();
+        SolicitudIcon = new javax.swing.JLabel();
+        lblEstado = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtCodigoCurso = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtGrupo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtTipoInconsistencia = new javax.swing.JTextField();
-        txtPeriodo = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtFecha = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
         txtEstado = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        txtInconsistencia = new javax.swing.JTextField();
+        txtGrupo = new javax.swing.JTextField();
+        txtPeriodo = new javax.swing.JTextField();
+        txtFecha = new javax.swing.JTextField();
+        txtCodigoCurso = new javax.swing.JTextField();
+        pnlAfectado = new javax.swing.JPanel();
+        lblDatosAfectadoIcon = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -169,301 +179,247 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
         txtNombreAfectado = new javax.swing.JTextField();
         txtCorreoAfectado = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        txtArchivoAdjunto = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        txtArchivoAdjunto = new javax.swing.JTextField();
         btnAbrirArchivoAdjunto = new javax.swing.JButton();
+        pnlDatosSolicitante = new javax.swing.JPanel();
+        lblSolicitanteIcon = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtIdSolicitante = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtNombreSolicitante = new javax.swing.JTextField();
+        lblDescripProblemIcon = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescripcion = new org.jdesktop.swingx.JXTextArea();
+        lblIcono = new javax.swing.JLabel();
+        pnlFondo = new Vista.PanelGeneral();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCompleto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setText("Descripción del problema: ");
+        btnActualizarInconsistencia.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnActualizarInconsistencia.setText("Actualizar Inconsistencia");
+        btnActualizarInconsistencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarInconsistenciaActionPerformed(evt);
+            }
+        });
+        pnlCompleto.add(btnActualizarInconsistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 750, 1230, 40));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        org.jdesktop.swingx.border.DropShadowBorder dropShadowBorder1 = new org.jdesktop.swingx.border.DropShadowBorder();
-        dropShadowBorder1.setShadowColor(new java.awt.Color(153, 204, 255));
-        jPanel2.setBorder(dropShadowBorder1);
+        onlInformacion.setBackground(new java.awt.Color(255, 255, 255));
+        onlInformacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Identificación del solicitante");
+        pnlDatosSolicitud.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDatosSolicitud.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtIdSolicitante.setEditable(false);
+        SolicitudIcon.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        SolicitudIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/solicitudIcon.PNG"))); // NOI18N
+        SolicitudIcon.setText("Datos de la Solicitud");
+        pnlDatosSolicitud.add(SolicitudIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        txtNombreSolicitante.setEditable(false);
+        lblEstado.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        lblEstado.setText("Estado: ");
+        pnlDatosSolicitud.add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 160, -1));
 
-        jLabel2.setText("Nombre del solicitante");
+        jLabel7.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel7.setText("Fecha:");
+        pnlDatosSolicitud.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 160, -1));
 
-        jLabel4.setText("Período");
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel4.setText("Período:");
+        pnlDatosSolicitud.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 160, -1));
 
-        txtCodigoCurso.setEditable(false);
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel3.setText("Código del curso:");
+        pnlDatosSolicitud.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 160, -1));
 
-        jLabel3.setText("Código del curso");
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel5.setText("Grupo:");
+        pnlDatosSolicitud.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 160, -1));
 
-        jLabel5.setText("Grupo");
+        jLabel11.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel11.setText("Tipo de inconsistencia:");
+        pnlDatosSolicitud.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 230, -1));
 
-        txtGrupo.setEditable(false);
+        txtEstado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtEstado.setEnabled(false);
+        pnlDatosSolicitud.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 310, 30));
 
-        jLabel11.setText("Tipo de inconsistencia");
+        txtInconsistencia.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtInconsistencia.setEnabled(false);
+        pnlDatosSolicitud.add(txtInconsistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 310, 30));
 
-        txtTipoInconsistencia.setEditable(false);
+        txtGrupo.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtGrupo.setEnabled(false);
+        pnlDatosSolicitud.add(txtGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 310, 30));
 
-        txtPeriodo.setEditable(false);
+        txtPeriodo.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtPeriodo.setEnabled(false);
+        pnlDatosSolicitud.add(txtPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 310, 30));
 
-        jLabel7.setText("Fecha");
+        txtFecha.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtFecha.setEnabled(false);
+        pnlDatosSolicitud.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 310, 30));
 
-        txtFecha.setEditable(false);
+        txtCodigoCurso.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtCodigoCurso.setEnabled(false);
+        pnlDatosSolicitud.add(txtCodigoCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 310, 30));
 
-        jLabel16.setText("Estado");
+        onlInformacion.add(pnlDatosSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 410, 520));
 
-        txtEstado.setEditable(false);
+        pnlAfectado.setBackground(new java.awt.Color(255, 255, 255));
+        pnlAfectado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEstado)
-                            .addComponent(txtIdSolicitante, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                            .addComponent(txtNombreSolicitante)
-                            .addComponent(txtCodigoCurso)
-                            .addComponent(txtGrupo)
-                            .addComponent(txtTipoInconsistencia)
-                            .addComponent(txtPeriodo))))
-                .addGap(28, 28, 28))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCodigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTipoInconsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
-        );
+        lblDatosAfectadoIcon.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        lblDatosAfectadoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/iconoDatosPersonales.PNG"))); // NOI18N
+        lblDatosAfectadoIcon.setText("Información del afectado");
+        pnlAfectado.add(lblDatosAfectadoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        org.jdesktop.swingx.border.DropShadowBorder dropShadowBorder2 = new org.jdesktop.swingx.border.DropShadowBorder();
-        dropShadowBorder2.setShadowColor(new java.awt.Color(153, 204, 255));
-        jPanel4.setBorder(dropShadowBorder2);
-
-        jLabel15.setText("Información del afectado: ");
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(new org.jdesktop.swingx.border.DropShadowBorder(), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
         jLabel8.setText("Identificación");
+        pnlAfectado.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
+        jLabel12.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
         jLabel12.setText("Nombre");
+        pnlAfectado.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
+        jLabel13.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
         jLabel13.setText("Correo");
+        pnlAfectado.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
+        jLabel14.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
         jLabel14.setText("Teléfono");
+        pnlAfectado.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdAfectado, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNombreAfectado, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCorreoAfectado, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdAfectado)
-                    .addComponent(jLabel8))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreAfectado)
-                    .addComponent(jLabel12))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCorreoAfectado)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTelefono)
-                    .addComponent(jLabel14))
-                .addGap(14, 14, 14))
-        );
+        txtIdAfectado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtIdAfectado.setEnabled(false);
+        pnlAfectado.add(txtIdAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, -1));
 
-        jLabel9.setText("Archivo adjunto:");
+        txtNombreAfectado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtNombreAfectado.setEnabled(false);
+        pnlAfectado.add(txtNombreAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 360, -1));
 
+        txtCorreoAfectado.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtCorreoAfectado.setEnabled(false);
+        txtCorreoAfectado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoAfectadoActionPerformed(evt);
+            }
+        });
+        pnlAfectado.add(txtCorreoAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 360, 30));
+
+        txtTelefono.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtTelefono.setEnabled(false);
+        pnlAfectado.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 360, -1));
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel9.setText("Adjuntar archivo: ");
+        pnlAfectado.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 190, -1));
+
+        txtArchivoAdjunto.setEditable(false);
+        txtArchivoAdjunto.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtArchivoAdjunto.setEnabled(false);
+        txtArchivoAdjunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtArchivoAdjuntoActionPerformed(evt);
+            }
+        });
+        pnlAfectado.add(txtArchivoAdjunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 280, -1));
+
+        btnAbrirArchivoAdjunto.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnAbrirArchivoAdjunto.setText("Abrir");
         btnAbrirArchivoAdjunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirArchivoAdjuntoActionPerformed(evt);
             }
         });
+        pnlAfectado.add(btnAbrirArchivoAdjunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(txtArchivoAdjunto, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAbrirArchivoAdjunto))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtArchivoAdjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAbrirArchivoAdjunto))
-                .addGap(18, 18, 18))
-        );
+        onlInformacion.add(pnlAfectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, 410, 520));
 
-        txtDescripcion.setEditable(false);
+        pnlDatosSolicitante.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDatosSolicitante.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblSolicitanteIcon.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        lblSolicitanteIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/usuarioIcon.jpg"))); // NOI18N
+        lblSolicitanteIcon.setText("Datos del Solicitante");
+        pnlDatosSolicitante.add(lblSolicitanteIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel1.setText("Identificación:");
+        pnlDatosSolicitante.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 160, -1));
+
+        txtIdSolicitante.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtIdSolicitante.setEnabled(false);
+        pnlDatosSolicitante.add(txtIdSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 350, -1));
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        jLabel2.setText("Nombre:");
+        pnlDatosSolicitante.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 160, -1));
+
+        txtNombreSolicitante.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        txtNombreSolicitante.setEnabled(false);
+        pnlDatosSolicitante.add(txtNombreSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 350, -1));
+
+        lblDescripProblemIcon.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        lblDescripProblemIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/preguntaIcon.PNG"))); // NOI18N
+        lblDescripProblemIcon.setText("Descripción del Problema");
+        pnlDatosSolicitante.add(lblDescripProblemIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 370, -1));
+
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
+        txtDescripcion.setEnabled(false);
         jScrollPane2.setViewportView(txtDescripcion);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(16, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        pnlDatosSolicitante.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 350, 200));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        onlInformacion.add(pnlDatosSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 410, 520));
+
+        pnlCompleto.add(onlInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 1340, 530));
+
+        lblIcono.setFont(new java.awt.Font("Verdana", 1, 28)); // NOI18N
+        lblIcono.setForeground(new java.awt.Color(240, 0, 0));
+        lblIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/regSolic.PNG"))); // NOI18N
+        lblIcono.setText("Registro de Solicitudes");
+        pnlCompleto.add(lblIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, 70));
+        pnlCompleto.add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 820));
+
+        getContentPane().add(pnlCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnActualizarInconsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarInconsistenciaActionPerformed
+        uibackoffice.ModificarSolicitud(this);
+    }//GEN-LAST:event_btnActualizarInconsistenciaActionPerformed
+
+    private void txtCorreoAfectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoAfectadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoAfectadoActionPerformed
+
+    private void txtArchivoAdjuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtArchivoAdjuntoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtArchivoAdjuntoActionPerformed
+
     private void btnAbrirArchivoAdjuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirArchivoAdjuntoActionPerformed
-        
+        JFileChooser file=new JFileChooser();
+        file.showOpenDialog(this);
+        File archivo = file.getSelectedFile();
+        txtArchivoAdjunto.setText(archivo.getAbsolutePath());
     }//GEN-LAST:event_btnAbrirArchivoAdjuntoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SolicitudIcon;
     private javax.swing.JButton btnAbrirArchivoAdjunto;
+    private javax.swing.JButton btnActualizarInconsistencia;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -471,11 +427,18 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblDatosAfectadoIcon;
+    private javax.swing.JLabel lblDescripProblemIcon;
+    private javax.swing.JLabel lblEstado;
+    private javax.swing.JLabel lblIcono;
+    private javax.swing.JLabel lblSolicitanteIcon;
+    private javax.swing.JPanel onlInformacion;
+    private javax.swing.JPanel pnlAfectado;
+    private javax.swing.JPanel pnlCompleto;
+    private javax.swing.JPanel pnlDatosSolicitante;
+    private javax.swing.JPanel pnlDatosSolicitud;
+    private Vista.PanelGeneral pnlFondo;
     private javax.swing.JTextField txtArchivoAdjunto;
     private javax.swing.JTextField txtCodigoCurso;
     private javax.swing.JTextField txtCorreoAfectado;
@@ -485,10 +448,10 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
     private javax.swing.JTextField txtGrupo;
     private javax.swing.JTextField txtIdAfectado;
     private javax.swing.JTextField txtIdSolicitante;
+    private javax.swing.JTextField txtInconsistencia;
     private javax.swing.JTextField txtNombreAfectado;
     private javax.swing.JTextField txtNombreSolicitante;
     private javax.swing.JTextField txtPeriodo;
     private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtTipoInconsistencia;
     // End of variables declaration//GEN-END:variables
 }

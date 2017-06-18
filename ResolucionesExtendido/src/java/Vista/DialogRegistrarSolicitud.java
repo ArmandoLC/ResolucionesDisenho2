@@ -56,6 +56,7 @@ public class DialogRegistrarSolicitud extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlCompleto = new javax.swing.JPanel();
         btnRegistrarSolicitud = new javax.swing.JButton();
         onlInformacion = new javax.swing.JPanel();
         pnlDatosSolicitud = new javax.swing.JPanel();
@@ -101,6 +102,8 @@ public class DialogRegistrarSolicitud extends javax.swing.JDialog {
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pnlCompleto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnRegistrarSolicitud.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btnRegistrarSolicitud.setText("Registrar solicitud");
         btnRegistrarSolicitud.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +111,7 @@ public class DialogRegistrarSolicitud extends javax.swing.JDialog {
                 btnRegistrarSolicitudActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrarSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 760, 1230, 40));
+        pnlCompleto.add(btnRegistrarSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 760, 1230, 40));
 
         onlInformacion.setBackground(new java.awt.Color(255, 255, 255));
         onlInformacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -275,14 +278,16 @@ public class DialogRegistrarSolicitud extends javax.swing.JDialog {
 
         onlInformacion.add(pnlDatosSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 410, 520));
 
-        getContentPane().add(onlInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 1340, 540));
+        pnlCompleto.add(onlInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 1340, 540));
 
         lblIcono.setFont(new java.awt.Font("Verdana", 1, 28)); // NOI18N
         lblIcono.setForeground(new java.awt.Color(240, 0, 0));
         lblIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/regSolic.PNG"))); // NOI18N
         lblIcono.setText("Registro de Solicitudes");
-        getContentPane().add(lblIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, 70));
-        getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 820));
+        pnlCompleto.add(lblIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, 70));
+        pnlCompleto.add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 820));
+
+        getContentPane().add(pnlCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -340,6 +345,7 @@ public class DialogRegistrarSolicitud extends javax.swing.JDialog {
     private javax.swing.JLabel lblSolicitanteIcon;
     private javax.swing.JPanel onlInformacion;
     private javax.swing.JPanel pnlAfectado;
+    private javax.swing.JPanel pnlCompleto;
     private javax.swing.JPanel pnlDatosSolicitante;
     private javax.swing.JPanel pnlDatosSolicitud;
     private Vista.PanelGeneral pnlFondo;

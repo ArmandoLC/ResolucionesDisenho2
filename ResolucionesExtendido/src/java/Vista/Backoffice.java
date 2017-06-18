@@ -147,7 +147,6 @@ public class Backoffice extends HerramientasBackoffice{
         pnlCoordinador = new javax.swing.JPanel();
         panelFondo = new javax.swing.JPanel();
         cbEstado = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
         dpDesde = new org.jdesktop.swingx.JXDatePicker();
         dpHasta = new org.jdesktop.swingx.JXDatePicker();
         lblDesde = new javax.swing.JLabel();
@@ -155,6 +154,9 @@ public class Backoffice extends HerramientasBackoffice{
         jScrollPane1 = new javax.swing.JScrollPane();
         tabSolicitudes = new org.jdesktop.swingx.JXTable();
         linkReporteSolicitudes = new org.jdesktop.swingx.JXHyperlink();
+        jLabel2 = new javax.swing.JLabel();
+        btBuscarSolicitud = new javax.swing.JButton();
+        btPorEstudiante = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         lblIconoAdminSolic = new javax.swing.JLabel();
         linkRegistroSolic = new org.jdesktop.swingx.JXHyperlink();
@@ -181,10 +183,6 @@ public class Backoffice extends HerramientasBackoffice{
             }
         });
         panelFondo.add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 159, -1));
-
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
-        jLabel1.setText("Filtrar por estado:");
-        panelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
 
         dpDesde.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +230,28 @@ public class Backoffice extends HerramientasBackoffice{
             }
         });
         panelFondo.add(linkReporteSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        jLabel2.setText("Filtrar por estado:");
+        panelFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
+
+        btBuscarSolicitud.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btBuscarSolicitud.setText("Buscar por ID");
+        btBuscarSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBuscarSolicitudActionPerformed(evt);
+            }
+        });
+        panelFondo.add(btBuscarSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 459, -1, 30));
+
+        btPorEstudiante.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btPorEstudiante.setText("Buscar por estudiante");
+        btPorEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPorEstudianteActionPerformed(evt);
+            }
+        });
+        panelFondo.add(btPorEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 459, -1, 30));
 
         pnlCoordinador.add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 1120, 499));
 
@@ -318,13 +338,23 @@ public class Backoffice extends HerramientasBackoffice{
         // TODO add your handling code here:
     }//GEN-LAST:event_dpDesdeActionPerformed
 
+    private void btPorEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPorEstudianteActionPerformed
+        uibackoffice.ConsultarSolicitudesEstudiante(this);
+    }//GEN-LAST:event_btPorEstudianteActionPerformed
+
+    private void btBuscarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarSolicitudActionPerformed
+        uibackoffice.ConsultarSolicitud(this);
+    }//GEN-LAST:event_btBuscarSolicitudActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btBuscarSolicitud;
+    private javax.swing.JButton btPorEstudiante;
     private org.jdesktop.swingx.painter.BusyPainter busyPainter1;
     private javax.swing.JComboBox<String> cbEstado;
     private org.jdesktop.swingx.JXDatePicker dpDesde;
     private org.jdesktop.swingx.JXDatePicker dpHasta;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDesde;
     private javax.swing.JLabel lblHasta;

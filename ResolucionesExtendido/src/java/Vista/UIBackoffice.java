@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.FacadeBackoffice;
 import DTOs.DTOCurso;
+import DTOs.DTOEstadoSolicitud;
 import DTOs.DTOPersona;
 import DTOs.DTORegistroUsuario;
 import DTOs.DTOResolucion;
@@ -161,15 +162,6 @@ public class UIBackoffice extends HerramientasBackoffice{
         } catch(Exception e){ backoffice.showError(e.getMessage()); }   
     }
    
-  
-    public void RegistrarInconsistencia(JDialog pdialog) {
-        try{  DialogInconsistencia dialog = (DialogInconsistencia) pdialog;
-            String nuevaInconsistencia = dialog.getTxtRegistrarInconsistencia().getText();
-            boolean respuesta = facade.RegistrarInconsistencia(nuevaInconsistencia);
-            if(respuesta) backoffice.showMessage("Nueva inconsistencia registrada");
-            else backoffice.showMessage("No se ha podido registrar la inconsistencia");
-        } catch(Exception e){ backoffice.showError(e.getMessage()); }
-    }
     
     public void RegistrarSolicitudes() {
         try{  JFileChooser file = new JFileChooser();
@@ -239,8 +231,12 @@ public class UIBackoffice extends HerramientasBackoffice{
     }
 
     
-    public void ConsultarSolicitudesEstudiante(String idEstudiante) {
+    public void ConsultarSolicitudesEstudiante(Backoffice frame) {
         try{  ArrayList<DTOSolicitud> solicitudes;
+            String idEstudiante = (String) JOptionPane.showInputDialog(
+                frame, 
+                "ID del estudiante:", "",
+                JOptionPane.PLAIN_MESSAGE, null, null, "0");
             solicitudes = facade.consultarSolicitudesEstudiante(idEstudiante);
             backoffice.getTabModelSolicitudes().setSolicitudes(solicitudes);
             if(solicitudes.isEmpty()){
@@ -259,7 +255,7 @@ public class UIBackoffice extends HerramientasBackoffice{
             
             if (!(pass.equals(passRP)))
             {
-                showError("Las contraseñas no coinciden.");
+                backoffice.showError("Las contraseñas no coinciden.");
                 return;
             }
             
@@ -276,13 +272,71 @@ public class UIBackoffice extends HerramientasBackoffice{
             
             boolean result = facade.RegistrarUsuario(dto);
             
-            if (result) showMessage("Usuario agregado correctamente");
+            if (result) backoffice.showMessage("Usuario agregado correctamente");
             
-            else showError("El usuario no pudo ser agregado.");
+            else backoffice.showError("El usuario no pudo ser agregado.");
         }
         catch (Exception e)
         {
-            showError("Alguno de los datos no tiene el formato correcto.");
+            backoffice.showError("Alguno de los datos no tiene el formato correcto.");
+        }
+    }
+    
+    public void ModificarSolicitud(DialogDetallesSolicitud dialog)
+    {
+        try
+        {
+            int id = dialog.getSolicitud().getId();
+            Object[] inconsistencias = {"EXCLUSION ACTA", "INCLUSION ACTA", "ERROR NOTA"};
+            
+            String incons = (String) JOptionPane.showInputDialog(
+                dialog, 
+                "Elija un tipo de incosistencia:", "",
+                JOptionPane.PLAIN_MESSAGE, null, inconsistencias, "asd");
+            if (incons == null) return;
+            DTOEstadoSolicitud dto = new DTOEstadoSolicitud(id, incons);
+            boolean respuesta = facade.ModificarSolicitud(dto); 
+            
+            if (respuesta)
+            {   backoffice.showMessage("Solicitud modificada.");ConsultarSolicitudes();
+                dialog.getSolicitud().setInconsistencia(incons);
+                dialog.getTxtInconsistencia().setText(incons);
+            }
+            else showError("No se ha podido realizar la acción.");}
+        catch(Exception e){backoffice.showError(e.getMessage());}                
+    }
+    
+    public void ConsultarSolicitud(Backoffice frame)
+    {
+        try
+        {
+            String inputID = (String) JOptionPane.showInputDialog(
+                frame, 
+                "ID de la solicitud:", "",
+                JOptionPane.PLAIN_MESSAGE, null, null, "0");
+            
+            int idSolicitud = Integer.parseInt(inputID);
+            
+            // Buscar la solicitud
+            ArrayList<DTOSolicitud> solicitudes = facade.ConsultarSolicitudes();
+            DTOSolicitud solicitud = null;
+            for (int i = 0; i < solicitudes.size(); i++) {
+                if (solicitudes.get(i).getId() == idSolicitud )
+                {
+                    solicitud = solicitudes.get(i);
+                    break;
+                }                
+            }
+            
+            if (solicitud != null){
+                DialogDetallesSolicitud dialog = new DialogDetallesSolicitud(frame, false, solicitud);
+                dialog.setVisible(true);
+            }
+            else backoffice.showError("No se encontró esa solicitud.");
+        }
+        catch (Exception e)
+        {
+            backoffice.showError("Error.");
         }
     }
 }
