@@ -31,14 +31,14 @@ public class UIBackoffice extends HerramientasBackoffice {
     public UIBackoffice(HerramientasBackoffice backoffice) {
         this.backoffice = (Backoffice) backoffice;
     }
-    
-    public UIBackoffice(){
+
+    public UIBackoffice() {
         this.backoffice = new Backoffice();
     }
-   
-    
-    public void RegistrarSolicitud( JDialog pdialog ) {
-        try{  DialogRegistrarSolicitud dialog = (DialogRegistrarSolicitud) pdialog;
+
+    public void RegistrarSolicitud(JDialog pdialog) {
+        try {
+            DialogRegistrarSolicitud dialog = (DialogRegistrarSolicitud) pdialog;
             DTOSolicitud dtoSolicitud = new DTOSolicitud();
             dtoSolicitud.setFecha(Calendar.getInstance().getTime());
             dtoSolicitud.setIdSolicitante(dialog.getTxtIdSolicitante().getText());
@@ -54,7 +54,7 @@ public class UIBackoffice extends HerramientasBackoffice {
             dtoSolicitud.setNombreAfectado(dialog.getTxtNombreAfectado().getText());
             dtoSolicitud.setCorreoAfectado(dialog.getTxtCorreoAfectado().getText());
             dtoSolicitud.setTelefonoAfectado(dialog.getTxtTelefono().getText());
-            dtoSolicitud.setInconsistencia("MODIFICACION ACTA");         
+            dtoSolicitud.setInconsistencia("MODIFICACION ACTA");
             dtoSolicitud.setDescripcionDetallada(dialog.getTxtDescripcion().getText());
             dtoSolicitud.setRutaArchivoAdjunto(dialog.getTxtArchivoAdjunto().getText());
             dtoSolicitud.setEstado(Estado.Pendiente.name());
@@ -157,54 +157,61 @@ public class UIBackoffice extends HerramientasBackoffice {
     }
 
     public void ConsultarTopProfesores(JDialog pdialog) {
-        try{  
+        try {
             ArrayList<DTOPersona> profs = facade.ConsultarTopProfesores(3);
-            if (pdialog instanceof DialogEstadisticas)
-            {
+            if (pdialog instanceof DialogEstadisticas) {
                 DialogEstadisticas dialog = (DialogEstadisticas) pdialog;
-                TableModelProfesor model = new TableModelProfesor(dialog.getTabProfesores()); 
-                model.setPersonas( profs );
+                TableModelProfesor model = new TableModelProfesor(dialog.getTabProfesores());
+                model.setPersonas(profs);
                 dialog.getTabProfesores().setModel(model);
             }
-            if (pdialog instanceof PanelDireccion)
-            {
+            if (pdialog instanceof PanelDireccion) {
                 PanelDireccion dialog = (PanelDireccion) pdialog;
-                TableModelProfesor model = new TableModelProfesor(dialog.getTabProfesores()); 
-                model.setPersonas( profs );
+                TableModelProfesor model = new TableModelProfesor(dialog.getTabProfesores());
+                model.setPersonas(profs);
                 dialog.getTabProfesores().setModel(model);
             }
-        } catch(Exception e){ backoffice.showError(e.getMessage()); }
+        } catch (Exception e) {
+            backoffice.showError(e.getMessage());
+        }
     }
-    
 
     public void ConsultarTopCursos(JDialog pdialog) {
-        try{  
+        try {
             ArrayList<DTOCurso> top = facade.ConsultarTopCursos(5);
-            if (pdialog instanceof DialogEstadisticas)
-            {
+            if (pdialog instanceof DialogEstadisticas) {
                 DialogEstadisticas dialog = (DialogEstadisticas) pdialog;
-                TableModelCurso model = new TableModelCurso(dialog.getTabCursos()); 
-                model.setCursos( top );
+                TableModelCurso model = new TableModelCurso(dialog.getTabCursos());
+                model.setCursos(top);
                 dialog.getTabProfesores().setModel(model);
             }
-            if (pdialog instanceof PanelDireccion)
-            {
+            if (pdialog instanceof PanelDireccion) {
                 PanelDireccion dialog = (PanelDireccion) pdialog;
-                TableModelCurso model = new TableModelCurso(dialog.getTabCursos()); 
-                model.setCursos( top );
+                TableModelCurso model = new TableModelCurso(dialog.getTabCursos());
+                model.setCursos(top);
                 dialog.getTabProfesores().setModel(model);
             }
-        } catch(Exception e){ backoffice.showError(e.getMessage()); }
+        } catch (Exception e) {
+            backoffice.showError(e.getMessage());
+        }
     }
-   
-           
+
     public void TramitarSolicitud(DTOSolicitud solicitud) {
-        try{  boolean respuesta = facade.TramitarSolicitud(solicitud.getId());
-            if(!(solicitud.getInconsistencia().equals("MODIFICACION ACTA"))){
-            if(respuesta){ backoffice.showMessage("Solicitud tramitada"); ConsultarSolicitudes(); } 
-            else backoffice.showMessage("No se ha podido realizar la acción");}
-            else backoffice.showError("No se puede tramitar la solicitud con esa inconsistencia");
-        } catch(Exception e){ backoffice.showError(e.getMessage()); }
+        try {
+            boolean respuesta = facade.TramitarSolicitud(solicitud.getId());
+            if (!(solicitud.getInconsistencia().equals("MODIFICACION ACTA"))) {
+                if (respuesta) {
+                    backoffice.showMessage("Solicitud tramitada");
+                    ConsultarSolicitudes();
+                } else {
+                    backoffice.showMessage("No se ha podido realizar la acción");
+                }
+            } else {
+                backoffice.showError("No se puede tramitar la solicitud con esa inconsistencia");
+            }
+        } catch (Exception e) {
+            backoffice.showError(e.getMessage());
+        }
     }
 
     public void AnularSolicitud(JDialog pdialog) {
@@ -253,7 +260,7 @@ public class UIBackoffice extends HerramientasBackoffice {
             resolucion.setResultado(dialog.getResultado());
             resolucion.setConsiderandos(dialog.getConsiderandos());
             resolucion.setResuelvo(dialog.getResuelvo());
-            
+
             boolean respuesta = facade.RegistrarResolucion(resolucion, dialog.getSolicitud(), Interpretacion.Generar);
             if (respuesta) {
                 backoffice.showMessage("Resolucion registrada");
@@ -326,32 +333,31 @@ public class UIBackoffice extends HerramientasBackoffice {
         }
     }
 
-    public void RegistrarUsuario(Backoffice vOffice)
-    {
-        try
-        {
+    public void RegistrarUsuario(Backoffice vOffice) {
+        try {
             // Verificar si las dos contrasenhas coinciden
             String pass = vOffice.getPnlSuper().getTxtPassword().getText();
             String passRP = vOffice.getPnlSuper().getTxtPasswordRp().getText();
-            
-            if (!(pass.equals(passRP)))
-            {
+
+            if (!(pass.equals(passRP))) {
                 backoffice.showError("Las contraseñas no coinciden.");
                 return;
             }
 
             // Crear el DTO para enviar los datos
             DTORegistroUsuario dto = new DTORegistroUsuario();
-            
+
             dto.setId(vOffice.getPnlSuper().getTxtID().getText());
             dto.setNombre(vOffice.getPnlSuper().getTxtNombre().getText());
             dto.setCorreo(vOffice.getPnlSuper().getTxtCorreo().getText());
             dto.setTelefono(vOffice.getPnlSuper().getTxtTelefono().getText());
             dto.setNombreUsuario(vOffice.getPnlSuper().getTxtUsuario().getText());
-            
+
             String tipo = vOffice.getPnlSuper().getCbRol().getSelectedItem().toString();
-            if (tipo.equals("Dirección")) tipo = "Director";
-            
+            if (tipo.equals("Dirección")) {
+                tipo = "Director";
+            }
+
             dto.setTipoUsuario(tipo);
             dto.setContrasenha(pass);
 
@@ -456,18 +462,56 @@ public class UIBackoffice extends HerramientasBackoffice {
     public ArrayList<String> ConsultarInconsistencias() {
         return facade.ConsultarInconsistencias();
     }
-    
-    public void CambiarContrasenha(DialogContrasenha dialog){
-        try
-        {
-            boolean result = 
-                    facade.CambiarContrasenha(new DTOLogin(
-                        dialog.getTxtUsuario().getText(),
-                        dialog.getTxtPass().getText(),
-                        dialog.getTxtPassRP().getText()));
-            if (result) backoffice.showMessage("Contraseña actualizada.");
-            else backoffice.showError("Verifique que las contraseñas coincidan.");
+
+    public void CambiarContrasenha(DialogContrasenha dialog) {
+        try {
+            boolean result
+                    = facade.CambiarContrasenha(new DTOLogin(
+                                    dialog.getTxtUsuario().getText(),
+                                    dialog.getTxtPass().getText(),
+                                    dialog.getTxtPassRP().getText()));
+            if (result) {
+                backoffice.showMessage("Contraseña actualizada.");
+            } else {
+                backoffice.showError("Verifique que las contraseñas coincidan.");
+            }
+        } catch (Exception e) {
+            backoffice.showError(e.getMessage());
         }
-        catch(Exception e){backoffice.showError(e.getMessage());}
     }
+
+    public void ConsultarPlantillas(JDialog pdialog) {
+        DialogRegistrarResolucion dialog = (DialogRegistrarResolucion) pdialog;
+        ArrayList<DTOPlantilla> plantillas = facade.ConsultarPlantillas(dialog.getCategoriaPlantilla());
+
+        for (DTOPlantilla plantilla : plantillas) {
+            dialog.getCbPlantilla().addItem(plantilla.getSiglas().concat(" ").concat(String.valueOf(plantilla.getnConsecutivo())));
+        }
+
+        dialog.getCbPlantilla().setSelectedIndex(0);
+        dialog.getCbPlantilla().addItemListener((ItemEvent e) -> {
+            dialog.initPlantilla();
+        });
+
+    }
+
+    public void ConsultarPlantilla(JDialog pdialog) {
+        DialogRegistrarResolucion dialog = (DialogRegistrarResolucion) pdialog;
+        DTOPlantilla plantilla = facade.ConsultarPlantilla(dialog.getSiglasPlantilla());
+        dialog.setIntroduccion(plantilla.getIntroduccion());
+        dialog.setConsiderandos(plantilla.getConsiderandos());
+        dialog.setResultado(plantilla.getResultado());
+        dialog.setResuelvo(plantilla.getResuelvo());
+
+        if (dialog.getBtnIntroduccion().isSelected()) {
+            dialog.getTxtEditor().setText(dialog.getIntroduccion());
+        } else if (dialog.getBtnConsiderandos().isSelected()) {
+            dialog.getTxtEditor().setText(dialog.getConsiderandos());
+        } else if (dialog.getBtnResuelvo().isSelected()) {
+            dialog.getTxtEditor().setText(dialog.getResuelvo());
+        } else if (dialog.getBtnResultado().isSelected()) {
+            dialog.getTxtEditor().setText(dialog.getResultado());
+        }
+    }
+
 }
