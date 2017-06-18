@@ -86,7 +86,8 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
     @Override
     public int CrearPlantilla(DTOPlantilla dtoPlantilla) {      
         
-        ResultSet rs; int lastID = -1;
+        ResultSet rs; 
+        int lastID = -1;
         
         try {
                        
@@ -103,7 +104,7 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
 
             while (rs.next() )
             {
-                lastID = rs.getInt("ultimoID");
+                lastID = rs.getInt("ultimo");
             }
         } 
         catch (Exception e) 

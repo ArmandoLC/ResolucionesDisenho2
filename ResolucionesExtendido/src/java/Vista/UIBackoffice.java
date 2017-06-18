@@ -449,7 +449,7 @@ public class UIBackoffice extends HerramientasBackoffice {
             plantilla.setConsiderandos(dialog.getConsiderandos());
 
             int respuesta = facade.CrearPlantilla(plantilla);
-            if (respuesta != -1) {
+            if (respuesta > 0) {
                 backoffice.showMessage("Plantilla registrada");
             } else {
                 backoffice.showMessage("No se ha podido realizar la acción de registro");

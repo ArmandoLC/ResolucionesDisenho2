@@ -27,7 +27,7 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
 
     private String resuelvo = "";
 
-    public DialogRegistrarPlantilla(java.awt.Frame parent, boolean modal, DTOSolicitud solicitud) {
+    public DialogRegistrarPlantilla(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         initInconsistencias();
@@ -37,9 +37,6 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
 
         txtEditor.setText(introduccion);
         btnIntroduccion.setSelected(true);
-        this.solicitud = solicitud;
-
-        uibackoffice.ConsultarResolucion(this);
 
         setLocationRelativeTo(null);
     }
@@ -440,6 +437,16 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
     }//GEN-LAST:event_btnResuelvoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if (btnResuelvo.isSelected()) {
+            resuelvo = txtEditor.getText();
+        }else if(btnIntroduccion.isSelected()){
+            introduccion = txtEditor.getText();
+        }else if(btnResultado.isSelected()){
+            resultado = txtEditor.getText();
+        }else if(btnConsiderandos.isSelected()){
+            considerandos = txtEditor.getText();
+        }
+        
         uibackoffice.CrearPlantilla(this);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
