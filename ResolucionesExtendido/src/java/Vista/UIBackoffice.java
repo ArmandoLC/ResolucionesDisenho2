@@ -271,7 +271,7 @@ public class UIBackoffice extends HerramientasBackoffice {
                 backoffice.showMessage("No se ha podido realizar la acción");
             }
         } catch (Exception e) {
-            backoffice.showMessage(e.getMessage());
+            //backoffice.showMessage(e.getMessage());
         }
     }
 

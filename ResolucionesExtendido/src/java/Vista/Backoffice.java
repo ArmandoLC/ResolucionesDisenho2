@@ -34,14 +34,6 @@ public class Backoffice extends HerramientasBackoffice{
     private void initConsultaSolicitudes(){
         uibackoffice.ConsultarSolicitudes();
     }
-
-    public JXHyperlink getLinkEstadisticas() {
-        return linkEstadisticas;
-    }
-
-    public JXHyperlink getLinkReporteSolicitudes() {
-        return linkReporteSolicitudes;
-    }
     
     
     private void initVariables(){
@@ -137,20 +129,6 @@ public class Backoffice extends HerramientasBackoffice{
             dialog.setVisible(true);
         }); popup.add(itemVer);
     }
-
-    public PanelSuperUsuario getPnlSuper() {
-        return pnlSuper;
-    }
-
-    public JPanel getPnlSuperUsuario() {
-        return pnlSuperUsuario;
-    }
-      
-
-    public JPanel getPnlCoordinador() {
-        return pnlCoordinador;
-    }
-
     
     
     @SuppressWarnings("unchecked")
@@ -348,7 +326,7 @@ public class Backoffice extends HerramientasBackoffice{
 
         getContentPane().add(pnlCoordinador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pnlSuperUsuario.setLayout(null);
+        pnlSuperUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         linkCerrar.setForeground(new java.awt.Color(255, 255, 255));
         linkCerrar.setText("Cerrar Sesión");
@@ -360,8 +338,7 @@ public class Backoffice extends HerramientasBackoffice{
                 linkCerrarActionPerformed(evt);
             }
         });
-        pnlSuperUsuario.add(linkCerrar);
-        linkCerrar.setBounds(670, 70, 140, 20);
+        pnlSuperUsuario.add(linkCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 70, -1, 20));
 
         linkCambiarContra.setForeground(new java.awt.Color(255, 255, 255));
         linkCambiarContra.setText("Cambiar Contraseña");
@@ -373,8 +350,7 @@ public class Backoffice extends HerramientasBackoffice{
                 linkCambiarContraActionPerformed(evt);
             }
         });
-        pnlSuperUsuario.add(linkCambiarContra);
-        linkCambiarContra.setBounds(670, 70, 207, 20);
+        pnlSuperUsuario.add(linkCambiarContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, -1, 20));
 
         btAgregarUsr.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         btAgregarUsr.setText("Agregar Usuario");
@@ -383,10 +359,8 @@ public class Backoffice extends HerramientasBackoffice{
                 btAgregarUsrActionPerformed(evt);
             }
         });
-        pnlSuperUsuario.add(btAgregarUsr);
-        btAgregarUsr.setBounds(230, 649, 880, 40);
-        pnlSuperUsuario.add(pnlSuper);
-        pnlSuper.setBounds(0, 0, 1330, 730);
+        pnlSuperUsuario.add(btAgregarUsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 649, 880, 40));
+        pnlSuperUsuario.add(pnlSuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 730));
 
         getContentPane().add(pnlSuperUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -518,6 +492,35 @@ public class Backoffice extends HerramientasBackoffice{
 
     public void setDpHasta(JXDatePicker dpHasta) {
         this.dpHasta = dpHasta;
+    }
+
+    public JXHyperlink getLinkPlantillas() {
+        return linkPlantillas;
+    }
+
+    public JXHyperlink getLinkRegistroSolic() {
+        return linkRegistroSolic;
+    }
+    
+        public JXHyperlink getLinkEstadisticas() {
+        return linkEstadisticas;
+    }
+
+    public JXHyperlink getLinkReporteSolicitudes() {
+        return linkReporteSolicitudes;
+    }
+    
+        public PanelSuperUsuario getPnlSuper() {
+        return pnlSuper;
+    }
+
+    public JPanel getPnlSuperUsuario() {
+        return pnlSuperUsuario;
+    }
+      
+
+    public JPanel getPnlCoordinador() {
+        return pnlCoordinador;
     }
     
 }
