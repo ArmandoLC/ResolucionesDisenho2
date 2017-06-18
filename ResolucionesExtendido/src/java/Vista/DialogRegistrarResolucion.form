@@ -61,26 +61,24 @@
                       <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnIDSolicitante" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnNombreCoordinador" alignment="1" max="32767" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnNombreDirector" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnNombreDirectorAdm" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnTelefonoAfectado" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnInconsistencia" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnNombreSolicitante" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnIDAfectado" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnNombreAfectado" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnCorreoAfectado" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnPeriodo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnCurso" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnGrupo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                      <Component id="btnIDSolicitante" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnNombreCoordinador" alignment="1" max="32767" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnNombreDirector" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnNombreDirectorAdm" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnTelefonoAfectado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnInconsistencia" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnNombreSolicitante" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnIDAfectado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnNombreAfectado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnCorreoAfectado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnPeriodo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnCurso" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnGrupo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

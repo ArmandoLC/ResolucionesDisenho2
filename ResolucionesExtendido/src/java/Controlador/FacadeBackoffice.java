@@ -159,4 +159,14 @@ public class FacadeBackoffice extends Facade implements IBackoffice, ISolicitud,
         return ctrl.RegistrarUsuario(dtoRegistroUsuario);
     }
     
+    
+    @Override
+    public boolean RegistrarResolucion(DTOResolucion dtoResolucion, DTOSolicitud  dtoSolicitud, Interpretacion estrategia){
+        return ctrl.RegistrarResolucion(dtoResolucion, dtoSolicitud, estrategia);
+    }
+    
+    @Override
+    public DTOResolucion InterpretarResolucion(DTOResolucion dtoResolucion, DTOSolicitud  dtoSolicitud, Interpretacion estrategia){
+        return ctrl.InterpretarResolucion(dtoResolucion, dtoSolicitud, estrategia);
+    }
 }

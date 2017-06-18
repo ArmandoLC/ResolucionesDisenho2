@@ -33,17 +33,17 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
         uibackoffice = new UIBackoffice((HerramientasBackoffice) parent);
         txtEditor.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         
-        
         txtEditor.setText(introduccion);
         btnIntroduccion.setSelected(true);
         
         this.solicitud = solicitud;
         
-        uibackoffice.ConsultarResolucion(this);
+        DTOResolucion dtoRes = uibackoffice.ConsultarResolucion(this);
         
-        uibackoffice.ConsultarPlantillas(this);
-        uibackoffice.ConsultarPlantilla(this);
-        
+        if(dtoRes == null){
+            uibackoffice.ConsultarPlantillas(this);
+            uibackoffice.ConsultarPlantilla(this);    
+        }
         setLocationRelativeTo(null);
     }
     
@@ -690,8 +690,6 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
     }
     
     
-    
-    
     public String getCategoriaPlantilla(){
         String inconsistencia = solicitud.getInconsistencia();
         String categoria = "";
@@ -702,7 +700,12 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
     }
     
     public String getSiglasPlantilla(){
-        return cbPlantilla.getSelectedItem().toString().substring(0, 2);
+        if(cbPlantilla.getSelectedIndex()>=0){
+            return cbPlantilla.getSelectedItem().toString().substring(0, 2);    
+        }else{
+            return "";
+        }
+        
     }
     
 

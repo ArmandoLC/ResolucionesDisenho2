@@ -177,6 +177,22 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
         }
     }
 
+    
+    @Override
+    public DTOPlantilla ConsultarPlantilla(String siglas) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean RegistrarResolucion(DTOResolucion dtoResolucion, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public DTOResolucion InterpretarResolucion(DTOResolucion dtoResolucion, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public boolean CambiarContrasenha(DTOLogin dtoLogin) {
         
@@ -244,11 +260,5 @@ public class DAOMySQLExtendido extends DAOMySQL implements IBackoffice{
     private String user = "root"; 
     private String pass = "1234";
     private Connection conexion;
-
-    @Override
-    public DTOPlantilla ConsultarPlantilla(String siglas) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     
 }

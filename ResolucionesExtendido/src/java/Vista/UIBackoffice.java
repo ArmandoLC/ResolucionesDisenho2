@@ -10,6 +10,7 @@ import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import Enums.Estado;
 import Enums.Formato;
+import Enums.Interpretacion;
 import Modelo.Plantilla;
 import java.awt.event.ItemEvent;
 import java.io.File;
@@ -233,7 +234,8 @@ public class UIBackoffice extends HerramientasBackoffice {
             resolucion.setResultado(dialog.getResultado());
             resolucion.setConsiderandos(dialog.getConsiderandos());
             resolucion.setResuelvo(dialog.getResuelvo());
-            boolean respuesta = facade.RegistrarResolucion(resolucion);
+            
+            boolean respuesta = facade.RegistrarResolucion(resolucion, dialog.getSolicitud(), Interpretacion.Generar);
             if (respuesta) {
                 backoffice.showMessage("Resolucion registrada");
                 dialog.getBtnGuardar().setVisible(true);
@@ -267,6 +269,7 @@ public class UIBackoffice extends HerramientasBackoffice {
         try {
             DialogRegistrarResolucion dialog = (DialogRegistrarResolucion) pdialog;
             DTOResolucion resolucion = facade.ConsultarResolucion(dialog.getSolicitud().getId());
+            resolucion = facade.InterpretarResolucion(resolucion, dialog.getSolicitud(), Interpretacion.Consultar);
             if (resolucion != null) {
                 dialog.setIntroduccion(resolucion.getIntroduccion());
                 dialog.setConsiderandos(resolucion.getConsiderandos());
@@ -431,13 +434,15 @@ public class UIBackoffice extends HerramientasBackoffice {
     public void ConsultarPlantillas(JDialog pdialog) {
         DialogRegistrarResolucion dialog = (DialogRegistrarResolucion) pdialog;
         ArrayList<DTOPlantilla> plantillas = facade.ConsultarPlantillas(dialog.getCategoriaPlantilla());
-
-        for (DTOPlantilla plantilla : plantillas) {
+        if(plantillas.size()>0){
+            for (DTOPlantilla plantilla : plantillas) {
             dialog.getCbPlantilla().addItem(plantilla.getSiglas().concat(" ").concat(String.valueOf(plantilla.getnConsecutivo())));
+            }
+            dialog.getCbPlantilla().setSelectedIndex(0);
+            dialog.getCbPlantilla().addItemListener((ItemEvent e) -> {dialog.initPlantilla();});
+        }else{
+            dialog.getCbPlantilla().setSelectedIndex(-1);
         }
-        
-        dialog.getCbPlantilla().setSelectedIndex(0);
-        dialog.getCbPlantilla().addItemListener((ItemEvent e) -> {dialog.initPlantilla();});
 
     }
 

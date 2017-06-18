@@ -102,16 +102,15 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         
         try
         {
-            
             // Se crea la estrategia de interpretacion que se va implementar
             if (estrategia.equals(Interpretacion.Consultar)) {
-                context = new ContextGenerar(dtoSolicitud);
-            } else {
                 String nombreDirector = getPropiedad("nombreDirectorEscuela");
                 String nombreCoordinador = getPropiedad("nombreCoordinador");
                 String nombreDirectorAdmYReg = getPropiedad("nombreDirectorAdmYReg");
 
                 context = new ContextConsultar(nombreDirector, nombreCoordinador, nombreDirectorAdmYReg);
+            } else {
+                context = new ContextGenerar(dtoSolicitud);
             }
 
             /*Se procede a interpretar la introduccion de la plantilla*/
@@ -273,11 +272,37 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     
     @Override
     public DTOPlantilla ConsultarPlantilla(String siglas) {
+        DTOPlantilla dtoPlantilla = new DTOPlantilla();
         for(Plantilla plantilla: this.plantillas){
             if(plantilla.getSiglas().equals(siglas)){
-                return new DTOPlantilla(plantilla.getnConsecutivo(), plantilla.getSiglas(), plantilla.getIntroduccion(), plantilla.getResultado(),plantilla.getConsiderandos(), plantilla.getResuelvo());
+                dtoPlantilla.setnConsecutivo(plantilla.getnConsecutivo());
+                dtoPlantilla.setSiglas(plantilla.getSiglas());
+                dtoPlantilla.setIntroduccion(plantilla.getIntroduccion());
+                dtoPlantilla.setResultado(plantilla.getResultado());
+                dtoPlantilla.setConsiderandos(plantilla.getConsiderandos());
+                dtoPlantilla.setResulevo(plantilla.getResuelvo());
             }
         }
-        return null;
+        return dtoPlantilla;
+    }
+
+    @Override
+    public boolean RegistrarResolucion(DTOResolucion dtoResolucion, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
+        /*Utilizacion del interprete para eliminar los tokens de la solicitud*/
+        DTOPlantilla dtoPlantilla = new DTOPlantilla(-1, dtoSolicitud.getInconsistencia(), dtoResolucion.getIntroduccion(), dtoResolucion.getResultado(), dtoResolucion.getConsiderandos(), dtoResolucion.getResuelvo());
+        dtoResolucion  = InterpretarPlantilla(dtoPlantilla, dtoSolicitud, estrategia);
+        dtoResolucion.setIdSolicitud(dtoSolicitud.getId());
+        
+        return RegistrarResolucion(dtoResolucion);
+    }
+    
+    @Override
+    public DTOResolucion InterpretarResolucion(DTOResolucion dtoResolucion, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
+        /*Utilizacion del interprete para eliminar los tokens de la solicitud*/
+        DTOPlantilla dtoPlantilla = new DTOPlantilla(-1, dtoSolicitud.getInconsistencia(), dtoResolucion.getIntroduccion(), dtoResolucion.getResultado(), dtoResolucion.getConsiderandos(), dtoResolucion.getResuelvo());
+        dtoResolucion  = InterpretarPlantilla(dtoPlantilla, dtoSolicitud, estrategia);
+        dtoResolucion.setIdSolicitud(dtoSolicitud.getId());
+        
+        return dtoResolucion;
     }
 }
