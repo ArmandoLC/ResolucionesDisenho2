@@ -46,9 +46,9 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
         inconsistencias.add("EXCLUSION ACTA");
         inconsistencias.add("ERROR NOTA");
         for (String item : inconsistencias) {
-            cbCategoria.addItem(item);
+            cbPlantilla.addItem(item);
         };
-        cbCategoria.setSelectedIndex(0);
+        cbPlantilla.setSelectedIndex(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -79,7 +79,7 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
         btnResuelvo = new javax.swing.JToggleButton();
         btnGuardar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        cbCategoria = new javax.swing.JComboBox();
+        cbPlantilla = new javax.swing.JComboBox();
         pnlSolicitud = new javax.swing.JPanel();
         lblTitSolicitud = new javax.swing.JLabel();
         btnPeriodo = new javax.swing.JToggleButton();
@@ -266,8 +266,8 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlGeneral.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 117, 19));
 
-        cbCategoria.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        pnlGeneral.add(cbCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, -1));
+        cbPlantilla.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        pnlGeneral.add(cbPlantilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 150, 30));
 
         pnlSolicitud.setBackground(new java.awt.Color(255, 255, 255));
         pnlSolicitud.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -568,7 +568,7 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
     private javax.swing.JToggleButton btnResuelvo;
     private javax.swing.JToggleButton btnResultado;
     private javax.swing.JToggleButton btnTelefonoAfectado;
-    private javax.swing.JComboBox cbCategoria;
+    private javax.swing.JComboBox cbPlantilla;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblTitAdmin;
@@ -667,11 +667,11 @@ public class DialogRegistrarPlantilla extends javax.swing.JDialog {
     }
 
     public JComboBox getCbCategoria() {
-        return cbCategoria;
+        return cbPlantilla;
     }
 
     public void setCbCategoria(JComboBox cbCategoria) {
-        this.cbCategoria = cbCategoria;
+        this.cbPlantilla = cbCategoria;
     }
     
     

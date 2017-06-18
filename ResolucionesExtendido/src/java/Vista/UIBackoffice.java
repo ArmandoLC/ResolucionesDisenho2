@@ -323,6 +323,7 @@ public class UIBackoffice extends HerramientasBackoffice {
                     frame,
                     "ID del estudiante:", "",
                     JOptionPane.PLAIN_MESSAGE, null, null, "0");
+            if (idEstudiante == null) return;
             solicitudes = facade.consultarSolicitudesEstudiante(idEstudiante);
             backoffice.getTabModelSolicitudes().setSolicitudes(solicitudes);
             if (solicitudes.isEmpty()) {
@@ -407,7 +408,7 @@ public class UIBackoffice extends HerramientasBackoffice {
                     frame,
                     "ID de la solicitud:", "",
                     JOptionPane.PLAIN_MESSAGE, null, null, "0");
-
+            if (inputID == null) return;            
             int idSolicitud = Integer.parseInt(inputID);
 
             // Buscar la solicitud
