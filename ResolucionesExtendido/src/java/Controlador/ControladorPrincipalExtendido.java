@@ -7,6 +7,7 @@ import DTOs.DTORegistroUsuario;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
 import DTOs.DTOUsuario;
+import Enums.Formato;
 import Enums.Interpretacion;
 import Enums.Recurso;
 import Modelo.Plantilla;
@@ -304,5 +305,27 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         dtoResolucion.setIdSolicitud(dtoSolicitud.getId());
         
         return dtoResolucion;
+    }
+    
+    @Override
+    public boolean GuardarResolucion(int nSolicitud, Formato formato, String ruta ) {
+        
+        FactoryDAOSolicitud factorySolicitudes = new FactoryDAOSolicitud();
+        DAOMySQL DB = (DAOMySQL) factorySolicitudes.CrearDAOSolicitud(Recurso.MySQL);
+        Resolucion resolucion = DB.ConsultarResolucion(nSolicitud);
+        DTOResolucion dtoResolucion = InterpretarResolucion(ConsultarResolucion(nSolicitud), ConsultarSolicitud(nSolicitud), Interpretacion.Consultar);
+        resolucion.setIntroduccion(dtoResolucion.getIntroduccion());
+        resolucion.setConsiderandos(dtoResolucion.getConsiderandos());
+        resolucion.setResultado(dtoResolucion.getResultado());
+        resolucion.setResuelvo(dtoResolucion.getResuelvo());
+        
+        IGeneradorResolucion estrategiaGeneracion;
+        if (formato.equals(Formato.HTML)) {
+            estrategiaGeneracion = new GeneradorResolucionHTML();
+        } else {
+            estrategiaGeneracion = new GeneradorResolucionPDF();
+        }
+        
+        return estrategiaGeneracion.Generar(resolucion, ruta);
     }
 }
