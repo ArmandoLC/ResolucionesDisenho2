@@ -74,7 +74,8 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btWebActionPerformed
-        // TODO add your handling code here:
+        try{java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://localhost:8080/ResolucionesExtendido/"));}
+        catch (Exception e){}
     }//GEN-LAST:event_btWebActionPerformed
 
     private void BackofficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackofficeActionPerformed
