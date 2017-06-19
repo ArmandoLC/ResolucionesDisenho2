@@ -215,7 +215,7 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
                 btnActualizarInconsistenciaActionPerformed(evt);
             }
         });
-        pnlCompleto.add(btnActualizarInconsistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 750, 1230, 40));
+        pnlCompleto.add(btnActualizarInconsistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 700, 1230, 40));
 
         onlInformacion.setBackground(new java.awt.Color(255, 255, 255));
         onlInformacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -393,7 +393,7 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
         lblIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/regSolic.PNG"))); // NOI18N
         lblIcono.setText("Registro de Solicitudes");
         pnlCompleto.add(lblIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, 70));
-        pnlCompleto.add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 820));
+        pnlCompleto.add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 750));
 
         getContentPane().add(pnlCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
