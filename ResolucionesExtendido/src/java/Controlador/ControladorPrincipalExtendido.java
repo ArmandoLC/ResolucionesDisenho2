@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -74,11 +76,11 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         } catch (Exception e) {
         }
         ArrayList<DTOPlantilla> listPlantillasResult = new ArrayList<>();
-         for(DTOPlantilla dtoPlantilla: listPlantillas){
-             if(dtoPlantilla.getSiglas().equals(categoria)){
-                 listPlantillasResult.add(dtoPlantilla);
-             }
-         }
+        for (DTOPlantilla dtoPlantilla : listPlantillas) {
+            if (dtoPlantilla.getSiglas().equals(categoria)) {
+                listPlantillasResult.add(dtoPlantilla);
+            }
+        }
         return listPlantillasResult;
     }
 
@@ -98,12 +100,11 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         }
     }
 
-    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla, DTOSolicitud dtoSolicitud, Interpretacion estrategia){
+    public DTOResolucion InterpretarPlantilla(DTOPlantilla dtoPlantilla, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
         IContext context;
         DTOResolucion dtoResolucion = new DTOResolucion();
-        
-        try
-        {
+
+        try {
             // Se crea la estrategia de interpretacion que se va implementar
             if (estrategia.equals(Interpretacion.Consultar)) {
                 String nombreDirector = getPropiedad("nombreDirectorEscuela");
@@ -116,7 +117,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
             }
 
             /*Se procede a interpretar la introduccion de la plantilla*/
-            ArrayList<Expresion> tree = new ArrayList();        
+            ArrayList<Expresion> tree = new ArrayList();
             // Añadimos los tokens pasados como argumentos
             for (String token : dtoPlantilla.getIntroduccion().split("\\s", 0)) {
                 tree.add(new InterpreteTerminal(token));
@@ -129,7 +130,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
 
             /*Se procede a interpretar el resuelvo de la plantilla*/
-            tree = new ArrayList();        
+            tree = new ArrayList();
             context.setOutput("");
             // Añadimos los tokens pasados como argumentos
             for (String token : dtoPlantilla.getResuelvo().split("\\s", 0)) {
@@ -143,7 +144,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
 
             /*Se procede a interpretar el resultado de la plantilla*/
-            tree = new ArrayList();        
+            tree = new ArrayList();
             context.setOutput("");
             // Añadimos los tokens pasados como argumentos
             for (String token : dtoPlantilla.getResultado().split("\\s", 0)) {
@@ -157,7 +158,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
 
             /*Se procede a interpretar las consideraciones de la plantilla*/
-            tree = new ArrayList();        
+            tree = new ArrayList();
             context.setOutput("");
             // Añadimos los tokens pasados como argumentos
             for (String token : dtoPlantilla.getConsiderandos().split("\\s", 0)) {
@@ -170,9 +171,9 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
             dtoResolucion.setConsiderandos(context.getOutput());
 
             dtoResolucion.setIdSolicitud(dtoSolicitud.getId());
+        } catch (Exception e) {
         }
-        catch(Exception e){}
-        return dtoResolucion;        
+        return dtoResolucion;
     }
 
     @Override
@@ -271,12 +272,11 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
     @Override
     public DTOPlantilla ConsultarPlantilla(String siglas) {
         DTOPlantilla dtoPlantilla = new DTOPlantilla();
-        for(Plantilla plantilla: this.plantillas){
-            if(plantilla.getSiglas().equals(siglas)){
+        for (Plantilla plantilla : this.plantillas) {
+            if (plantilla.getSiglas().equals(siglas)) {
                 dtoPlantilla.setnConsecutivo(plantilla.getnConsecutivo());
                 dtoPlantilla.setSiglas(plantilla.getSiglas());
                 dtoPlantilla.setIntroduccion(plantilla.getIntroduccion());
@@ -292,25 +292,25 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
     public boolean RegistrarResolucion(DTOResolucion dtoResolucion, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
         /*Utilizacion del interprete para eliminar los tokens de la solicitud*/
         DTOPlantilla dtoPlantilla = new DTOPlantilla(-1, dtoSolicitud.getInconsistencia(), dtoResolucion.getIntroduccion(), dtoResolucion.getResultado(), dtoResolucion.getConsiderandos(), dtoResolucion.getResuelvo());
-        dtoResolucion  = InterpretarPlantilla(dtoPlantilla, dtoSolicitud, estrategia);
+        dtoResolucion = InterpretarPlantilla(dtoPlantilla, dtoSolicitud, estrategia);
         dtoResolucion.setIdSolicitud(dtoSolicitud.getId());
-        
+
         return RegistrarResolucion(dtoResolucion);
     }
-    
+
     @Override
     public DTOResolucion InterpretarResolucion(DTOResolucion dtoResolucion, DTOSolicitud dtoSolicitud, Interpretacion estrategia) {
         /*Utilizacion del interprete para eliminar los tokens de la solicitud*/
         DTOPlantilla dtoPlantilla = new DTOPlantilla(-1, dtoSolicitud.getInconsistencia(), dtoResolucion.getIntroduccion(), dtoResolucion.getResultado(), dtoResolucion.getConsiderandos(), dtoResolucion.getResuelvo());
-        dtoResolucion  = InterpretarPlantilla(dtoPlantilla, dtoSolicitud, estrategia);
+        dtoResolucion = InterpretarPlantilla(dtoPlantilla, dtoSolicitud, estrategia);
         dtoResolucion.setIdSolicitud(dtoSolicitud.getId());
-        
+
         return dtoResolucion;
     }
-    
+
     @Override
-    public boolean GuardarResolucion(int nSolicitud, Formato formato, String ruta ) {
-        
+    public boolean GuardarResolucion(int nSolicitud, Formato formato, String ruta) {
+
         FactoryDAOSolicitud factorySolicitudes = new FactoryDAOSolicitud();
         DAOMySQL DB = (DAOMySQL) factorySolicitudes.CrearDAOSolicitud(Recurso.MySQL);
         Resolucion resolucion = DB.ConsultarResolucion(nSolicitud);
@@ -319,14 +319,46 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         resolucion.setConsiderandos(dtoResolucion.getConsiderandos());
         resolucion.setResultado(dtoResolucion.getResultado());
         resolucion.setResuelvo(dtoResolucion.getResuelvo());
-        
+
         IGeneradorResolucion estrategiaGeneracion;
         if (formato.equals(Formato.HTML)) {
             estrategiaGeneracion = new GeneradorResolucionHTML();
         } else {
             estrategiaGeneracion = new GeneradorResolucionPDF();
         }
-        
+
         return estrategiaGeneracion.Generar(resolucion, ruta);
+    }
+
+    @Override
+    public String ConsultarScriptResolucion(int nSolicitud, Properties prop) {
+        FactoryDAOSolicitud factorySolicitudes = new FactoryDAOSolicitud();
+        DAOMySQL DB = (DAOMySQL) factorySolicitudes.CrearDAOSolicitud(Recurso.MySQL);
+        Resolucion resolucion = DB.ConsultarResolucion(nSolicitud);
+
+        IGeneradorResolucion estrategiaGeneracion = new GeneradorResolucionHTML();
+        String scriptHTML = estrategiaGeneracion.GenerarScriptHTML(resolucion, prop);
+
+        IContext context;
+
+        String nombreDirector = prop.getProperty("nombreDirectorEscuela");
+        String nombreCoordinador = prop.getProperty("nombreCoordinador");
+        String nombreDirectorAdmYReg = prop.getProperty("nombreDirectorAdmYReg");
+
+        context = new ContextConsultar(nombreDirector, nombreCoordinador, nombreDirectorAdmYReg);
+
+
+        /*Se procede a interpretar la introduccion de la plantilla*/
+        ArrayList<Expresion> tree = new ArrayList();
+        // Añadimos los tokens pasados como argumentos
+        for (String token : scriptHTML.split("\\s", 0)) {
+            tree.add(new InterpreteTerminal(token));
+        }
+        // Interpretamos cada expresión
+        for (Expresion e : tree) {
+            e.interpretar(context);
+        }
+        return context.getOutput();
+
     }
 }
