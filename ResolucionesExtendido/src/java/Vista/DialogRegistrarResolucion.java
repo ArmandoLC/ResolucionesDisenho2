@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.Sesion;
 import DTOs.DTOPlantilla;
 import DTOs.DTOResolucion;
 import DTOs.DTOSolicitud;
@@ -12,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.text.BadLocationException;
 import org.jdesktop.swingx.JXEditorPane;
@@ -41,10 +43,24 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
         DTOResolucion dtoRes = uibackoffice.ConsultarResolucion(this);
         
         if(dtoRes == null){
-            uibackoffice.ConsultarPlantillas(this);
-            uibackoffice.ConsultarPlantilla(this);    
+            
+            Sesion sesion = Sesion.getInstance();
+            if (sesion.getUsuario().getTipoUsuario().equals("Coordinador")){
+                uibackoffice.ConsultarPlantillas(this);
+                uibackoffice.ConsultarPlantilla(this);  
+            }
+            else {
+                JOptionPane.showMessageDialog(parent, 
+                    "La solicitud no tiene resolucion aún.", 
+                    "Error", JOptionPane.ERROR_MESSAGE); 
+                this.setVisible(false);
+                this.dispose();
+                return;
+            }
+            
         }
         setLocationRelativeTo(null);
+        this.setVisible(true);
     }
     
     //Esta funcion es llamada cada vez que el combo box de plantillas cambia de index seleccionado

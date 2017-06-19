@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.Sesion;
 import DTOs.DTOSolicitud;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -17,11 +18,12 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
         initComponents();
         this.uibackoffice = new UIBackoffice((HerramientasBackoffice) parent);
         this.solicitud = solicitud;
+        setBotones();
         llenarCampos();
         setLocationRelativeTo(null);
     }
     
-    public void llenarCampos(){
+    private void llenarCampos(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String s = sdf.format(solicitud.getFecha());
         txtGrupo.setText(s);
@@ -38,6 +40,13 @@ public class DialogDetallesSolicitud extends javax.swing.JDialog {
         txtDescripcion.setText(solicitud.getDescripcionDetallada());
         txtEstado.setText(solicitud.getEstado());
         txtInconsistencia.setText(solicitud.getInconsistencia());
+    }
+    
+    private void setBotones(){
+        Sesion s = Sesion.getInstance();
+        if (!(s.getUsuario().getTipoUsuario().equals("Coordinador"))){
+            btnActualizarInconsistencia.setVisible(false);
+        }
     }
 
     public JTextField getTxtArchivoAdjunto() {

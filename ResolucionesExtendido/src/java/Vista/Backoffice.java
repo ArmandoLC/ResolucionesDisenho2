@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.Sesion;
 import DTOs.DTOSolicitud;
 import Enums.Estado;
 import java.awt.Dialog;
@@ -106,11 +107,12 @@ public class Backoffice extends HerramientasBackoffice{
         item.setText("Resolución");
         item.addActionListener((ActionEvent e) -> {
             Dialog dialog = new DialogRegistrarResolucion(this, true, solicitud);
-            dialog.setVisible(true);
         }); popup.add(item);
     }
     
     public void setPopupOptionsSolicitudPendiente(DTOSolicitud solicitud){
+        Sesion s = Sesion.getInstance();       
+        if(s.getUsuario().getTipoUsuario().equals("Coordinador")){        
         JMenuItem itemGenerar = new JMenuItem("Tramitar solicitud");
         itemGenerar.addActionListener((ActionEvent e) -> {
             uibackoffice.TramitarSolicitud(solicitud);
@@ -119,7 +121,7 @@ public class Backoffice extends HerramientasBackoffice{
         itemVer.addActionListener((ActionEvent e) -> {
             Dialog dialog = new DialogAclaracion(this, true, solicitud);
             dialog.setVisible(true);
-        }); popup.add(itemVer);
+        }); popup.add(itemVer);}
     }
     
     public void setPopupOptionsSolicitud(DTOSolicitud solicitud){

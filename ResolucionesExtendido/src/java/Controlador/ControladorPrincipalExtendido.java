@@ -33,6 +33,7 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
         this.plantillas = new ArrayList<Plantilla>();
         this.daoBD = new DAOMySQLExtendido();
         this.ConsultarPlantillas("");
+        Sesion.getInstance();
     }
 
     @Override
