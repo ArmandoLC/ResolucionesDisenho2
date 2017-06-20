@@ -76,26 +76,27 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
     
     private void initToolTips()
     {
+        String a = "<html><>" + solicitud.getNombreSolicitante() + "</font></html>";
         // Datos de solicitante
-        btnNombreSolicitante.setToolTipText(solicitud.getNombreSolicitante());
-        btnIDSolicitante.setToolTipText(solicitud.getIdSolicitante());
+        btnNombreSolicitante.setToolTipText("<html><p><font size='5'>" + solicitud.getNombreSolicitante() + "</font></p></html>");
+        btnIDSolicitante.setToolTipText("<html><p><font size='5'>" + solicitud.getIdSolicitante()+ "</font></p></html>");
         
         // Datos del afectado
-        btnNombreAfectado.setToolTipText(solicitud.getNombreAfectado());
-        btnIDAfectado.setToolTipText(solicitud.getIdAfectado());
-        btnCorreoAfectado.setToolTipText(solicitud.getCorreoAfectado());
-        btnTelefonoAfectado.setToolTipText(solicitud.getTelefonoAfectado());
+        btnNombreAfectado.setToolTipText("<html><p><font size='5'>" + solicitud.getNombreAfectado()+ "</font></p></html>");
+        btnIDAfectado.setToolTipText("<html><p><font size='5'>" + solicitud.getIdAfectado() + "</font></p></html>");
+        btnCorreoAfectado.setToolTipText("<html><p><font size='5'>" + solicitud.getCorreoAfectado()+ "</font></p></html>");
+        btnTelefonoAfectado.setToolTipText("<html><p><font size='5'>" + solicitud.getTelefonoAfectado()+ "</font></p></html>");
         
         // Datos de la solicitud
-        btnPeriodo.setToolTipText(solicitud.getPeriodo());
-        btnGrupo.setToolTipText(Integer.toString(solicitud.getnGrupo()));
-        btnCurso.setToolTipText(solicitud.getCodigoCurso());
-        btnInconsistencia.setToolTipText(solicitud.getInconsistencia());
+        btnPeriodo.setToolTipText("<html><p><font size='5'>" + solicitud.getPeriodo() + "</font></p></html>");
+        btnGrupo.setToolTipText("<html><p><font size='5'>" + Integer.toString(solicitud.getnGrupo()) + "</font></p></html>");
+        btnCurso.setToolTipText("<html><p><font size='5'>" + solicitud.getCodigoCurso() + "</font></p></html>");
+        btnInconsistencia.setToolTipText("<html><p><font size='5'>" + solicitud.getInconsistencia()+ "</font></p></html>");
         
         // Datos Administrativos
-        btnNombreCoordinador.setToolTipText(getPropiedad("nombreCoordinador"));
-        btnNombreDirectorAdm.setToolTipText(getPropiedad("nombreDirectorAdmYReg"));
-        btnNombreDirector.setToolTipText("nombreDirectorAdmYReg");
+        btnNombreCoordinador.setToolTipText("<html><p><font size='5'>" + getPropiedad("nombreCoordinador") + "</font></p></html>");
+        btnNombreDirectorAdm.setToolTipText("<html><p><font size='5'>" + getPropiedad("nombreDirectorAdmYReg") + "</font></p></html>");
+        btnNombreDirector.setToolTipText("<html><p><font size='5'>" + getPropiedad("nombreDirectorEscuela") + "</font></p></html>");
     }
     
     
