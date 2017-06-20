@@ -7,7 +7,11 @@ import DTOs.DTOSolicitud;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Frame;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -39,6 +43,8 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
         btnIntroduccion.setSelected(true);
         
         this.solicitud = solicitud;
+        initToolTips();
+        
         
         DTOResolucion dtoRes = uibackoffice.ConsultarResolucion(this);
         
@@ -68,6 +74,29 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
         uibackoffice.ConsultarPlantilla(this);
     }
     
+    private void initToolTips()
+    {
+        // Datos de solicitante
+        btnNombreSolicitante.setToolTipText(solicitud.getNombreSolicitante());
+        btnIDSolicitante.setToolTipText(solicitud.getIdSolicitante());
+        
+        // Datos del afectado
+        btnNombreAfectado.setToolTipText(solicitud.getNombreAfectado());
+        btnIDAfectado.setToolTipText(solicitud.getIdAfectado());
+        btnCorreoAfectado.setToolTipText(solicitud.getCorreoAfectado());
+        btnTelefonoAfectado.setToolTipText(solicitud.getTelefonoAfectado());
+        
+        // Datos de la solicitud
+        btnPeriodo.setToolTipText(solicitud.getPeriodo());
+        btnGrupo.setToolTipText(Integer.toString(solicitud.getnGrupo()));
+        btnCurso.setToolTipText(solicitud.getCodigoCurso());
+        btnInconsistencia.setToolTipText(solicitud.getInconsistencia());
+        
+        // Datos Administrativos
+        btnNombreCoordinador.setToolTipText(getPropiedad("nombreCoordinador"));
+        btnNombreDirectorAdm.setToolTipText(getPropiedad("nombreDirectorAdmYReg"));
+        btnNombreDirector.setToolTipText("nombreDirectorAdmYReg");
+    }
     
     
     @SuppressWarnings("unchecked")
@@ -406,6 +435,19 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
         btnTelefonoAfectado.setSelected(false);
     }//GEN-LAST:event_btnTelefonoAfectadoActionPerformed
 
+    private String getPropiedad(String propiedad) {
+        Properties prop = new Properties();
+        FileReader reader;
+        try {
+            reader = new FileReader("src\\PropertiesFile.properties");
+            prop.load(reader);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DialogRegistrarResolucion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DialogRegistrarResolucion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return prop.getProperty(propiedad);
+    }
     private void btnIDSolicitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIDSolicitanteActionPerformed
         txtEditor.replaceSelection("");
         try {
