@@ -338,7 +338,10 @@ public class ControladorPrincipalExtendido extends ControladorPrincipal implemen
 
         IGeneradorResolucion estrategiaGeneracion = new GeneradorResolucionHTML();
         String scriptHTML = estrategiaGeneracion.GenerarScriptHTML(resolucion, prop);
-
+        
+        if("".equals(scriptHTML)){
+            return "";
+        }
         IContext context;
 
         String nombreDirector = prop.getProperty("nombreDirectorEscuela");
