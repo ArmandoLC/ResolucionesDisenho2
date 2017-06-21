@@ -16,6 +16,7 @@ public class LoginFrame extends javax.swing.JFrame {
     public LoginFrame() {
         initComponents();
         this.uiAutenticacion = new UIAutenticacion();
+        setLocationRelativeTo(null);
     }
 
     public JPasswordField getTxtContrasenha() {
