@@ -198,8 +198,8 @@ public class UIBackoffice extends HerramientasBackoffice {
 
     public void TramitarSolicitud(DTOSolicitud solicitud) {
         try {
-            boolean respuesta = facade.TramitarSolicitud(solicitud.getId());
             if (!(solicitud.getInconsistencia().equals("MODIFICACION ACTA"))) {
+                boolean respuesta = facade.TramitarSolicitud(solicitud.getId());
                 if (respuesta) {
                     backoffice.showMessage("Solicitud tramitada");
                     ConsultarSolicitudes();
@@ -484,6 +484,7 @@ public class UIBackoffice extends HerramientasBackoffice {
         DialogRegistrarResolucion dialog = (DialogRegistrarResolucion) pdialog;
         ArrayList<DTOPlantilla> plantillas = facade.ConsultarPlantillas(dialog.getCategoriaPlantilla());
 
+        if (plantillas.size() == 0) return;
         for (DTOPlantilla plantilla : plantillas) {
             dialog.getCbPlantilla().addItem(plantilla.getSiglas().concat(" ").concat(String.valueOf(plantilla.getnConsecutivo())));
         }

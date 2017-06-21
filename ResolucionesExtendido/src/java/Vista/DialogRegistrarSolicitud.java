@@ -272,6 +272,7 @@ public class DialogRegistrarSolicitud extends javax.swing.JDialog {
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
+        txtDescripcion.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jScrollPane2.setViewportView(txtDescripcion);
 
         pnlDatosSolicitante.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 350, 200));

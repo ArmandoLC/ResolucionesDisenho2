@@ -384,8 +384,8 @@ public class DialogRegistrarResolucion extends javax.swing.JDialog {
         lblTituloIcon.setFont(new java.awt.Font("Verdana", 1, 28)); // NOI18N
         lblTituloIcon.setForeground(new java.awt.Color(240, 0, 0));
         lblTituloIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Iconos/adminSolicIcon.jpg"))); // NOI18N
-        lblTituloIcon.setText("Registro de Resolución");
-        getContentPane().add(lblTituloIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, -1, -1));
+        lblTituloIcon.setText("Detalles de la Resolución");
+        getContentPane().add(lblTituloIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, -1));
         getContentPane().add(panelGeneral1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 730));
 
         pack();
